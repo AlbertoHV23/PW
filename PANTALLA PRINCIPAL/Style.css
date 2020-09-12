@@ -1,38 +1,54 @@
-.nav-boton{
-    background: salmon;
-    color :#fff;
-    padding: 10px 0px;
-    border:2px solid #fff;
-display: none;
+.BarraMenu{
+  display: flex;
+  justify-content: space-between;
+  align-items:center ;
+
+  height: 100px;
+  width: 100%;
+  background-color:#f4f4f4;
+  color: black;
+
 }
-.nav-enlace{
-    display: inline-block;
-    background: salmon;
-    color: #fff;
-    padding: 10px 30px;
-    text-decoration: none;
+#LogoMarca{
+  height: 86px;
+  width: 200px;
+  margin: 0px;
+  
 }
-.nav-enlace:hover{
-    background: #596e79;
+
+ body{
+   background-color:#f4f4f4;
+ }
+ li,a,button{
+   font-family: sans-serif;
+   font-weight: 100%;
+   font-size: 25px;
+   color: rgb(34, 125, 199);
+   text-decoration: none;
+ }
+ .nav_links{
+   list-style: none;
+
+ }
+ .nav_links li{
+   display: inline-block;
+   padding: 0px 20px;
+ }
+ .nav_links li a{
+  transition: alt 0.3s ease 0s;
+  padding: 0px 20px;
 }
-nav{
-    background: #84a9ac;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    
+.nav_links li a:hover{
+  color:gray;
 }
-@media (max-width: 600px){
-    nav{
-      flex-direction: column;
-    }
-    .nav-enlace{
-      margin: 10px 0px;
-     }
-    .nav-boton{
-      display: inline-block;
-    }
-     .desaparece{
-    display: none;
-    }
+button{
+  padding: 0px 25px;
+  color: white;
+  background-color: rgb(24, 17, 121);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: alt 0.3s ease 0s;
+
+
 }

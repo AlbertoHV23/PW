@@ -7,21 +7,24 @@
     <link rel="stylesheet" href="Style.css">
 </head>
 <body>
-    <nav>
-        <button class="nav-boton" onclick="muestra()">Menú</button>
-        <a href="#" class="nav-enlace desaparece">Home</a>
-        <a href="#" class="nav-enlace desaparece">Search</a>
-        <a href="#" class="nav-enlace desaparece">Locate</a>
-        <a href="#" class="nav-enlace desaparece">Contact</a>
+ <header>
+     <div class="BarraMenu">
+       <img id="LogoMarca" src="/ASSETS/logo.png" alt="">  
+       <nav>
+
+        <ul class="nav_links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Search</a></li>
+        <li><a href="#">Locate</a></li>
+        <li><a href="#">Contact</a></li>
+        </ul>
     </nav>
+    <a class="cts" href="#"><button>Iniciar Sesión</button></a>
+  
+  
+    </div>
+ </header>   
+   
 </body>
-<script>
-    function muestra(){
-        console.log('Funciona')
-        var ancla = document.getElementsByClassName('nav-enlace');
-        for(var i = 0; i < ancla.length; i++){
-            ancla[i].classList.toggle('desaparece');
-        }
-    }
-</script>
+
 </html>
