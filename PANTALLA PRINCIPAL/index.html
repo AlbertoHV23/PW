@@ -3,9 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>USUARIO</title>
+    <link rel="stylesheet" href="Style.css">
 </head>
 <body>
-    
+    <nav>
+        <button class="nav-boton" onclick="muestra()">Menú</button>
+        <a href="#" class="nav-enlace desaparece">Home</a>
+        <a href="#" class="nav-enlace desaparece">Search</a>
+        <a href="#" class="nav-enlace desaparece">Locate</a>
+        <a href="#" class="nav-enlace desaparece">Contact</a>
+    </nav>
 </body>
+<script>
+    function muestra(){
+        console.log('Funciona')
+        var ancla = document.getElementsByClassName('nav-enlace');
+        for(var i = 0; i < ancla.length; i++){
+            ancla[i].classList.toggle('desaparece');
+        }
+    }
+</script>
 </html>
