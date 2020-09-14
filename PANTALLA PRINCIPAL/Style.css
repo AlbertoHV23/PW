@@ -2,11 +2,11 @@
 .BarraMenu{
   display: flex;
   justify-content: space-between;
-  align-items:center ;
+  align-items: center  ;
 
-  height: 100px;
+  height: 80px;
   width: 100%;
-  background-color:#f4f4f4;
+  background-color:#072138a8;
   color: black;
 }
 
@@ -19,9 +19,9 @@
 }
 
 #LogoMarca{
-  height: 86px;
-  width: 200px;
-  margin: 0px;
+  height: 70px;
+  width: 190px;
+margin-right: 10px;
   
 }
 
@@ -34,14 +34,19 @@
    font-size: 25px;
    color: rgb(34, 125, 199);
    text-decoration: none;
+   border-radius: 30px;
  }
  .nav_links{
    list-style: none;
+ 
+   margin-top: 30px;
+   margin-right: 200px;
+  
 
  }
  .nav_links li{
    display: inline-block;
-   padding: 0px 20px;
+   padding: 0px 0px;
  }
  .nav_links li a{
   transition: alt 0.3s ease 0s;
@@ -58,6 +63,95 @@ button{
   border-radius: 50px;
   cursor: pointer;
   transition: alt 0.3s ease 0s;
+
+
+}
+
+
+a{
+  position: relative;
+  display: inline-block;
+  padding: 10px 30px;
+  color: #2196f3;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-decoration: none;
+  font-size: 18px;
+  overflow: hidden;
+  transition: 0.2s;
+  
+
+}
+
+a:hover{
+  color: #255784;
+  background: #2196f3;
+  box-shadow: 0 0 10px #2196f3 ,0 0 20px #2196f3,0 0 40px #2196f3;
+  transition-delay: 1s;
+  border-radius: 30px;
+}
+
+a span{
+  position: absolute;
+  display: block;
+  
+}
+
+a span:nth-child(1){
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background:linear-gradient(90deg, transparent,#2196f3) ;
+}
+a:hover span:nth-child(1){
+  left: 100%;
+  transition: 1s;
+  border-radius: 30px;
+
+}
+a span:nth-child(3){
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background:linear-gradient(270deg, transparent,#2196f3) ;
+}
+a:hover span:nth-child(3){
+  right: 100%;
+  transition: 1s;
+  transition-delay: 0.5s;
+  border-radius: 30px;
+
+
+}
+a span:nth-child(2){
+  top: -100%;
+  right: 0%;
+  width: 2px;
+  height: 100%;
+  background:linear-gradient(180deg, transparent,#2196f3) ;
+}
+a:hover span:nth-child(2){
+  top: 100%;
+  transition: 1s;
+  transition-delay: 0.75s;
+  border-radius: 30px;
+
+
+}
+a span:nth-child(4){
+  bottom: -100%;
+  left: 0%;
+  width: 2px;
+  height: 100%;
+  background:linear-gradient(360deg, transparent,#2196f3) ;
+}
+a:hover span:nth-child(4){
+  bottom: 100%;
+  transition: 1s;
+  transition-delay: 0.75s;
+  border-radius: 30px;
 
 
 }
