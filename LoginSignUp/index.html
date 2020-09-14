@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/realeses/v5.8.1/css/all.css"
+    integrity="sha384=50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M7uH2+nqUivzIebhndOJK28anvf"
+    crossorigin="anonymous"/>
+    <title>Slider LogIn/SignUp</title>
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form action="#">
+                <h1>Crear una cuenta</h1>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"> <img id= "face" src="/icons/facebook.png" alt=""></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"><img id= "face" src="/icons/google-plus.png" alt=""></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"><img id= "face" src="/icons/linked.png" alt=""></i></a>
+                </div>
+                <span>o use su correo electrónico para registrarse</span>
+                <input type="text" placeholder="User name">
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <button>Registrarse</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form action="#">
+                <h1>Inicia Sesión</h1>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"> <img id= "face" src="/icons/facebook.png" alt=""></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"><img id= "face" src="/icons/google-plus.png" alt=""></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"><img id= "face" src="/icons/linked.png" alt=""></i></a>
+                </div>
+                <span>o usa tu cuenta</span>
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <a class="olvido" href="#">Olvidaste tu contraseña?</a>
+                <button>Iniciar Sesión</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Bienvenidos!</h1>
+                    <p>Para mantenerse conectado con nosotros, inicie sesión con su información personal.</p>
+                    <button class="ghost" id="signIn">Iniciar Sesión</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                     <h1>Hola, Gamers!</h1>
+                     <p>Ingrese sus datos personales y comience su viaje con nosotros.</p>
+                     <button class="ghost" id="signUp">Registrarse</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="main.js"> </script>
+</body>
+</html>
