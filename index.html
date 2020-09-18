@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Principal</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap" rel="stylesheet">  
+    
+    <script src="https://kit.fontawesome.com/d0e2037aa6.js" crossorigin="anonymous"></script>
+</head>
+<body>
+ <header>
+  <link rel="stylesheet" href="Style.css">
+     <div class="BarraMenu">
+      <img id="LogoMarca" src="/ASSETS/logoB.png" alt="">  
+       <nav>
+
+        <ul class="nav_links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Categories</a></li>
+        <li><a href="#">Locate</a></li>
+        <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="search_box">
+      <input class="search-txt" type="text" name="placeholder" id="Type to search" >
+      <a class="search-btn" href="#">
+      <i class="fas fa-search"></i>
+      </a>
+    </div>
+  <div class="iniciarform">
+    <a href="#" class="abre">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Log IN
+        <i class="fa fa-user" aria-hidden="true"></i>
+    </a>
+  </div>
+    </div>
+
+<!--dentroooooo-->
+
+   
+ </header>   
+ 
+<div class="popup">
+    <div class="sombraTachita"></div>
+    <a class="Tachita" href="#"><i class="fa fa-times" aria-hidden="true"></i></a>
+    
+  <div class="container" id="container">
+
+
+    <div class="form-container sign-up-container">
+        <form action="#">
+            <h1>Crear una cuenta</h1>
+            <div class="social-container">
+                <a href="#" class="social"><!--i class="fab fa-facebook-f">--> <img id= "face" src ="/LoginSignUp/icons/facebook.png" alt=""></a>
+                <a href="#" class="social"><!--<i class="fab fa-google-plus-g">--><img id= "face" src="/LoginSignUp/icons/google-plus.png" alt=""></i></a>
+                <a href="#" class="social"><!--<i class="fab fa-linkedin-in">--><img id= "face" src="/LoginSignUp/icons/linked.png" alt=""></i></a>
+            </div>
+            <span>o use su correo electrónico para registrarse</span>
+            <input type="text" placeholder="Nombre de usuario">
+            <input type="email" placeholder="Email">
+            <input type="password" placeholder="Password">
+            <input type="password" placeholder="Reescribe tu Password">
+            <button>Registrarse</button>
+        </form>
+    </div>
+    <div class="form-container sign-in-container">
+        <form action="#">
+            <h1>Inicia Sesión</h1>
+            <div class="social-container">
+                <a href="#" class="social"><!--i class="fab fa-facebook-f">--> <img id= "face" src ="/LoginSignUp/icons/facebook.png" alt=""></a>
+                <a href="#" class="social"><!--<i class="fab fa-google-plus-g">--><img id= "face" src="/LoginSignUp/icons/google-plus.png" alt=""></i></a>
+                <a href="#" class="social"><!--<i class="fab fa-linkedin-in">--><img id= "face" src="/LoginSignUp/icons/linked.png" alt=""></i></a>
+            </div>
+            <span>o usa tu cuenta</span>
+            <input type="email" placeholder="Email">
+            <input type="password" placeholder="Password">
+            <a class="olvido" href="#">Olvidaste tu contraseña?</a>
+            <button>Iniciar Sesión</button>
+        </form>
+    </div>
+    <div class="overlay-container">
+        <div class="overlay">
+            <div class="overlay-panel overlay-left">
+                <h1>Bienvenidos!</h1>
+                <p>Para mantenerse conectado con nosotros, inicie sesión con su información personal.</p>
+                <button class="ghost" id="signIn">Iniciar Sesión</button>
+            </div>
+            <div class="overlay-panel overlay-right">
+                 <h1>Hola, Gamers!</h1>
+                 <p>Ingrese sus datos personales y comience su viaje con nosotros.</p>
+                 <button class="ghost" id="signUp">Registrarse</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+<script src="slide.js"> </script>
+
+
+</body>
+
+</html>
