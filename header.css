@@ -1,0 +1,139 @@
+.BarraMenu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 80px;
+  width: 100%;
+  background-color: rgb(15, 15, 15);
+  color: rgb(0, 0, 0);
+  border-radius: 10px;
+}
+
+#LogoMarca {
+  height: 50px;
+  width: 140px;
+  padding-left: 20px;
+  cursor: pointer;
+}
+
+header li,
+a:not(.abre),
+button {
+  font-family: "Orbitron", sans-serif;
+  font-weight: 100%;
+  font-size: 20px;
+  color: rgb(34, 125, 199);
+  text-decoration: none;
+  border-radius: 30px;
+}
+header .nav_links {
+  list-style: none;
+
+  margin-top: 30px;
+  margin-right: 400px;
+}
+header .nav_links li {
+  display: inline-block;
+  padding: 0px 0px;
+}
+header .nav_links li a:not(.abre) {
+  transition: alt 0.3s ease 0s;
+  padding: 0px 13px;
+}
+header .nav_links li a:not(.abre):hover {
+  color: rgba(0, 0, 0, 0.726);
+}
+
+.abre {
+  position: relative;
+  font-family: "Orbitron", sans-serif;
+  font-size: 15px;
+  color: black;
+  top: 15px;
+  left: 23px;
+}
+
+.abre i {
+  position: relative;
+  left: 5px;
+}
+
+.iniciarform {
+  position: relative;
+  height: 50px;
+  width: 120px;
+  right: 20px;
+  background: #2196f3;
+  box-shadow: 0 0 20px #2196f3;
+  border-radius: 2px;
+}
+
+header a:not(.abre) {
+  position: relative;
+  display: inline-block;
+  right: 50px;
+  color: #2196f3;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-decoration: none;
+  font-size: 21px;
+  overflow: hidden;
+  transition: 0.2s;
+}
+
+header a:not(.abre):hover {
+  color: #255784;
+  background: #2196f3;
+  box-shadow: 0 0 10px #2196f3, 0 0 20px #2196f3, 0 0 40px #2196f3;
+  transition-delay: 1s;
+  border-radius: 20px;
+}
+
+header a:not(.abre) span {
+  position: absolute;
+  display: block;
+}
+
+/*Boton de busqueda:*/
+.search_box {
+  position: absolute;
+  top: 41px;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  background: rgba(71, 71, 68, 0.692);
+  height: 40px;
+
+  border-radius: 30px;
+  padding: 10px;
+}
+.search_box:hover > .search-txt {
+  width: 240px;
+  padding: 0 6px;
+}
+
+.search-btn {
+  float: right; /*Este es el icono de la lupita*/
+  border-radius: 10px;
+  height: 33px;
+  width: 27px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 2px;
+  bottom: 5px;
+}
+.search-txt {
+  border: none;
+  background: none;
+  outline: none;
+  float: left;
+  padding: 0;
+  color: white;
+  font-size: 16px;
+  transition: 0.4s;
+  line-height: 25px;
+  width: 0px;
+}
+
