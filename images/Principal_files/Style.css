@@ -290,8 +290,8 @@ body .popup {
 }
 
 .carousel-caption {
-
-  display: center;
+  width: 800px;
+  right: 800px;
   background :rgba(0, 0, 0, 0.233);
   
 }
