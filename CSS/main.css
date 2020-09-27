@@ -5,9 +5,7 @@ body {
   /*VENTANA EMERGENTE*/
   @import url("https://fonts.googleapis.com/css?family=Montserrat:400,800");
   
-  * {
-    box-sizing: border-box;
-  }
+ 
   
   .popup {
     background: rgba(0, 0, 0, 0.6);
@@ -15,7 +13,7 @@ body {
     height: 100%;
     position: absolute;
     top: 0;
-    display: fnoenlex;
+    display: flex;
     justify-content: center;
     align-items: center;
     left: 0;
@@ -113,7 +111,7 @@ body {
     background-color: #eee;
     border: none;
     padding: 12px 15px;
-    margin: 8px 0;
+    margin: 2.5px;
     width: 100%;
   }
   
@@ -296,3 +294,4 @@ body {
     height: 280px;
   }
 }
+
