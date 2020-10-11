@@ -45,7 +45,7 @@ header .nav-item i:not(#btn-buscar) {
 .logear {
   width: 100px;
   height: 50px;
-  margin-right: 10px;
+  margin-right: 130px;
   background: #2196f3;
 }
 .logear .btn {
@@ -91,14 +91,44 @@ header .dropdown-item {
   color: white;
   font-weight: 800;
 }
-/*MENU*/
-.sliderbar{
-position: absolute;
-width: 350px;
-height: 100%;
-background-color: black;
-color: white;
-z-index: 2;
+
+
+header .userimage{
+ 
+  text-align: right;
+  width: 140px;
+  height: 50px;
+  position: absolute;
+  color: white;
+  font-size: 35px;
+  right: 10px;
+  padding-bottom: 10px;
+  
+}
+header h6{
+ 
+  position: absolute;
+  font-size: 13px;
+  margin-left: 10px;
+  padding-top: 25px;
+  font-family: 'Lato', sans-serif;
+
+}
+
+
+/*MENU SILIDER*/
+.sliderbar {
+  opacity: 99%;
+  position: absolute;
+  width: 350px;
+  height: 80%;
+  background-color: rgb(12, 12, 12);
+  color: white;
+  z-index: 100;
+  right: 0%;
+  visibility: hidden;
+
+
 }
 .sliderbar ul{
   list-style: none;
@@ -107,20 +137,31 @@ z-index: 2;
 
 }
 .sliderbar a{
-  display: block;
+  
+  text-decoration: none;
   padding: 10px;
-  position: relative;
+  font-size: 30px;
+
+
 }
 
 .sliderbar li{
-  border: 1px solid rgb(17, 17, 17) ;
-  text-align: center;
- 
+  outline: 1px solid rgb(17, 17, 17) ;
+  transition: border 0.3s; 
+  text-align: left;
+
 }
+
+.sliderbar i{
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+
 
 .sliderbar li:hover{
  background-color: gray;
- border-left: 5px solid white;
+ border-left: 10px solid  #2196f3;
 }
 
 .sliderbar h2{
@@ -128,6 +169,7 @@ z-index: 2;
   padding: 0;
   margin: 0;
 }
+
 
 /*FOOTER*/
 
