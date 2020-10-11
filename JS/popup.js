@@ -4,8 +4,11 @@ const container = document.getElementById('container');
 const Abrir= document.getElementById('logear');
 const Cerrar = document.getElementById('Tachita');
 const pop = document.getElementById('popupas');
-const Mostrarbuscador = document.getElementById('serch');
-const demostar = document.getElementById('finde');
+const like = document.getElementById('liked');
+
+var activo = new Boolean(false);
+
+
 
 signUpButton.addEventListener('click', () => {
 	container.classList.add("right-panel-active");
@@ -29,18 +32,16 @@ Cerrar.addEventListener('click',function () {
 
 });
 
-Mostrarbuscador.addEventListener('mouseover',function () {
-	console.log("muestra :)");
-	document.querySelector(".form-inline").style.display = "flex";
-	document.querySelector(".fa-search").style.display = "none";
-
-
+like.addEventListener("click", function () {
+  if (activo == false) {
+    document.querySelector(".fa-heart").style.color = "red";
+    activo = true;
+  } else {
+    document.querySelector(".fa-heart").style.color = "white";
+    activo = false;
+  }
 });
 
-demostar.addEventListener('mouseout',function () {
-	console.log("no muestra :)");
-	document.querySelector(".fa-search").style.display = "flex";
-	document.querySelector(".form-inline").style.display = "none";
 
 
-});
+
