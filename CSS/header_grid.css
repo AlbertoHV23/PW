@@ -1,5 +1,6 @@
-.header .navbar {
+.header.navbar {
   background: rgb(12, 12, 12);
+
   height: 90px;
 }
 .header .navbar-brand .logo {
@@ -44,7 +45,7 @@
 .header .logear {
   width: 100px;
   height: 50px;
-  margin-right: 10px;
+  margin-right: 130px;
   background: #2196f3;
 }
 .header .logear .btn {
@@ -90,14 +91,44 @@
   color: white;
   font-weight: 800;
 }
-/* MENU
-.sliderbar{
-position: absolute;
-width: 350px;
-height: 100%;
-background-color: black;
-color: white;
-z-index: 2;
+
+
+.header .userimage{
+ 
+  text-align: right;
+  width: 140px;
+  height: 50px;
+  position: absolute;
+  color: white;
+  font-size: 35px;
+  right: 10px;
+  padding-bottom: 10px;
+  
+}
+.header h6{
+ 
+  position: absolute;
+  font-size: 13px;
+  margin-left: 10px;
+  padding-top: 25px;
+  font-family: 'Lato', sans-serif;
+
+}
+
+
+/*MENU SILIDER*/
+/* .sliderbar {
+  opacity: 99%;
+  position: absolute;
+  width: 350px;
+  height: 80%;
+  background-color: rgb(12, 12, 12);
+  color: white;
+  z-index: 100;
+  right: 0%;
+  visibility: hidden;
+
+
 }
 .sliderbar ul{
   list-style: none;
@@ -106,20 +137,31 @@ z-index: 2;
 
 }
 .sliderbar a{
-  display: block;
+  
+  text-decoration: none;
   padding: 10px;
-  position: relative;
+  font-size: 30px;
+
+
 }
 
 .sliderbar li{
-  border: 1px solid rgb(17, 17, 17) ;
-  text-align: center;
- 
+  outline: 1px solid rgb(17, 17, 17) ;
+  transition: border 0.3s; 
+  text-align: left;
+
 }
+
+.sliderbar i{
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+
 
 .sliderbar li:hover{
  background-color: gray;
- border-left: 5px solid white;
+ border-left: 10px solid  #2196f3;
 }
 
 .sliderbar h2{
@@ -128,15 +170,16 @@ z-index: 2;
   margin: 0;
 } */
 
+
 /*FOOTER*/
 
-/* footer {
-  width: 100%;
+.footer {
+  
   height: 250px;
-  background: rgba(8, 8, 8, 0.945);
+
 }
 
-footer h4 {
+.footer h4 {
   font-size: 10px;
   color: white;
   position: relative;
@@ -144,7 +187,7 @@ footer h4 {
   top: 80%;
 }
 
-footer h3 {
+.footer h3 {
   font-size: 20px;
   margin-bottom: 15px;
   color: white;
@@ -153,49 +196,49 @@ footer h3 {
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
-footer .redessociales {
+.footer .redessociales {
   position: absolute;
   text-align: center;
   align-content: center;
   left: 10%;
   margin-top: 40px;
 }
-footer img {
+.footer img {
   margin-right: 20px;
   width: 50px;
   cursor: pointer;
 }
-footer img:hover {
+.footer img:hover {
   margin-right: 20px;
   width: 60px;
 }
 
-footer .Contactanos {
+.footer .Contactanos {
   position: absolute;
   text-align: center;
   align-content: center;
   right: 10%;
   margin-top: 40px;
-} */
+}
 
 
 @media (max-width: 800px) {
-    footer img {
+    .footer img {
       margin-right: 10px;
       width: 40px;
       cursor: pointer;
     }
-    footer .redessociales {
+    .footer .redessociales {
       left: 0%;
       margin-top: 40px;
     }
   
-    footer .Contactanos {
+    .footer .Contactanos {
       right: 7%;
       margin-top: 40px;
     }
   
-    footer h3 {
+    .footer h3 {
       font-size: 15px;
       margin-bottom: 15px;
       color: white;
@@ -208,22 +251,22 @@ footer .Contactanos {
 
 
 @media (max-width: 600px) {
-  footer img {
+  .footer img {
     margin-right: 10px;
     width: 25px;
     cursor: pointer;
   }
-  footer .redessociales {
-    left: 0%;
+  .footer .redessociales {
+    left: 10%;
     margin-top: 40px;
   }
 
-  footer .Contactanos {
+  .footer .Contactanos {
     right: 7%;
     margin-top: 40px;
   }
 
-  footer h3 {
+  .footer h3 {
     font-size: 15px;
     margin-bottom: 15px;
     color: white;
@@ -233,5 +276,3 @@ footer .Contactanos {
   
   
 }
-
-

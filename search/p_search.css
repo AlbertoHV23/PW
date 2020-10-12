@@ -16,7 +16,6 @@ body {
 
 .grid-container > * {
   box-shadow: -1px 1px 7px 0px rgba(0, 0, 0, 0.75);
-  border-radius: 4px;
   padding: 10px;
   text-align: center;
 }
@@ -27,10 +26,9 @@ body {
 }
 
 
-
 .sidebar {
   grid-area: sidebar;
-  background-color: #fdcfcf;
+  background-color: rgba(14, 14, 14, 0.904);  
 }
 
 .main {
@@ -40,19 +38,52 @@ body {
 
 .footer {
   grid-area: footer;
-  background-color: #8c96a0;
+  background: rgba(8, 8, 8, 0.945);
 }
 
 .grid-container {
   display: grid;
-  gap: 10px;
+  gap: 5px;
   grid-template:
     "header"  90px
-    "main"    auto
     "sidebar" 200px
+    "main"    auto
     "footer"  100px;
 }
+.grid{
+  display: grid;
+  gap: 10px;
+}
 
+.main .grid div{
+  background-color: #e0e3e4;
+  padding: 1em;
+}
+
+/* TARJETAS DE BUSCADOS */
+.card-image{
+  min-width: 900px;
+}
+.card .mb-3{
+  max-width: 100%;
+  border: 1px solid black;
+
+}
+.card-body{
+  font-family: "Orbitron", sans-serif;
+  border: 1px solid black;
+ max-height: 500px;
+}
+.card-title{
+  font-size: 30px;
+  color: black;
+  font-weight: bold;
+}
+.card-text{
+  font-size: 15px;
+  color: rgb(99, 98, 98);
+
+}
 @media (min-width: 600px) {
   .grid-container {
 

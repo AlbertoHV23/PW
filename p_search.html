@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Grid</title>
+  <title>Busqueda</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/d0e2037aa6.js" crossorigin="anonymous"></script>
   <!-- Bottstrap CSS -->
@@ -69,20 +69,90 @@
 
         <div class="logear" id="logear">
           <button class="btn btn-outline-success my-3 my-sm-0" type="submit">Login <i class="fa fa-sign-in"
-              aria-hidden="true"></i></button>
+              aria-hidden="true"></i></button> 
         </div>
 
+        <div class="userimage ">
+          <h6>USERNAME</h6>
+          <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+       
+         </div>
+      
       </div>
     </nav>
 
   </header>
 
 
-  <aside class="sidebar">SIDEBAR</aside>
-  
-  <article class="main">MAIN</article>
+  <aside class="sidebar">SIDEBAR
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Filtrar
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+        <button class="dropdown-item" type="button">Mas recientes</button>
+        <button class="dropdown-item" type="button">Menos recientes</button>
+        <button class="dropdown-item" type="button">Mas populares</button>
+      </div>
+    </div>
 
-  <footer class="footer">FOOTER</footer>
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Active</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+     
+    </ul>
+  </aside>
+  
+  <article class="main">Resultados encontrados de "Buscado"
+    <div class="grid">
+      <div class="elemnt1">
+        <div class="card mb-3" >
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <img src="https://cdnb.artstation.com/p/assets/images/images/031/003/757/large/gabriel-cruz-render-alta.jpg?1602283257" class="card-img" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">Titulo de la noticia</h5>
+                <p class="card-text">Descripcion de la noticia.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="elemnt2">elemnt2</div>
+      <div class="elemnt3">elemnt3</div>
+      
+    </div>
+  </article>
+
+  <footer class="footer">
+    <div class="redessociales">
+      <ul>
+      <h3>Siguenos:</h3>
+      <a href="https://www.facebook.com/SoyalbertoHdz/" target="_blank"><img src="https://www.flaticon.es/svg/static/icons/svg/174/174848.svg" alt=""></a>
+      <a href="https://www.instagram.com/_albertohv/" target="_blank"><img src="https://www.flaticon.es/svg/static/icons/svg/174/174855.svg" alt=""></a>
+      <a href="https://twitter.com/" target="_blank"><img src="https://www.flaticon.es/svg/static/icons/svg/174/174876.svg" alt=""></a>
+     </ul>
+     </div>
+     <div class="Contactanos">
+       <ul>
+       <h3>Contactanos:</h3>
+       <a href="https://api.whatsapp.com/send?phone=811902450" target="_blank"><img src="https://www.flaticon.es/svg/static/icons/svg/174/174879.svg" alt=""></a>
+       <a href="mailto:albertho0.hdzv@gmail.com" target="_blank"><img src="https://www.flaticon.es/svg/static/icons/svg/2991/2991144.svg" target="_blank" alt=""></a>
+       <a href="tel:+528119024150"target="_blank" > <img src="https://www.flaticon.es/svg/static/icons/svg/684/684911.svg"target="_blank" alt=""></a>
+      </ul>
+      
+      </div>
+     <h4>Copyright © 2020-2030 Time to play - Todos los derechos reservados</h4>
+  </footer>
 
 </body>
 </html>
