@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Iconos -->
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <!-- Fin Iconos -->
+    <!-- Bootstrap -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <!--<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>-->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    <!-- Fin Bootstrap -->
+    <link rel="stylesheet" href="/CSS/UserP.css">
+    
+    <title>User Profile</title>
+</head>
+<body class="user-container">
+  
+  <header class="header"></header>
+
+  <aside class="sidebar">
+    <!-- SIDEBAR MENU -->
+    <div class="profile-usermenu">
+      <ul class="nav">
+        <li class="active">
+          <a href="#">
+            <i class="fas fa-user"></i>
+          General </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fas fa-key"></i>
+          Contraseña y Seguridad </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fas fa-bell"></i>
+          Notificaciones </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fas fa-bookmark"></i>
+          Marcadas </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fas fa-question"></i>
+          Ayuda </a>
+        </li>
+      </ul>
+    </div>
+    <!-- END MENU -->
+  </aside>
+  <article class="main">
+    <div class="foto-perfil-div">
+      <img src="/IMG/Avatares/mujer.png" id="photo">
+      <input type="file" id="file">
+      <label for="file" id="uploadBtn">Selecciona una imagen</label>
+    </div>
+    <div class="profile-usertitle">
+					<div class="profile-usertitle-name">
+						Luis Gerardo Becerra Jiménez
+					</div>
+					<div class="profile-usertitle-job">
+						Desarrollador
+					</div>
+    </div>
+    <div class="datos">
+      <h1>Datos Personales</h1>
+        <input type="text" placeholder="Nombre de usuario">
+        <input type="text" placeholder="Nombre">
+        <input type="text" placeholder="Apellido Paterno">
+        <input type="text" placeholder="Apellido Materno">
+        <input type="email" placeholder="Email">
+        <button>GUARDAR CAMBIOS</button>
+    </div>
+    
+    <div class="contraseña-container">
+      <div class="contraseña-seguridad">
+        <h1>Cambiar Contraseña</h1>
+        <h3>Contraseña actual</h3>
+        <input type="password" placeholder="Contraseña">
+        <h3>Nueva Contraseña</h3>
+        <input type="password" placeholder="Nueva Contraseña">
+        <h3>Vuelve a escribir la nueva contraseña</h3>
+        <input type="password" placeholder="Reescribir Nueva Contraseña">
+        <button>GUARDAR CAMBIOS</button>
+      </div>
+      <div class="contraseña-info">
+        <h1>Tu contraseña</h1>
+        <p class="descripcion">
+          La contraseña no debe ser la misma que una de las 5 últimas usadas
+        </p>
+        <p class="descripcion">
+          Tu contraseña debe tener siete o más caracteres.
+        </p>
+        <p class="descripcion">
+          Tu contraseña debe contener al menos un número.
+        </p>
+        <p class="descripcion">
+          Las contraseñas no deben contener espacios.
+        </p>
+      </div>
+              
+    </div>    
+  </article>
+  <footer class="footer"></footer>
+  
+</body>
+<script src="/JS/User.js"></script>
+</html>
