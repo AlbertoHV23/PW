@@ -76,7 +76,7 @@
     height: 200px;
   }
 
-  .foto-perfil-div{
+  .main .contenido-general .foto-perfil-div{
     right: 50%;
     height: 200px;
     width: 200px;
@@ -85,6 +85,7 @@
     overflow: hidden;
     border: 1px solid grey;
     left: 50%;
+    top: 100px;
   }
 
   #photo{
@@ -158,17 +159,18 @@
   
   .profile-usermenu ul li a:hover {
     background-color: #fafcfd;
-    border-left: 4px solid #5b9bd1;
+    border-left: 4px solid blue;
     color: black;
   }
   
   .profile-usermenu ul li.active {
     border-bottom: none;
   }
+
   .profile-usermenu ul li.active a {
     color: black;
     background-color: #f6f9fb;
-    border-left: 4px solid #5b9bd1;
+    border-left: 4px solid blue;
     margin-left: 0;
   }
   .profile-content {
@@ -217,4 +219,8 @@
   .descripcion{
     color: #999;
     font-size: 14px;
+  }
+
+  .contenido-general{
+    display: active;
   }
