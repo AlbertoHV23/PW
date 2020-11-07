@@ -1,0 +1,7 @@
+com\pw\dbconnection\controllers\UsuarioController.class
+com\pw\dbconnection\utils\FileUtils.class
+com\pw\dbconnection\controllers\UsersController.class
+com\pw\dbconnection\dao\UserDAO.class
+com\pw\dbconnection\models\UserModel.class
+com\pw\dbconnection\models\tbl_usuarios.class
+com\pw\dbconnection\utils\DbConnection.class
