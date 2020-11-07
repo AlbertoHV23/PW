@@ -77,8 +77,9 @@ public class UsuarioController extends HttpServlet {
 
 
 
-    
+    //clase 
         tbl_usuarios usuario = new tbl_usuarios(name,email,password,rol);
+       
         UserDAO.insertUsuarios(usuario);
      
  

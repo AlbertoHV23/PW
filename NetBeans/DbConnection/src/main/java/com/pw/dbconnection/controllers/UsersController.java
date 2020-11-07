@@ -50,7 +50,7 @@ public class UsersController extends HttpServlet {
         request.setAttribute("users", users);
        
          // Enviamos el request a index.jsp con la informacion
-        request.getRequestDispatcher("login.jsp").forward(request, response);
+        request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 
     /**

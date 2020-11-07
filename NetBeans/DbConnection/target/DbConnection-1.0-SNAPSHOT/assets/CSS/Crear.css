@@ -1,0 +1,44 @@
+body{
+    background: url(/IMG/Optimizadas/fondo.jpg);
+    backdrop-filter: blur(5px);
+}
+
+.row .pagina hr{
+    width: 125px;
+    height: 2px;
+}
+
+.row .contact hr{
+    width: 75px;
+    height: 2px;
+}
+
+.fab, .far {
+    font-weight: 400;
+    font-size: 25px;
+}
+.form-group label{
+    color: white;
+}
+
+.imagenes button {
+    padding: 10px;
+    color: white;
+    background-color: rgb(23, 162, 184);
+    border: 1px solid #000;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .imagenes button:hover {
+    background-color: rgb(8, 47, 53);
+  }
+  
+  .imagenes span{
+    margin-left: 10px;
+    font-family: sans-serif;
+    color: #aaa;
+  }
+
+
+  

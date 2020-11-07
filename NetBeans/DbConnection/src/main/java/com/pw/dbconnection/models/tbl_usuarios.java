@@ -27,18 +27,17 @@ public class tbl_usuarios {
     public tbl_usuarios() {
     }
 
-    public tbl_usuarios(String userName, String Email, String _Password) {
-        this.userName = userName;
-        this.Email = Email;
-        this._Password = _Password;
-    }
-
-
     public tbl_usuarios(String userName, String Email, String _Password, String Rol) {
         this.userName = userName;
         this.Email = Email;
         this._Password = _Password;
         this.Rol = Rol;
+    }
+
+    public tbl_usuarios(String userName, String Email, String _Password) {
+        this.userName = userName;
+        this.Email = Email;
+        this._Password = _Password;
     }
 
 
@@ -109,5 +108,5 @@ public class tbl_usuarios {
     }
 
 
-    
+      
 }
