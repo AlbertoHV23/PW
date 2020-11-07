@@ -58,25 +58,21 @@ public class UserDAO {
         return 0;
     }
 
-    public static int insertUsuarios(tbl_usuarios user) {
+    public static int insertUsuarios(tbl_usuarios usuario) {
         try {
             Connection con = DbConnection.getConnection();
-            // En el proyecto solo podran hacer uso de Store Procedures
-            // No llamadas directas como esta
-            // Esta linea prepara la llamada a la base de datos para insertar
-            // Cada ? significa un valor a ser remplazado
-            CallableStatement statement = con.prepareCall("{ call Sp_Insert_usuarios(?,?,?,?,?,?,?,?,?,?) }");
-            statement.setString(1, user.getuserName());
-            statement.setString(2, user.getEmail());
-            statement.setString(3, user.get_Password());
+            CallableStatement statement = con.prepareCall("call Sp_Insert_usuarios(?,?,?,?,?,?,?,?,?,?);");
+            statement.setString(1, usuario.getUserName());
+            statement.setString(2,usuario.getEmail());
+            statement.setString(3, usuario.get_Password());
 
-            statement.setString(4, user.getuserName());
-            statement.setString(5, user.getEmail());
-            statement.setString(6, user.get_Password());
+            statement.setString(4, usuario.getUserName());
+            statement.setString(5, usuario.getRol());
+            statement.setString(6, usuario.get_Password());
 
-            statement.setString(7, user.getuserName());
-            statement.setString(8, user.getEmail());
-            statement.setString(9, user.get_Password());
+            statement.setString(7, usuario.getUserName());
+            statement.setString(8, usuario.getEmail());
+            statement.setString(9,  usuario.get_Password());
             statement.setBoolean(10, false);
           
             return statement.executeUpdate();

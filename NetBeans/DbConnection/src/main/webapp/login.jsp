@@ -57,7 +57,7 @@
           <form action="./UsuarioController" method="POST" enctype="multipart/form-data" class="sign-up-form">
             <h2 class="title">Registro</h2>
             <label for="tipo">Tipo:</label>
-              <select name="tipo" id="tipo" form="sign-in-form" class="selector">
+              <select name="tipo" id="tipo" form="sign-in-form" class="selector" id="rol">
                 <option value="Normal" selected>Normal</option>
                 <option value="Creador">Creador de contenido</option>
                 <option value="Moderador">Moderador</option>

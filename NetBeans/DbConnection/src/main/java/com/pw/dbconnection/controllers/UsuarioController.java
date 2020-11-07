@@ -72,9 +72,13 @@ public class UsuarioController extends HttpServlet {
         String name = request.getParameter("username");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
+        // String rol = request.getParameter("rol");
+        String rol = "Normal";
+
+
 
     
-        tbl_usuarios usuario = new tbl_usuarios(name,email,password);
+        tbl_usuarios usuario = new tbl_usuarios(name,email,password,rol);
         UserDAO.insertUsuarios(usuario);
      
  
