@@ -46,6 +46,4 @@ public class tbl_imagenes {
     public void setFk_noticia(int fk_noticia) {
         this.fk_noticia = fk_noticia;
     }
-    
-    
 }
