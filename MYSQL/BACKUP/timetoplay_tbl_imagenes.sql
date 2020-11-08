@@ -18,29 +18,29 @@ USE `timetoplay`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `tbl_videos`
+-- Table structure for table `tbl_imagenes`
 --
 
-DROP TABLE IF EXISTS `tbl_videos`;
+DROP TABLE IF EXISTS `tbl_imagenes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tbl_videos` (
-  `id_video` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tbl_imagenes` (
+  `id_imagen` int NOT NULL AUTO_INCREMENT,
   `extencion` varchar(100) NOT NULL,
   `fk_noticia` int NOT NULL,
-  PRIMARY KEY (`id_video`),
+  PRIMARY KEY (`id_imagen`),
   KEY `fk_noticia` (`fk_noticia`),
-  CONSTRAINT `tbl_videos_ibfk_1` FOREIGN KEY (`fk_noticia`) REFERENCES `tbl_noticia` (`id_noticia`)
+  CONSTRAINT `tbl_imagenes_ibfk_1` FOREIGN KEY (`fk_noticia`) REFERENCES `tbl_noticia` (`id_noticia`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tbl_videos`
+-- Dumping data for table `tbl_imagenes`
 --
 
-LOCK TABLES `tbl_videos` WRITE;
-/*!40000 ALTER TABLE `tbl_videos` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tbl_videos` ENABLE KEYS */;
+LOCK TABLES `tbl_imagenes` WRITE;
+/*!40000 ALTER TABLE `tbl_imagenes` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tbl_imagenes` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-07 23:10:03
+-- Dump completed on 2020-11-07 23:13:13

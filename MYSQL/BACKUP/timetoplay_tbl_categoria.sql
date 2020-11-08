@@ -18,35 +18,27 @@ USE `timetoplay`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `tbl_comentarios`
+-- Table structure for table `tbl_categoria`
 --
 
-DROP TABLE IF EXISTS `tbl_comentarios`;
+DROP TABLE IF EXISTS `tbl_categoria`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tbl_comentarios` (
-  `id_comentario` int NOT NULL AUTO_INCREMENT,
-  `comentario` varchar(1000) NOT NULL,
-  `fk_usuario` int NOT NULL,
-  `fk_noticia` int NOT NULL,
-  `valoracion_like` int DEFAULT '0',
-  `valoracion_Nolike` int DEFAULT '0',
-  `aprovado` tinyint(1) DEFAULT '0',
-  PRIMARY KEY (`id_comentario`),
-  KEY `fk_usuario` (`fk_usuario`),
-  KEY `fk_noticia` (`fk_noticia`),
-  CONSTRAINT `tbl_comentarios_ibfk_1` FOREIGN KEY (`fk_usuario`) REFERENCES `tbl_usuarios` (`id_usuario`),
-  CONSTRAINT `tbl_comentarios_ibfk_2` FOREIGN KEY (`fk_noticia`) REFERENCES `tbl_noticia` (`id_noticia`)
+CREATE TABLE `tbl_categoria` (
+  `id_categoria` int NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(50) NOT NULL,
+  `descripcion` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id_categoria`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tbl_comentarios`
+-- Dumping data for table `tbl_categoria`
 --
 
-LOCK TABLES `tbl_comentarios` WRITE;
-/*!40000 ALTER TABLE `tbl_comentarios` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tbl_comentarios` ENABLE KEYS */;
+LOCK TABLES `tbl_categoria` WRITE;
+/*!40000 ALTER TABLE `tbl_categoria` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tbl_categoria` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -58,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-07 23:10:04
+-- Dump completed on 2020-11-07 23:13:13

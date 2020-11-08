@@ -18,39 +18,29 @@ USE `timetoplay`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `tbl_noticia`
+-- Table structure for table `tbl_videos`
 --
 
-DROP TABLE IF EXISTS `tbl_noticia`;
+DROP TABLE IF EXISTS `tbl_videos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tbl_noticia` (
-  `id_noticia` int NOT NULL AUTO_INCREMENT,
-  `titulo` varchar(50) NOT NULL,
-  `descripcion_corta` varchar(250) NOT NULL,
-  `descripcion_larga` varchar(2500) NOT NULL,
-  `fecha` varchar(30) NOT NULL,
-  `hora` varchar(20) NOT NULL,
-  `aprovado` tinyint(1) DEFAULT '1',
-  `valoracion_like` int DEFAULT '0',
-  `valoracion_Nolike` int DEFAULT '0',
-  `fk_usuarios` int NOT NULL,
-  `fk_categoria` int NOT NULL,
-  PRIMARY KEY (`id_noticia`),
-  KEY `fk_categoria` (`fk_categoria`),
-  KEY `fk_usuarios` (`fk_usuarios`),
-  CONSTRAINT `tbl_noticia_ibfk_1` FOREIGN KEY (`fk_categoria`) REFERENCES `tbl_categoria` (`id_categoria`),
-  CONSTRAINT `tbl_noticia_ibfk_2` FOREIGN KEY (`fk_usuarios`) REFERENCES `tbl_usuarios` (`id_usuario`)
+CREATE TABLE `tbl_videos` (
+  `id_video` int NOT NULL AUTO_INCREMENT,
+  `extencion` varchar(100) NOT NULL,
+  `fk_noticia` int NOT NULL,
+  PRIMARY KEY (`id_video`),
+  KEY `fk_noticia` (`fk_noticia`),
+  CONSTRAINT `tbl_videos_ibfk_1` FOREIGN KEY (`fk_noticia`) REFERENCES `tbl_noticia` (`id_noticia`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tbl_noticia`
+-- Dumping data for table `tbl_videos`
 --
 
-LOCK TABLES `tbl_noticia` WRITE;
-/*!40000 ALTER TABLE `tbl_noticia` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tbl_noticia` ENABLE KEYS */;
+LOCK TABLES `tbl_videos` WRITE;
+/*!40000 ALTER TABLE `tbl_videos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tbl_videos` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -62,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-07 23:10:03
+-- Dump completed on 2020-11-07 23:13:13

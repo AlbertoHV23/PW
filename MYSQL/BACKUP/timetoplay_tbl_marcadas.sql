@@ -18,30 +18,31 @@ USE `timetoplay`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `tbl_comentario_a_comentario`
+-- Table structure for table `tbl_marcadas`
 --
 
-DROP TABLE IF EXISTS `tbl_comentario_a_comentario`;
+DROP TABLE IF EXISTS `tbl_marcadas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tbl_comentario_a_comentario` (
-  `id_sub_comentario` int NOT NULL AUTO_INCREMENT,
-  `fk_comentario` int NOT NULL,
-  `comentario` varchar(1000) NOT NULL,
-  `aprovado` tinyint(1) DEFAULT '0',
-  PRIMARY KEY (`id_sub_comentario`),
-  KEY `fk_comentario` (`fk_comentario`),
-  CONSTRAINT `tbl_comentario_a_comentario_ibfk_1` FOREIGN KEY (`fk_comentario`) REFERENCES `tbl_comentarios` (`id_comentario`)
+CREATE TABLE `tbl_marcadas` (
+  `id_marcadas` int NOT NULL AUTO_INCREMENT,
+  `fk_usuario` int NOT NULL,
+  `fk_noticia` int NOT NULL,
+  PRIMARY KEY (`id_marcadas`),
+  KEY `fk_usuario` (`fk_usuario`),
+  KEY `fk_noticia` (`fk_noticia`),
+  CONSTRAINT `tbl_marcadas_ibfk_1` FOREIGN KEY (`fk_usuario`) REFERENCES `tbl_usuarios` (`id_usuario`),
+  CONSTRAINT `tbl_marcadas_ibfk_2` FOREIGN KEY (`fk_noticia`) REFERENCES `tbl_noticia` (`id_noticia`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tbl_comentario_a_comentario`
+-- Dumping data for table `tbl_marcadas`
 --
 
-LOCK TABLES `tbl_comentario_a_comentario` WRITE;
-/*!40000 ALTER TABLE `tbl_comentario_a_comentario` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tbl_comentario_a_comentario` ENABLE KEYS */;
+LOCK TABLES `tbl_marcadas` WRITE;
+/*!40000 ALTER TABLE `tbl_marcadas` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tbl_marcadas` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -53,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-07 23:10:03
+-- Dump completed on 2020-11-07 23:13:12
