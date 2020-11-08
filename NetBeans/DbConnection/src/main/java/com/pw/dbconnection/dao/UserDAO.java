@@ -58,22 +58,20 @@ public class UserDAO {
         return 0;
     }
 
-    public static int insertUsuarios(tbl_usuarios usuario) {
+    public static int insertUsuarios(tbl_usuarios users) {
         try {
             Connection con = DbConnection.getConnection();
-            CallableStatement statement = con.prepareCall("call Sp_Insert_usuarios(?,?,?,?,?,?,?,?,?,?);");
-            statement.setString(1, usuario.getUserName());
-            statement.setString(2,usuario.getEmail());
-            statement.setString(3, usuario.get_Password());
-
-            statement.setString(4, usuario.getUserName());
-            statement.setString(5, usuario.getRol());
-            statement.setString(6, usuario.get_Password());
-
-            statement.setString(7, usuario.getUserName());
-            statement.setString(8, usuario.getEmail());
-            statement.setString(9,  usuario.get_Password());
-            statement.setBoolean(10, false);
+            CallableStatement statement = con.prepareCall("CALL Sp_insert_users(?,?,?,?,?,?,?,?,?,?);");
+            statement.setString(1, users.getRol());
+            statement.setString(2, users.getUsername());
+            statement.setString(3, users.getEmail());
+            statement.setString(4, users.getPassword());
+            statement.setString(5, "null");
+            statement.setString(6, "null");
+            statement.setString(7, "null");
+            statement.setString(8, "null");
+            statement.setString(9, "null");
+            statement.setBoolean(10, true);
           
             return statement.executeUpdate();
         } catch (SQLException ex) {

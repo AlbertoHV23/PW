@@ -41,6 +41,15 @@ public class tbl_usuarios {
         this.activo = activo;
     }
 
+
+    public tbl_usuarios(String rol, String username, String email, String _password) {
+        this.rol = rol;
+        this.username = username;
+        this.email = email;
+        this._password = _password;
+    }
+
+
     public tbl_usuarios(int id_usuario, String rol, String username, String email, String _password) {
         this.id_usuario = id_usuario;
         this.rol = rol;
@@ -136,4 +145,6 @@ public class tbl_usuarios {
     public void setActivo(boolean activo) {
         this.activo = activo;
     }
+    
+    
 }

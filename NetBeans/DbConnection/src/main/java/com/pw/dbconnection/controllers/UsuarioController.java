@@ -43,7 +43,8 @@ public class UsuarioController extends HttpServlet {
         
        
          // Enviamos el request a index.jsp con la informacion
-        request.getRequestDispatcher("principal.jsp").forward(request, response);
+        response.sendRedirect("login.jsp");
+
 }
     
 
@@ -78,9 +79,9 @@ public class UsuarioController extends HttpServlet {
 
 
     //clase 
-        tbl_usuarios usuario = new tbl_usuarios(name,email,password,rol);
+       tbl_usuarios user = new tbl_usuarios(rol,name,email,password);
        
-        UserDAO.insertUsuarios(usuario);
+        UserDAO.insertUsuarios(user);
      
  
         response.sendRedirect("login.jsp");

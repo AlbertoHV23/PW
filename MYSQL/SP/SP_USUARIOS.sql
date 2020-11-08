@@ -1,62 +1,60 @@
-/*SP PARA INSERTAR DATOS EN LA TABLA USUARIOS*/
-DELIMITER $$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `Sp_Insert_usuarios`(
-  in Username 			VARCHAR(45),
-  in Email 				VARCHAR(45),
-  in _Password 			VARCHAR(45),
-  in Image 				VARCHAR(45),
-  in Rol 				VARCHAR(45),
-  in Descripcion 		VARCHAR(45),
-  in Facebook 			VARCHAR(45),
-  in Twitter			VARCHAR(45),
-  in Instagram	 		VARCHAR(45),
-  in Activo 			bool
-)
+CREATE PROCEDURE `Sp_insert_users` (
+  in rol 			varchar(50),
+  in username 		varchar(50),
+  in email 			varchar(50),
+  in _password 		varchar(50),
+  in imagen 		varchar(100),
+  in descripcion 	varchar(50),
+  in face 		    varchar(50),
+  in twit           varchar(50),
+  in insta          varchar(50),
+  in activo         bool
+  )
 BEGIN
 INSERT INTO `timetoplay`.`tbl_usuarios`
-(`id_USUARIOS`,
-`Username`,
-`Email`,
-`_Password`,
-`Image`,
-`Rol`,
-`Descripcion`,
-`Facebook`,
-`Twitter`,
-`Instagram`,
-`Activo`)
+(`rol`,
+`username`,
+`email`,
+`_password`,
+`imagen`,
+`descripcion`,
+`face`,
+`twit`,
+`insta`,
+`activo`)
 VALUES
-(Username ,
-Email,
-_Password,
-Image,
-Rol,
-Descripcion,
-Facebook,
-Twitter,
-Instagram,
-Activo);
+(rol,
+username,
+email,
+_password,
+imagen,
+descripcion,
+face,
+twit,
+insta,
+activo
+);
 
-END$$
-DELIMITER ;
+END
+DELETE FROM `tbl_usuarios`
+WHERE id_usuario = 1;
 
-DELIMITER $$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `Sp_Delete_usuarios`(
-in id int, 
-out estado tinyint)
+
+
+CREATE PROCEDURE `Sp_Delete_users` (
+in  id  int,
+out estado int)
 BEGIN
-	if(select count(id_USUARIOS) from Tbl_USUARIOS where id_USUARIOS = id) = 0 then
-	select 0 into estado;
+if (select count(id_usuario) from tbl_usuarios where id_usuarios = id) = 0 then
+select 0 into estado;
 	else
-	delete from Tbl_USUARIOS where id_USUARIOS = id;
+	DELETE FROM `tbl_usuarios`
+	WHERE id_usuario = id;
     select 1 into estado;
-	end if;
-END$$
-DELIMITER ;
 
-CALL `Sp_Delete_usuarios`(2,@retorno);
-select @retorno;
-
-CALL `Sp_Insert_usuarios`('AlberThor','@gmail.com','123','NoImage','Administrador','AlberThor','AlberThor','AlberThor','AlberThor',true);
+end if;
+END
 
 select *from tbl_usuarios;
+
+CALL Sp_insert_users('test','test','test','test','test','test','test','test','test',true);
