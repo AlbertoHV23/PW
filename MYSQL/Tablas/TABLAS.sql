@@ -74,7 +74,7 @@ create table if not exists tbl_comentario_a_comentario(
     comentario          varchar(1000) not null,
     aprovado            bool default 0,
     primary key (id_sub_comentario),
-    foreign key (fk_comentario) references tbl_comentarios(id_comentario),
+    foreign key (fk_comentario) references tbl_comentarios(id_comentario)
 );
 
 create table if not exists tbl_marcadas(
