@@ -80,6 +80,35 @@ public class UserDAO {
         }
         return 0;
     }
+
+    public static tbl_usuarios login(String usua,String contra){
+        tbl_usuarios retorno =new tbl_usuarios();
+        try {
+            Connection con = DbConnection.getConnection();
+            CallableStatement statement = con.prepareCall("call Sp_login(?,?);");
+            statement.setString(1, usua);
+            statement.setString(2, contra);
+            ResultSet resultSet = statement.executeQuery();
+            // Si el resultSet tiene resultados lo recorremos
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id_usuario");
+                String name = resultSet.getString("username");
+                String Pass = resultSet.getString("_password");
+                retorno = new tbl_usuarios(id, "hola", "hola");
+                System.out.println(id);
+
+                System.out.println(name);
+                System.out.println(Pass);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+
+        } finally {
+           
+        }
+        return retorno;
+    }
+
     public static List<UserModel> getUsers() {
         List<UserModel> users = new ArrayList<>();
         try {

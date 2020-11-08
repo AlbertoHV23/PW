@@ -40,10 +40,23 @@ public class UsuarioController extends HttpServlet {
    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+                String name = request.getParameter("usuario");
+                String password = request.getParameter("contra");
+                tbl_usuarios retorno = UserDAO.login(name,password);
+                
+                if(retorno.getId_usuario() != 0){
+                     System.out.println("LOGIN EXITOSO");
+                     response.sendRedirect("principal.jsp");
+
+                }
+                else{
+                System.out.println("ERROR");
+              
+                response.sendRedirect("login.jsp");
+
+                }
         
-       
-         // Enviamos el request a index.jsp con la informacion
-        response.sendRedirect("login.jsp");
+         
 
 }
     
@@ -68,22 +81,13 @@ public class UsuarioController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // Obtenemos el nombre debe coincidir con el name del input
-
         String name = request.getParameter("username");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         // String rol = request.getParameter("rol");
         String rol = "Normal";
-
-
-
-    //clase 
-       tbl_usuarios user = new tbl_usuarios(rol,name,email,password);
-       
+        tbl_usuarios user = new tbl_usuarios(rol,name,email,password);
         UserDAO.insertUsuarios(user);
-     
- 
         response.sendRedirect("login.jsp");
     }
 

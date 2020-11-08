@@ -42,6 +42,12 @@ public class tbl_usuarios {
     }
 
 
+    public tbl_usuarios(int id_usuario, String username, String _password) {
+        this.id_usuario = id_usuario;
+        this.username = username;
+        this._password = _password;
+    }
+
     public tbl_usuarios(String rol, String username, String email, String _password) {
         this.rol = rol;
         this.username = username;

@@ -19,7 +19,7 @@
     <div class="container">
       <div class="forms-container">
         <div class="signin-signup">
-          <form action="#" class="sign-in-form">
+          <form action="./UsuarioController" method="Get" enctype="multipart/form-data" class="sign-in-form">
             <h2 class="title">Inicia sesión</h2>
             <label for="tipo">Tipo:</label>
               <select name="tipo" id="tipo" form="sign-in-form" class="selector">
@@ -30,11 +30,11 @@
               </select>
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input type="text" placeholder="Nombre de usuario" />
+              <input type="text" name="usuario" id="usuario" placeholder="Nombre de usuario" />
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Contraseña" />
+              <input type="password" name="contra" id="contra" placeholder="Contraseña" />
             </div>
             <input type="submit" value="Inicia sesión" class="btn solid" />
             <p class="social-text">o inicia sesión con una red social.</p>
