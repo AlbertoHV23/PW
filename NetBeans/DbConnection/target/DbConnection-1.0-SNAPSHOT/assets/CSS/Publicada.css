@@ -1,0 +1,30 @@
+body{
+    background: url(../IMG/Optimizadas/fondo.jpg);
+    backdrop-filter: blur(5px);
+}
+
+.row .pagina hr{
+    width: 125px;
+    height: 2px;
+}
+
+.row .contact hr{
+    width: 75px;
+    height: 2px;
+}
+
+.fab, .far {
+    font-weight: 400;
+    font-size: 25px;
+}
+.card{
+    width: 18rem;
+}
+
+.aceptadas .card{
+    background-color: darkgreen;
+}
+
+.denegadas .card{
+    background-color: darkred;
+}

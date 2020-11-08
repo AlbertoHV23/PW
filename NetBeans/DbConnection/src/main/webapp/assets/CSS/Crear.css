@@ -1,5 +1,5 @@
 body{
-    background: url(/IMG/Optimizadas/fondo.jpg);
+    background: url(../IMG/Optimizadas/fondo.jpg);
     backdrop-filter: blur(5px);
 }
 

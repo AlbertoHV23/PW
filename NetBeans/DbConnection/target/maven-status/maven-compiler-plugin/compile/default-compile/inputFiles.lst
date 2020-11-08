@@ -1,8 +1,14 @@
-D:\FCFM\6 SEMESTRE\PW\REPOSITORIO\PW\NetBeans\DbConnection\src\main\java\com\pw\dbconnection\models\tbl_usuarios.java
-D:\FCFM\6 SEMESTRE\PW\REPOSITORIO\PW\NetBeans\DbConnection\src\main\java\com\pw\dbconnection\controllers\UsersController.java
-D:\FCFM\6 SEMESTRE\PW\REPOSITORIO\PW\NetBeans\DbConnection\src\main\java\com\pw\dbconnection\utils\DbConnection.java
-D:\FCFM\6 SEMESTRE\PW\REPOSITORIO\PW\NetBeans\DbConnection\src\main\java\com\pw\dbconnection\utils\FileUtils.java
-D:\FCFM\6 SEMESTRE\PW\REPOSITORIO\PW\NetBeans\DbConnection\src\main\java\com\pw\dbconnection\models\UserModel.java
-D:\FCFM\6 SEMESTRE\PW\REPOSITORIO\PW\NetBeans\DbConnection\src\main\java\com\pw\dbconnection\controllers\Controlador.java
-D:\FCFM\6 SEMESTRE\PW\REPOSITORIO\PW\NetBeans\DbConnection\src\main\java\com\pw\dbconnection\controllers\UsuarioController.java
-D:\FCFM\6 SEMESTRE\PW\REPOSITORIO\PW\NetBeans\DbConnection\src\main\java\com\pw\dbconnection\dao\UserDAO.java
+C:\Users\geraj\Desktop\FCFM\PW1\ProyectoFinal\PW\NetBeans\DbConnection\src\main\java\com\pw\dbconnection\dao\UserDAO.java
+C:\Users\geraj\Desktop\FCFM\PW1\ProyectoFinal\PW\NetBeans\DbConnection\src\main\java\com\pw\dbconnection\models\tbl_comentarios.java
+C:\Users\geraj\Desktop\FCFM\PW1\ProyectoFinal\PW\NetBeans\DbConnection\src\main\java\com\pw\dbconnection\models\tbl_imagenes.java
+C:\Users\geraj\Desktop\FCFM\PW1\ProyectoFinal\PW\NetBeans\DbConnection\src\main\java\com\pw\dbconnection\models\tbl_comentario_a_comentario.java
+C:\Users\geraj\Desktop\FCFM\PW1\ProyectoFinal\PW\NetBeans\DbConnection\src\main\java\com\pw\dbconnection\controllers\UsersController.java
+C:\Users\geraj\Desktop\FCFM\PW1\ProyectoFinal\PW\NetBeans\DbConnection\src\main\java\com\pw\dbconnection\models\tbl_categoria.java
+C:\Users\geraj\Desktop\FCFM\PW1\ProyectoFinal\PW\NetBeans\DbConnection\src\main\java\com\pw\dbconnection\models\tbl_usuarios.java
+C:\Users\geraj\Desktop\FCFM\PW1\ProyectoFinal\PW\NetBeans\DbConnection\src\main\java\com\pw\dbconnection\utils\FileUtils.java
+C:\Users\geraj\Desktop\FCFM\PW1\ProyectoFinal\PW\NetBeans\DbConnection\src\main\java\com\pw\dbconnection\models\UserModel.java
+C:\Users\geraj\Desktop\FCFM\PW1\ProyectoFinal\PW\NetBeans\DbConnection\src\main\java\com\pw\dbconnection\utils\DbConnection.java
+C:\Users\geraj\Desktop\FCFM\PW1\ProyectoFinal\PW\NetBeans\DbConnection\src\main\java\com\pw\dbconnection\models\tbl_videos.java
+C:\Users\geraj\Desktop\FCFM\PW1\ProyectoFinal\PW\NetBeans\DbConnection\src\main\java\com\pw\dbconnection\models\tbl_marcadas.java
+C:\Users\geraj\Desktop\FCFM\PW1\ProyectoFinal\PW\NetBeans\DbConnection\src\main\java\com\pw\dbconnection\controllers\UsuarioController.java
+C:\Users\geraj\Desktop\FCFM\PW1\ProyectoFinal\PW\NetBeans\DbConnection\src\main\java\com\pw\dbconnection\models\tbl_noticia.java

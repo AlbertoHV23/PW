@@ -20,7 +20,7 @@
   </head>
   <body>
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-            <a class="navbar-brand" href="Principal.html"><img src="assets/IMG/Optimizadas/logo.png" width="100px" alt="Logo"></a>
+            <a class="navbar-brand" href="principal.jsp"><img src="assets/IMG/Optimizadas/logo.png" width="100px" alt="Logo"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -28,7 +28,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                  <a class="nav-link" href="Principal.html"><i class="fas fa-home"></i> Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="principal.jsp"><i class="fas fa-home"></i> Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -42,17 +42,17 @@
                   </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/HTML/LoginRes.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+                    <a class="nav-link" href="login.jsp"><i class="fas fa-sign-in-alt"></i> Login</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-user-circle"></i> Profile
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="/HTML/Perfil.html">Profile</a>
-                      <a class="dropdown-item" href="/HTML/Crear.html">Create News</a>
-                      <a class="dropdown-item" href="/HTML/Publicadas.html">Published</a>
-                      <a class="dropdown-item" href="/HTML/Marcados.html">Marked</a>
+                      <a class="dropdown-item" href="perfil.jsp">Profile</a>
+                      <a class="dropdown-item" href="crear.jsp">Create News</a>
+                      <a class="dropdown-item" href="publicadas.jsp">Published</a>
+                      <a class="dropdown-item" href="marcados.jsp">Marked</a>
                       <a class="dropdown-item" href="#">Notifications<span class="badge badge-light">9</span></a>
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href="#">Sign off</a>
@@ -81,23 +81,23 @@
                 </ol>
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                    <a href="/HTML/Noticia.html"><img src="assets/IMG/Optimizadas/ratched.jpg" class="d-block w-100" alt="..."></a>
+                    <a href="noticia.jsp"><img src="assets/IMG/Optimizadas/ratched.jpg" class="d-block w-100" alt="..."></a>
                     <div class="carousel-caption d-none d-md-block">
-                        <a href="/HTML/Noticia.html"><h5>Title of the news</h5></a>
+                        <a href="f"><h5>Title of the news</h5></a>
                       <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
                     </div>
                   </div>
                   <div class="carousel-item">
-                    <a href="/HTML/Noticia.html"><img src="assets/IMG/Optimizadas/fornite.png" class="d-block w-100" alt="..."></a>
+                    <a href="noticia.jsp"><img src="assets/IMG/Optimizadas/fornite.png" class="d-block w-100" alt="..."></a>
                     <div class="carousel-caption d-none d-md-block">
-                        <a href="/HTML/Noticia.html"><h5>Title of the news</h5></a>
+                        <a href="noticia.jsp"><h5>Title of the news</h5></a>
                       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     </div>
                   </div>
                   <div class="carousel-item">
-                    <a href="/HTML/Noticia.html"><img src="assets/IMG/Optimizadas/odessey.jpg" class="d-block w-100" alt="..."></a>
+                    <a href="noticia.jsp"><img src="assets/IMG/Optimizadas/odessey.jpg" class="d-block w-100" alt="..."></a>
                     <div class="carousel-caption d-none d-md-block">
-                        <a href="/HTML/Noticia.html"><h5>Title of the news</h5></a>
+                        <a href="noticia.jsp"><h5>Title of the news</h5></a>
                       <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
                     </div>
                   </div>
@@ -129,31 +129,31 @@
                         <div class="row">
                           <div class="col-sm-4">
                             <div class="card bg-dark mb-2" style="width: 18rem;">
-                              <a href="/HTML/Noticia.html"><img src="assets/IMG/Optimizadas/ratched.jpg" class="card-img-top" alt="..."></a>
+                              <a href="noticia.jsp"><img src="assets/IMG/Optimizadas/ratched.jpg" class="card-img-top" alt="..."></a>
                               <div class="card-body">
                                 <h5 class="card-title">Title of the news</h5>
                                 <p class="card-text">Short description: Here is the short description of the news.</p>
-                                <a href="/HTML/Noticia.html" class="btn btn-primary">See news</a>
+                                <a href="noticia.jsp" class="btn btn-primary">See news</a>
                               </div>
                             </div>
                           </div>
                           <div class="col-sm-4">
                             <div class="card bg-dark mb-2" style="width: 18rem;">
-                              <a href="/HTML/Noticia.html"><img src="assets/IMG/Optimizadas/ratched.jpg" class="card-img-top" alt="..."></a>
+                              <a href="noticia.jsp"><img src="assets/IMG/Optimizadas/ratched.jpg" class="card-img-top" alt="..."></a>
                               <div class="card-body">
                                 <h5 class="card-title">Title of the news</h5>
                                 <p class="card-text">Short description: Here is the short description of the news.</p>
-                                <a href="/HTML/Noticia.html" class="btn btn-primary">See news</a>
+                                <a href="noticia.jsp" class="btn btn-primary">See news</a>
                               </div>
                             </div>
                           </div>
                           <div class="col-sm-4">
                             <div class="card bg-dark mb-2" style="width: 18rem;">
-                              <a href="/HTML/Noticia.html"><img src="assets/IMG/Optimizadas/ratched.jpg" class="card-img-top" alt="..."></a>
+                              <a href="noticia.jsp"><img src="assets/IMG/Optimizadas/ratched.jpg" class="card-img-top" alt="..."></a>
                               <div class="card-body">
                                 <h5 class="card-title">Title of the news</h5>
                                 <p class="card-text">Short description: Here is the short description of the news.</p>
-                                <a href="/HTML/Noticia.html" class="btn btn-primary">See news</a>
+                                <a href="noticia.jsp" class="btn btn-primary">See news</a>
                               </div>
                             </div>
                           </div>
@@ -169,31 +169,31 @@
                         <div class="row">
                           <div class="col-sm-4">
                             <div class="card bg-dark mb-2" style="width: 18rem;">
-                              <a href="/HTML/Noticia.html"><img src="assets/IMG/Optimizadas/fornite.png" class="card-img-top" alt="..."></a>
+                              <a href="noticia.jsp"><img src="assets/IMG/Optimizadas/fornite.png" class="card-img-top" alt="..."></a>
                               <div class="card-body">
                                 <h5 class="card-title">Title of the news</h5>
                                 <p class="card-text">Short description: Here is the short description of the news.</p>
-                                <a href="/HTML/Noticia.html" class="btn btn-primary">See news</a>
+                                <a href="noticia.jsp" class="btn btn-primary">See news</a>
                               </div>
                             </div>
                           </div>
                           <div class="col-sm-4">
                             <div class="card bg-dark mb-2" style="width: 18rem;">
-                              <a href="/HTML/Noticia.html"><img src="assets/IMG/Optimizadas/fornite.png" class="card-img-top" alt="..."></a>
+                              <a href="noticia.jsp"><img src="assets/IMG/Optimizadas/fornite.png" class="card-img-top" alt="..."></a>
                               <div class="card-body">
                                 <h5 class="card-title">Title of the news</h5>
                                 <p class="card-text">Short description: Here is the short description of the news.</p>
-                                <a href="/HTML/Noticia.html" class="btn btn-primary">See news</a>
+                                <a href="noticia.jsp" class="btn btn-primary">See news</a>
                               </div>
                             </div>
                           </div>
                           <div class="col-sm-4">
                             <div class="card bg-dark mb-2" style="width: 18rem;">
-                              <a href="/HTML/Noticia.html"><img src="assets/IMG/Optimizadas/fornite.png" class="card-img-top" alt="..."></a>
+                              <a href="noticia.jsp"><img src="assets/IMG/Optimizadas/fornite.png" class="card-img-top" alt="..."></a>
                               <div class="card-body">
                                 <h5 class="card-title">Title of the news</h5>
                                 <p class="card-text">Short description: Here is the short description of the news.</p>
-                                <a href="/HTML/Noticia.html" class="btn btn-primary">See news</a>
+                                <a href="noticia.jsp" class="btn btn-primary">See news</a>
                               </div>
                             </div>
                           </div>
@@ -209,31 +209,31 @@
                         <div class="row">
                           <div class="col-sm-4">
                             <div class="card bg-dark mb-2" style="width: 18rem;">
-                              <a href="/HTML/Noticia.html"><img src="assets/IMG/Optimizadas/odessey.jpg" class="card-img-top" alt="..."></a>
+                              <a href="noticia.jsp"><img src="assets/IMG/Optimizadas/odessey.jpg" class="card-img-top" alt="..."></a>
                               <div class="card-body">
                                 <h5 class="card-title">Title of the news</h5>
                                 <p class="card-text">Short description: Here is the short description of the news.</p>
-                                <a href="/HTML/Noticia.html" class="btn btn-primary">See news</a>
+                                <a href="noticia.jsp" class="btn btn-primary">See news</a>
                               </div>
                             </div>
                           </div>
                           <div class="col-sm-4">
                             <div class="card bg-dark mb-2" style="width: 18rem;">
-                              <a href="/HTML/Noticia.html"><img src="assets/IMG/Optimizadas/odessey.jpg" class="card-img-top" alt="..."></a>
+                              <a href="noticia.jsp"><img src="assets/IMG/Optimizadas/odessey.jpg" class="card-img-top" alt="..."></a>
                               <div class="card-body">
                                 <h5 class="card-title">Title of the news</h5>
                                 <p class="card-text">Short description: Here is the short description of the news.</p>
-                                <a href="/HTML/Noticia.html" class="btn btn-primary">See news</a>
+                                <a href="noticia.jsp" class="btn btn-primary">See news</a>
                               </div>
                             </div>
                           </div>
                           <div class="col-sm-4">
                             <div class="card bg-dark mb-2" style="width: 18rem;">
-                              <a href="/HTML/Noticia.html"><img src="assets/IMG/Optimizadas/odessey.jpg" class="card-img-top" alt="..."></a>
+                              <a href="noticia.jsp"><img src="assets/IMG/Optimizadas/odessey.jpg" class="card-img-top" alt="..."></a>
                               <div class="card-body">
                                 <h5 class="card-title">Title of the news</h5>
                                 <p class="card-text">Short description: Here is the short description of the news.</p>
-                                <a href="/HTML/Noticia.html" class="btn btn-primary">See news</a>
+                                <a href="noticia.jsp" class="btn btn-primary">See news</a>
                               </div>
                             </div>
                           </div>

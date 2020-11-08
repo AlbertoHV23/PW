@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://kit.fontawesome.com/64d58efce2.js"crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="LoginRes.css">
+    <link rel="stylesheet" href="assets/CSS/LoginRes.css">
     <title>Nuevo Login</title>
   </head>
   <body>

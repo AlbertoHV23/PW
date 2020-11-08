@@ -43,7 +43,7 @@ public class UsuarioController extends HttpServlet {
         
        
          // Enviamos el request a index.jsp con la informacion
-        request.getRequestDispatcher("login.jsp").forward(request, response);
+        request.getRequestDispatcher("principal.jsp").forward(request, response);
 }
     
 

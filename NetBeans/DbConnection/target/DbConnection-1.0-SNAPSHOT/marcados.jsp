@@ -1,7 +1,7 @@
 <%-- 
-    Document   : TEST
-    Created on : 7/11/2020, 04:14:20 PM
-    Author     : alber
+    Document   : marcados
+    Created on : 7/11/2020, 05:44:54 PM
+    Author     : geraj
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -15,12 +15,12 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/64d58efce2.js"crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="assets/CSS/Crear.css">
+    <link rel="stylesheet" href="assets/CSS/Marcados.css">
     <title>Time to play</title>
   </head>
   <body>
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-            <a class="navbar-brand" href="/HTML/Principal.html"><img src="/IMG/Optimizadas/logo.png" width="100px" alt="Logo"></a>
+            <a class="navbar-brand" href="principal.jsp"><img src="assets/IMG/Optimizadas/logo.png" width="100px" alt="Logo"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -28,7 +28,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                  <a class="nav-link" href="/HTML/Principal.html"><i class="fas fa-home"></i> Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="principal.jsp"><i class="fas fa-home"></i> Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -42,17 +42,17 @@
                   </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/HTML/LoginRes.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+                    <a class="nav-link" href="login.jsp"><i class="fas fa-sign-in-alt"></i> Login</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-user-circle"></i> Profile
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="/HTML//Perfil.html">Profile</a>
-                      <a class="dropdown-item" href="/HTML/Crear.html">Create News</a>
-                      <a class="dropdown-item" href="/HTML/Publicadas.html">Published</a>
-                      <a class="dropdown-item" href="/HTML/Marcados.html">Marked</a>
+                      <a class="dropdown-item" href="perfil.jsp">Profile</a>
+                      <a class="dropdown-item" href="crear.jsp">Create News</a>
+                      <a class="dropdown-item" href="publicadas.jsp">Published</a>
+                      <a class="dropdown-item" href="marcados.jsp">Marked</a>
                       <a class="dropdown-item" href="#">Notifications<span class="badge badge-light">9</span></a>
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href="#">Sign off</a>
@@ -67,56 +67,59 @@
         </nav>
 
     <main>
-        <div class="container crear">
-          
-          <div class="col-md-3 mx-auto mb-3 mt-3 separador-create">
-            <h6 class="text-uppercase text-center text-white mt-0 font-weight-bold">create news</h6>
-            <hr class="bg-info text-center mt-0 mx-auto">
-        </div>
+        <div class="container marcadas text-center">
+            <div class="col-md-3 mx-auto mb-3 mt-3 separador-Marked">
+                <h6 class="text-uppercase text-center text-white mt-0 font-weight-bold">marked</h6>
+                <hr class="bg-info text-center mt-0 mx-auto">
+            </div>
 
-          <form class="mb-3 mt-3">
-            <div class="imagenes mt-3 mb-3">
-              <input type="file" id="real-file" hidden="hidden" />
-              <button type="button" id="custom-button">CHOOSE A FILE</button>
-              <span id="custom-text">No file chosen, yet.</span>
-  
-              <input type="file" id="real-fileTwo" hidden="hidden" />
-              <button type="button" id="custom-buttonTwo">CHOOSE A FILE</button>
-              <span id="custom-textTwo">No file chosen, yet.</span>
-  
-              <input type="file" id="real-fileThree" hidden="hidden" />
-              <button type="button" id="custom-buttonThree">CHOOSE A FILE</button>
-              <span id="custom-textThree">No file chosen, yet.</span>
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="card mb-3 bg-dark" style="width: 18rem;">
+                  <img class="card-img-top" src="/IMG/Optimizadas/ratched.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">Title of the news</h5>
+                    <p class="card-text">Short description:</p>
+                    <p class="card-text">Here is the short description of the news.</p>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Category</li>
+                  </ul>
+                  <a href="" class="btn btn-primary mt-1 mb-1">Uncheck</a>
+                  <a href="noticia.jsp" class="btn btn-primary">See news</a>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="card mb-3 bg-dark" style="width: 18rem;">
+                <img class="card-img-top" src="/IMG/Optimizadas/ratched.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Title of the news</h5>
+                  <p class="card-text">Short description:</p>
+                  <p class="card-text">Here is the short description of the news.</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Category</li>
+                </ul>
+                <a href="" class="btn btn-primary mt-1 mb-1">Uncheck</a>
+                <a href="noticia.jsp" class="btn btn-primary">See news</a>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="card mb-3 bg-dark" style="width: 18rem;">
+                <img class="card-img-top" src="/IMG/Optimizadas/ratched.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Title of the news</h5>
+                  <p class="card-text">Short description:</p>
+                  <p class="card-text">Here is the short description of the news.</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Category</li>
+                </ul>
+                <a href="" class="btn btn-primary mt-1 mb-1">Uncheck</a>
+                <a href="noticia.jsp" class="btn btn-primary">See news</a>
+                </div>
+              </div>
             </div>
-           
-            <div class="form-group">
-              <label for="exampleFormControlInput1">Enter the url of the video:</label>
-              <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Example: https://www.youtube.com/watch?v=-au1ZG2BnyU">
-            </div>
-            <div class="form-group">
-              <label for="exampleFormControlInput1">Title of the news:</label>
-              <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Title">
-            </div>
-            <div class="form-group">
-              <label for="exampleFormControlSelect1">Category:</label>
-              <select class="form-control" id="exampleFormControlSelect1">
-                <option>Shooter</option>
-                <option>Adventure</option>
-                <option>FPS</option>
-                <option>ROL</option>
-                <option>Horror</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="FormControlTextarea1">Short description:</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-            </div>
-            <div class="form-group">
-              <label for="FormControlTextarea2">Long description:</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Published</button>
-          </form>
         </div>
     </main>
   
@@ -166,6 +169,5 @@
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-    <script src="/JS/file.js"></script>
   </body>
 </html>
