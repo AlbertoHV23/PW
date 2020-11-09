@@ -80,7 +80,7 @@ public class UsuarioController extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+        throws ServletException, IOException {
         String name = request.getParameter("username");
         String email = request.getParameter("email");
         String password = request.getParameter("password");

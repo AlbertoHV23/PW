@@ -24,6 +24,12 @@ public class tbl_noticia {
     
     public tbl_noticia() {
     }
+
+    public tbl_noticia(String titulo, String descripcion_corta, String descripcion_larga) {
+        this.titulo = titulo;
+        this.descripcion_corta = descripcion_corta;
+        this.descripcion_larga = descripcion_larga;
+    }
     
     public tbl_noticia(int id_noticia, String titulo, String descripcion_larga, String fecha, String hora, boolean aprovado, int valoracion_like, int valoracion_Nolike, int fk_usuarios, int fk_categoria) {
         this.id_noticia = id_noticia;

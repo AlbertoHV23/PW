@@ -74,7 +74,7 @@
             <hr class="bg-info text-center mt-0 mx-auto">
         </div>
 
-          <form class="mb-3 mt-3">
+          <form class="mb-3 mt-3" action="./PublicarNoticia" method="POST">
             <div class="imagenes mt-3 mb-3">
               <input type="file" id="real-file" hidden="hidden" />
               <button type="button" id="custom-button">CHOOSE A FILE</button>
@@ -91,15 +91,15 @@
            
             <div class="form-group">
               <label for="exampleFormControlInput1">Enter the url of the video:</label>
-              <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Example: https://www.youtube.com/watch?v=-au1ZG2BnyU">
+              <input type="text" class="form-control" id="video" placeholder="Example: https://www.youtube.com/watch?v=-au1ZG2BnyU">
             </div>
             <div class="form-group">
               <label for="exampleFormControlInput1">Title of the news:</label>
-              <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Title">
+              <input type="text" class="form-control"  name="titulo" id="titulo" placeholder="Title">
             </div>
             <div class="form-group">
               <label for="exampleFormControlSelect1">Category:</label>
-              <select class="form-control" id="exampleFormControlSelect1">
+              <select class="form-control" id="categoria" name="categoria">
                 <option>Shooter</option>
                 <option>Adventure</option>
                 <option>FPS</option>
@@ -109,11 +109,11 @@
             </div>
             <div class="form-group">
               <label for="FormControlTextarea1">Short description:</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              <textarea class="form-control" name="des_corta" id="des_corta" rows="3"></textarea>
             </div>
             <div class="form-group">
               <label for="FormControlTextarea2">Long description:</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              <textarea class="form-control" name="descripcion" id="descripcion" rows="3"></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Published</button>
           </form>

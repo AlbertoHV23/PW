@@ -5,8 +5,10 @@ D:\FCFM\6 SEMESTRE\PW\REPOSITORIO\PW\NetBeans\DbConnection\src\main\java\com\pw\
 D:\FCFM\6 SEMESTRE\PW\REPOSITORIO\PW\NetBeans\DbConnection\src\main\java\com\pw\dbconnection\models\tbl_marcadas.java
 D:\FCFM\6 SEMESTRE\PW\REPOSITORIO\PW\NetBeans\DbConnection\src\main\java\com\pw\dbconnection\models\tbl_comentarios.java
 D:\FCFM\6 SEMESTRE\PW\REPOSITORIO\PW\NetBeans\DbConnection\src\main\java\com\pw\dbconnection\models\tbl_comentario_a_comentario.java
+D:\FCFM\6 SEMESTRE\PW\REPOSITORIO\PW\NetBeans\DbConnection\src\main\java\com\pw\dbconnection\controllers\PublicarNoticia.java
 D:\FCFM\6 SEMESTRE\PW\REPOSITORIO\PW\NetBeans\DbConnection\src\main\java\com\pw\dbconnection\utils\DbConnection.java
 D:\FCFM\6 SEMESTRE\PW\REPOSITORIO\PW\NetBeans\DbConnection\src\main\java\com\pw\dbconnection\models\tbl_noticia.java
+D:\FCFM\6 SEMESTRE\PW\REPOSITORIO\PW\NetBeans\DbConnection\src\main\java\com\pw\dbconnection\dao\noticiaDAO.java
 D:\FCFM\6 SEMESTRE\PW\REPOSITORIO\PW\NetBeans\DbConnection\src\main\java\com\pw\dbconnection\models\tbl_imagenes.java
 D:\FCFM\6 SEMESTRE\PW\REPOSITORIO\PW\NetBeans\DbConnection\src\main\java\com\pw\dbconnection\models\tbl_videos.java
 D:\FCFM\6 SEMESTRE\PW\REPOSITORIO\PW\NetBeans\DbConnection\src\main\java\com\pw\dbconnection\models\tbl_categoria.java
