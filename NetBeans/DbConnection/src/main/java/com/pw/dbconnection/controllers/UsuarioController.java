@@ -8,6 +8,7 @@ package com.pw.dbconnection.controllers;
 import com.pw.dbconnection.dao.UserDAO;
 import com.pw.dbconnection.models.tbl_usuarios;
 import com.pw.dbconnection.utils.FileUtils;
+import com.pw.dbconnection.models.tbl_categoria;
 
 import java.io.File;
 import java.io.IOException;
@@ -21,6 +22,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
+
 
 /**
  *
@@ -44,8 +46,8 @@ public class UsuarioController extends HttpServlet {
                 String password = request.getParameter("contra");
                 String rol = request.getParameter("tipo");
                 System.out.println(rol);
-
-
+                
+                List<tbl_categoria> categorias = UserDAO.llenarcategoria();
                 tbl_usuarios retorno = UserDAO.login(name,password,rol);
                 
                 if(retorno.getId_usuario() != 0){
@@ -89,7 +91,8 @@ public class UsuarioController extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String rol = request.getParameter("rol");
-
+       
+       
         // String rol = "Normal";
         tbl_usuarios user = new tbl_usuarios(rol,name,email,password);
         UserDAO.insertUsuarios(user);

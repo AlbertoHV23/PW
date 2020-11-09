@@ -14,6 +14,10 @@ public class tbl_categoria {
     private String nombre;
     private String descripcion;
 
+    public tbl_categoria(String nombre) {
+        this.nombre = nombre;
+    }
+
     public int getId_categoria() {
         return id_categoria;
     }

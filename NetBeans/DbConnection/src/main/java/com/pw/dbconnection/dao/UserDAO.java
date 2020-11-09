@@ -7,6 +7,7 @@ package com.pw.dbconnection.dao;
 
 import com.pw.dbconnection.models.UserModel;
 import com.pw.dbconnection.models.tbl_usuarios;
+import com.pw.dbconnection.models.tbl_categoria;
 import com.pw.dbconnection.utils.DbConnection;
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -131,6 +132,29 @@ public class UserDAO {
             System.out.println(ex.getMessage());
         } finally {
             return users;
+        }
+    }
+
+    public static List<tbl_categoria> llenarcategoria() {
+        List<tbl_categoria> categoria = new ArrayList<>();
+        try {
+            Connection con = DbConnection.getConnection();
+            CallableStatement statement = con.prepareCall("SELECT * FROM tbl_categoria");
+            ResultSet resultSet = statement.executeQuery();
+            // Si el resultSet tiene resultados lo recorremos
+            while (resultSet.next()) {
+                // Obtenemos el valor del result set en base al nombre de la
+                // columna
+                String name = resultSet.getString("nombre");
+                System.out.println(name);
+         
+                // Agregamos el usuario a la lista
+                categoria.add(new tbl_categoria(name));
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            return categoria;
         }
     }
 }

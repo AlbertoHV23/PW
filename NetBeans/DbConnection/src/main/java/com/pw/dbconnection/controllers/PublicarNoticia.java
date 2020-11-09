@@ -22,6 +22,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  *
@@ -88,9 +91,13 @@ public class PublicarNoticia extends HttpServlet {
         // String rol = request.getParameter("rol");
         String categoria = request.getParameter("categoria");
         // String categoria = "shooter";
-        
+        Date date = new Date();
+        DateFormat hourFormat = new SimpleDateFormat("HH:mm:ss");
+        String hora = hourFormat.format(date);
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        String fecha =dateFormat.format(date);
 
-        tbl_noticia noticia = new tbl_noticia(titulo,des,descripcion);
+        tbl_noticia noticia = new tbl_noticia(titulo,des,descripcion,fecha,hora);
      
         noticiaDAO.insertNoticia(noticia);
         response.sendRedirect("crear.jsp");

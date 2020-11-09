@@ -46,8 +46,8 @@ public class noticiaDAO {
             statement.setString(2, data.getTitulo());
             statement.setString(3, data.getDescripcion_corta());
             statement.setString(4, data.getDescripcion_larga());
-            statement.setString(5, "null");
-            statement.setString(6, "null");
+            statement.setString(5, data.getFecha());
+            statement.setString(6, data.getHora());
             statement.setBoolean(7, false);
             statement.setInt(8, 0);
             statement.setInt(9, 0);
