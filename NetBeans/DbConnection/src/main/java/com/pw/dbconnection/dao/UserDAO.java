@@ -81,13 +81,15 @@ public class UserDAO {
         return 0;
     }
 
-    public static tbl_usuarios login(String usua,String contra){
+    public static tbl_usuarios login(String usua,String contra, String rol){
         tbl_usuarios retorno =new tbl_usuarios();
         try {
             Connection con = DbConnection.getConnection();
-            CallableStatement statement = con.prepareCall("call Sp_login(?,?);");
+            CallableStatement statement = con.prepareCall("call Sp_login(?,?,?);");
             statement.setString(1, usua);
             statement.setString(2, contra);
+            statement.setString(3, rol);
+
             ResultSet resultSet = statement.executeQuery();
             // Si el resultSet tiene resultados lo recorremos
             while (resultSet.next()) {

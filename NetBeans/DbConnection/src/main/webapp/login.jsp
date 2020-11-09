@@ -22,7 +22,7 @@
           <form action="./UsuarioController" method="Get" enctype="multipart/form-data" class="sign-in-form">
             <h2 class="title">Inicia sesión</h2>
             <label for="tipo">Tipo:</label>
-              <select name="tipo" id="tipo" form="sign-in-form" class="selector">
+              <select name="tipo" id="tipo"  class="selector">
                 <option value="Normal" selected>Normal</option>
                 <option value="Creador">Creador de contenido</option>
                 <option value="Moderador">Moderador</option>
@@ -53,11 +53,11 @@
               </a>
             </div>
           </form>
-          
+          <!-- REGISTRO -->
           <form action="./UsuarioController" method="POST" enctype="multipart/form-data" class="sign-up-form">
             <h2 class="title">Registro</h2>
             <label for="tipo">Tipo:</label>
-              <select name="tipo" id="tipo" form="sign-in-form" class="selector">
+              <select class="selector" name="rol" id="rol">
                 <option value="Normal" selected>Normal</option>
                 <option value="Creador">Creador de contenido</option>
                 <option value="Moderador">Moderador</option>

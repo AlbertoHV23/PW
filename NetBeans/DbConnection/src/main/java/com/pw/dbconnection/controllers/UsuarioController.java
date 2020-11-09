@@ -42,7 +42,11 @@ public class UsuarioController extends HttpServlet {
             throws ServletException, IOException {
                 String name = request.getParameter("usuario");
                 String password = request.getParameter("contra");
-                tbl_usuarios retorno = UserDAO.login(name,password);
+                String rol = request.getParameter("tipo");
+                System.out.println(rol);
+
+
+                tbl_usuarios retorno = UserDAO.login(name,password,rol);
                 
                 if(retorno.getId_usuario() != 0){
                      System.out.println("LOGIN EXITOSO");
@@ -84,8 +88,9 @@ public class UsuarioController extends HttpServlet {
         String name = request.getParameter("username");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        // String rol = request.getParameter("rol");
-        String rol = "Normal";
+        String rol = request.getParameter("rol");
+
+        // String rol = "Normal";
         tbl_usuarios user = new tbl_usuarios(rol,name,email,password);
         UserDAO.insertUsuarios(user);
         response.sendRedirect("login.jsp");
