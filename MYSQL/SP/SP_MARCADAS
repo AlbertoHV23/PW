@@ -1,0 +1,36 @@
+CREATE PROCEDURE `Sp_marcadas_insert` (
+	in id_marcadas	int,
+    in fk_usuario	int ,
+	in fk_noticia	int)
+BEGIN
+INSERT INTO `timetoplay`.`tbl_marcadas`
+(`fk_usuario`,
+`fk_noticia`)
+VALUES
+(fk_usuario,
+fk_noticia);
+
+END
+
+
+CREATE PROCEDURE `Sp_marcadas_update`(
+	in id_marcadas	int,
+    in fk_usuario	int ,
+	in fk_noticia	int)
+BEGIN
+UPDATE `tbl_marcadas`
+SET
+`id_marcadas` = id_marcadas,
+`fk_usuario` = fk_usuario,
+`fk_noticia` = fk_noticia
+WHERE `id_marcadas` = id_marcadas;
+
+END
+
+CREATE PROCEDURE `Sp_marcadas_delete` (
+in id int)
+BEGIN
+DELETE FROM `timetoplay`.`tbl_marcadas`
+WHERE `id_marcadas` = id;
+
+END

@@ -1,0 +1,30 @@
+CREATE PROCEDURE `Sp_videos_insert` (
+	in id_video	int,
+    in extencion	varchar(100) ,
+    in fk_noticia	int )
+BEGIN
+INSERT INTO `tbl_videos`
+(
+`extencion`,
+`fk_noticia`)
+VALUES
+(
+extencion,
+fk_noticia);
+
+END
+
+
+CREATE PROCEDURE `Sp_videos_update` (
+	in id_video	int,
+    in extencion	varchar(100) ,
+    in fk_noticia	int )
+BEGIN
+UPDATE `tbl_videos`
+SET
+`id_video` = id_video,
+`extencion` =extencion,
+`fk_noticia` =fk_noticia
+WHERE `id_video` = id_video;
+
+END

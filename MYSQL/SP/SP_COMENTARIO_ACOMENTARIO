@@ -1,0 +1,45 @@
+CREATE PROCEDURE `Sp_comentarioacomentario_insert` (
+	in id_sub_comentario   int ,
+    in fk_comentario       int ,
+    in comentario          varchar(1000) ,
+    in aprovado            bool
+    )
+BEGIN
+INSERT INTO `tbl_comentario_a_comentario`
+(
+`fk_comentario`,
+`comentario`,
+`aprovado`)
+VALUES
+(
+fk_comentario,
+comentario,
+aprovado);
+
+END
+
+
+CREATE PROCEDURE `Sp_comentarioacomentario_update` (
+	in id_sub_comentario   int ,
+    in fk_comentario       int ,
+    in comentario          varchar(1000) ,
+    in aprovado            bool
+    )
+BEGIN
+UPDATE `tbl_comentario_a_comentario`
+SET
+`id_sub_comentario` = id_sub_comentario,
+`fk_comentario` =fk_comentario,
+`comentario` = comentario,
+`aprovado` = aprovado
+WHERE `id_sub_comentario` = id_sub_comentario;
+
+END
+
+CREATE PROCEDURE `Sp_comentarioacomentario_delete` (
+in id int)
+BEGIN
+DELETE FROM `tbl_comentario_a_comentario`
+WHERE id_sub_comentario = id ;
+
+END

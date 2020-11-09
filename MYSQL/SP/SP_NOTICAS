@@ -1,0 +1,86 @@
+/*TODOS LOS SP DE NOTICIAS*/
+/*INSERT*/
+CREATE PROCEDURE `Sp_noticias_insert` (
+	in id_noticia         	int,
+	in titulo				varchar(50) ,
+    in descripcion_corta	varchar(250),
+    in descripcion_larga	varchar(2500),
+    in fecha				varchar(30),
+    in hora					varchar(20),
+    in aprovado				bool,
+    in valoracion_like 		int,
+    in valoracion_Nolike 	int,
+    in fk_usuarios			int,
+    in fk_categoria        	int
+)
+BEGIN
+INSERT INTO `timetoplay`.`tbl_noticia`
+(`titulo`,
+`descripcion_corta`,
+`descripcion_larga`,
+`fecha`,
+`hora`,
+`aprovado`,
+`valoracion_like`,
+`valoracion_Nolike`,
+`fk_usuarios`,
+`fk_categoria`)
+VALUES
+(id_noticia,
+titulo,
+descripcion_corta,
+descripcion_larga,
+fecha,
+hora,
+aprovado,
+valoracion_like,
+valoracion_Nolike,
+fk_usuarios,
+fk_categoria);
+
+END
+
+/*UPDATE*/
+CREATE PROCEDURE `Sp_noticias_update` (
+	in id_noticia         	int,
+	in titulo				varchar(50) ,
+    in descripcion_corta	varchar(250),
+    in descripcion_larga	varchar(2500),
+    in fecha				varchar(30),
+    in hora					varchar(20),
+    in aprovado				bool,
+    in valoracion_like 		int,
+    in valoracion_Nolike 	int,
+    in fk_usuarios			int,
+    in fk_categoria        	int
+)
+BEGIN
+UPDATE `timetoplay`.`tbl_noticia`
+SET
+`id_noticia` = id_noticia,
+`titulo` = titulo,
+`descripcion_corta` =descripcion_corta,
+`descripcion_larga` =descripcion_larga,
+`fecha` = fecha,
+`hora` = hora,
+`aprovado` =aprovado,
+`valoracion_like` =valoracion_like,
+`valoracion_Nolike` = valoracion_Nolike,
+`fk_usuarios` =fk_usuarios,
+`fk_categoria` = fk_categoria
+WHERE `id_noticia` = expr;
+
+END
+
+
+
+/*DELETE*/
+
+CREATE PROCEDURE `Sp_noticias_delete` (
+in id int
+)
+BEGIN
+DELETE FROM tbl_noticia
+WHERE id_noticia = id;
+
+END

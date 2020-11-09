@@ -1,0 +1,62 @@
+CREATE PROCEDURE `Sp_comentarios_insert` (
+	in id_comentario      	 int,
+    in comentario		   	 varchar(1000),
+	in fk_usuario		     int,
+    in fk_noticia		     int,
+    in valoracion_like 		 int,
+    in valoracion_Nolike 	 int,
+    in aprovado			bool
+    )
+BEGIN
+INSERT INTO `tbl_comentarios`
+(
+`comentario`,
+`fk_usuario`,
+`fk_noticia`,
+`valoracion_like`,
+`valoracion_Nolike`,
+`aprovado`)
+VALUES
+(
+comentario,
+fk_usuario,
+fk_noticia,
+valoracion_like,
+valoracion_Nolike,
+aprovado);
+
+END
+
+
+
+CREATE PROCEDURE `Sp_comentarios_update` (
+	in id      	 int,
+    in comentario		   	 varchar(1000),
+	in fk_usuario		     int,
+    in fk_noticia		     int,
+    in valoracion_like 		 int,
+    in valoracion_Nolike 	 int,
+    in aprovado			bool
+    )
+BEGIN
+UPDATE `timetoplay`.`tbl_comentarios`
+SET
+`id_comentario` =id_comentario,
+`comentario` =comentario,
+`fk_usuario` = fk_usuario,
+`fk_noticia` = fk_noticia,
+`valoracion_like` = valoracion_like,
+`valoracion_Nolike` = valoracion_Nolike,
+`aprovado` =aprovado
+WHERE `id_comentario` = id;
+
+END
+
+
+CREATE PROCEDURE `Sp_comentarios_delete` (
+in id int)
+BEGIN
+DELETE FROM tbl_comentarios
+WHERE id_comentario = id;
+
+END

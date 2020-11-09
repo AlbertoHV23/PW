@@ -1,0 +1,31 @@
+CREATE PROCEDURE `Sp_imagen_insert` (
+	in id_imagen	int,
+    in extencion	varchar(100) ,
+    in fk_noticia	int )
+BEGIN
+INSERT INTO `timetoplay`.`tbl_imagenes`
+(
+`extencion`,
+`fk_noticia`)
+VALUES
+(
+extencion,
+fk_noticia);
+
+END
+
+
+CREATE PROCEDURE `Sp_imagen_update` (
+	in id_imagen	int,
+    in extencion	varchar(100) ,
+    in fk_noticia	int )
+BEGIN
+UPDATE `tbl_imagenes`
+SET
+`id_imagen` = id_imagen,
+`extencion` = extencion,
+`fk_noticia` = fk_noticia
+WHERE `id_imagen` = id_imagen;
+
+END
+

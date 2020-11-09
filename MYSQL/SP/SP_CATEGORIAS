@@ -1,0 +1,39 @@
+CREATE PROCEDURE `Sp_categoria_insert`(
+    in nombre			varchar(50),
+    in descripcion		varchar(200)
+)
+BEGIN
+INSERT INTO `tbl_categoria`
+(`nombre`,
+`descripcion`)
+VALUES
+(nombre,
+descripcion);
+
+END
+
+
+CREATE PROCEDURE `Sp_categoria_update` (
+ in id				int,
+ in nombre			varchar(50),
+ in descripcion		varchar(200)
+)
+BEGIN
+UPDATE `timetoplay`.`tbl_categoria`
+SET
+`id_categoria` =id_categoria,
+`nombre` = nombre,
+`descripcion` = descripcion
+WHERE `id_categoria` = id;
+
+END
+
+
+CREATE PROCEDURE `Sp_categoria_delete` (
+in id int
+)
+BEGIN
+DELETE FROM `tbl_categoria`
+WHERE id_categoria = id;
+
+END

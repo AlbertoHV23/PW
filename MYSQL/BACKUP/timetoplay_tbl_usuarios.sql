@@ -38,7 +38,7 @@ CREATE TABLE `tbl_usuarios` (
   `activo` tinyint(1) DEFAULT '1',
   PRIMARY KEY (`id_usuario`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -47,7 +47,7 @@ CREATE TABLE `tbl_usuarios` (
 
 LOCK TABLES `tbl_usuarios` WRITE;
 /*!40000 ALTER TABLE `tbl_usuarios` DISABLE KEYS */;
-INSERT INTO `tbl_usuarios` VALUES (2,'test','test','test','test','test','test','test','test','test',1);
+INSERT INTO `tbl_usuarios` VALUES (3,'Normal','AlberThor','albertho0.hdzv@gmail.com','+','null','null','null','null','null',1),(4,'Normal','Becerrini','sjknfbdfhb@gmail.com','1234','null','null','null','null','null',1),(6,'Normal','becerra','albertho0.hdzv@gmail.com','sdsdsd','null','null','null','null','null',1),(7,'Normal','Test','albertho0.hdzv@gmail.com','1223445','null','null','null','null','null',1),(8,'Normal','1','albertho0.hdzv@gmail.com','2','null','null','null','null','null',1),(9,'Normal','user1','albertho0.hdzv@gmail.com','user1','null','null','null','null','null',1),(10,'Normal','2','albertho0.hdzv@gmail.com','2','null','null','null','null','null',1);
 /*!40000 ALTER TABLE `tbl_usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -60,4 +60,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-07 23:13:14
+-- Dump completed on 2020-11-08 23:10:35
