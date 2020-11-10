@@ -10,7 +10,7 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>UsuarioController</welcome-file>
+        <welcome-file>CrearNoticiaController</welcome-file>
         <!-- <welcome-file>PublicarNoticia</welcome-file> -->
 
     </welcome-file-list>

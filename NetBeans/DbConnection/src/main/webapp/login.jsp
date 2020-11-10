@@ -4,7 +4,10 @@
     Author     : alber
 --%>
 
+<%@page import="com.pw.dbconnection.models.tbl_categoria"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>

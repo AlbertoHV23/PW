@@ -32,6 +32,11 @@ import javax.servlet.http.Part;
 @MultipartConfig(maxFileSize = 1000 * 1000 * 5, maxRequestSize = 1000 * 1000 * 25, fileSizeThreshold = 1000 * 1000)
 public class UsuarioController extends HttpServlet {
    
+       protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+       throws ServletException, IOException {
+
+           
+       }
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
      * @param request servlet request
@@ -46,8 +51,7 @@ public class UsuarioController extends HttpServlet {
                 String password = request.getParameter("contra");
                 String rol = request.getParameter("tipo");
                 System.out.println(rol);
-                
-                List<tbl_categoria> categorias = UserDAO.llenarcategoria();
+          
                 tbl_usuarios retorno = UserDAO.login(name,password,rol);
                 
                 if(retorno.getId_usuario() != 0){
