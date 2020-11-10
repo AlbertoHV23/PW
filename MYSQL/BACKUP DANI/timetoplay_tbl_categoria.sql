@@ -29,7 +29,7 @@ CREATE TABLE `tbl_categoria` (
   `nombre` varchar(50) NOT NULL,
   `descripcion` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id_categoria`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,6 +38,7 @@ CREATE TABLE `tbl_categoria` (
 
 LOCK TABLES `tbl_categoria` WRITE;
 /*!40000 ALTER TABLE `tbl_categoria` DISABLE KEYS */;
+INSERT INTO `tbl_categoria` VALUES (3,'Accion','Basado en ejercicios de repeticion'),(4,'Ejercicios','Basados en ejercicios'),(5,'Arcade','El usuario debe superar pantallas para seguir jugando'),(6,'Deportes','Recrean diversos deportes'),(7,'Estrategia','Consiste en trazar una estrategia para superar al contrincante'),(8,'Simulación','Permite experimentar e investigar el funcionamiento de maquinas, fenomenos, situaciones y asumir el mando'),(9,'Mesa','Recrea los juegos físicos en entornos virtuales'),(10,'Musicales','juegos que inducen a la interacción del jugador con la música y cuyo objetivo es seguir los patrones de una canción.');
 /*!40000 ALTER TABLE `tbl_categoria` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -50,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-08 23:10:35
+-- Dump completed on 2020-11-10  2:26:25

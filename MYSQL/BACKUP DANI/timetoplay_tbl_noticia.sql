@@ -41,7 +41,7 @@ CREATE TABLE `tbl_noticia` (
   KEY `fk_usuarios` (`fk_usuarios`),
   CONSTRAINT `tbl_noticia_ibfk_1` FOREIGN KEY (`fk_categoria`) REFERENCES `tbl_categoria` (`id_categoria`),
   CONSTRAINT `tbl_noticia_ibfk_2` FOREIGN KEY (`fk_usuarios`) REFERENCES `tbl_usuarios` (`id_usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -50,6 +50,7 @@ CREATE TABLE `tbl_noticia` (
 
 LOCK TABLES `tbl_noticia` WRITE;
 /*!40000 ALTER TABLE `tbl_noticia` DISABLE KEYS */;
+INSERT INTO `tbl_noticia` VALUES (21,'titulo','sdsdsdsd','sdsd','10/11/2020','01:39:24',0,0,0,3,3);
 /*!40000 ALTER TABLE `tbl_noticia` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -62,4 +63,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-08 23:10:34
+-- Dump completed on 2020-11-10  2:26:24
