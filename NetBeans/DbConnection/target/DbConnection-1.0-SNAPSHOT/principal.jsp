@@ -38,10 +38,10 @@
                     <i class="fas fa-list"></i> Category
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <%for(tbl_categoria cat : categoria){%>
+                       <%for(tbl_categoria cat : categoria){%>
                         <div class="dropdown-divider"></div>
                         <a><%= cat.getNombre() %></a>
-                    <%}%>
+                         <%}%>
                   </div>
                 </li>
                 <li class="nav-item">

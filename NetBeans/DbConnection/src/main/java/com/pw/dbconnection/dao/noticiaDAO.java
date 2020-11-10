@@ -52,7 +52,7 @@ public class noticiaDAO {
             statement.setInt(8, 0);
             statement.setInt(9, 0);
             statement.setInt(10, 3);
-            statement.setInt(11, 1);
+            statement.setInt(11, 3);
         
           
             return statement.executeUpdate();

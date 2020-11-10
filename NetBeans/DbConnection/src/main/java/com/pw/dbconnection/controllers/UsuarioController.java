@@ -56,7 +56,9 @@ public class UsuarioController extends HttpServlet {
                 
                 if(retorno.getId_usuario() != 0){
                      System.out.println("LOGIN EXITOSO");
-                     response.sendRedirect("principal.jsp");
+                     List<tbl_categoria> categoria = UserDAO.llenarcategoria(); 
+                     request.setAttribute("categoria", categoria);
+                     request.getRequestDispatcher("principal.jsp").forward(request, response);
 
                 }
                 else{

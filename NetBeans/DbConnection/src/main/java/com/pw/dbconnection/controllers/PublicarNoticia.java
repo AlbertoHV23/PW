@@ -5,7 +5,9 @@
  */
 
 package com.pw.dbconnection.controllers;
+import com.pw.dbconnection.dao.UserDAO;
 import com.pw.dbconnection.dao.noticiaDAO;
+import com.pw.dbconnection.models.tbl_categoria;
 import com.pw.dbconnection.models.tbl_noticia;
 import com.pw.dbconnection.utils.FileUtils;
 
@@ -44,19 +46,11 @@ public class PublicarNoticia extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet PublicarNoticia</title>");  
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet PublicarNoticia at " + request.getContextPath () + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+       
+             List<tbl_categoria> categoria = UserDAO.llenarcategoria(); 
+             request.setAttribute("categoria", categoria);
+             request.getRequestDispatcher("crear.jsp").forward(request, response);
+        
     } 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -70,7 +64,7 @@ public class PublicarNoticia extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        response.sendRedirect("crear.jsp");
+            processRequest(request, response);
         
     } 
 
@@ -89,18 +83,20 @@ public class PublicarNoticia extends HttpServlet {
         String des = request.getParameter("des_corta");
         String descripcion = request.getParameter("descripcion");
         // String rol = request.getParameter("rol");
-        String categoria = request.getParameter("categoria");
+        String cate = request.getParameter("categoria");
         // String categoria = "shooter";
         Date date = new Date();
         DateFormat hourFormat = new SimpleDateFormat("HH:mm:ss");
         String hora = hourFormat.format(date);
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         String fecha =dateFormat.format(date);
-
         tbl_noticia noticia = new tbl_noticia(titulo,des,descripcion,fecha,hora);
      
-        noticiaDAO.insertNoticia(noticia);
-        response.sendRedirect("crear.jsp");
+        
+             noticiaDAO.insertNoticia(noticia);
+             List<tbl_categoria> categoria = UserDAO.llenarcategoria(); 
+             request.setAttribute("categoria", categoria);
+             request.getRequestDispatcher("crear.jsp").forward(request, response);
     }
 
     /** 

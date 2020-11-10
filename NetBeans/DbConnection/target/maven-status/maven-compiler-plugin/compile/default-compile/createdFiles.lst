@@ -12,5 +12,4 @@ com\pw\dbconnection\utils\DbConnection.class
 com\pw\dbconnection\models\tbl_marcadas.class
 com\pw\dbconnection\models\tbl_videos.class
 com\pw\dbconnection\models\tbl_noticia.class
-com\pw\dbconnection\controllers\PublicarNoticia.class
 com\pw\dbconnection\models\tbl_comentarios.class
