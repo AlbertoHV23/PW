@@ -1,0 +1,8 @@
+CREATE PROCEDURE `Sp_login`(
+in usuario varchar(40),
+in contra varchar(40),
+in tipo varchar(40)
+)
+BEGIN
+select * from tbl_usuarios where username = usuario and _password = contra and rol = tipo;
+END
