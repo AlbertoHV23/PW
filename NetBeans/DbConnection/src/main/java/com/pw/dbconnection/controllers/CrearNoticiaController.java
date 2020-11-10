@@ -38,7 +38,6 @@ public class CrearNoticiaController extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
              List<tbl_categoria> categoria = UserDAO.llenarcategoria(); 
-
              request.setAttribute("categoria", categoria);
              request.getRequestDispatcher("crear.jsp").forward(request, response);
         }

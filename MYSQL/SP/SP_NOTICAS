@@ -15,28 +15,8 @@ CREATE PROCEDURE `Sp_noticias_insert` (
 )
 BEGIN
 INSERT INTO `timetoplay`.`tbl_noticia`
-(`titulo`,
-`descripcion_corta`,
-`descripcion_larga`,
-`fecha`,
-`hora`,
-`aprovado`,
-`valoracion_like`,
-`valoracion_Nolike`,
-`fk_usuarios`,
-`fk_categoria`)
-VALUES
-(id_noticia,
-titulo,
-descripcion_corta,
-descripcion_larga,
-fecha,
-hora,
-aprovado,
-valoracion_like,
-valoracion_Nolike,
-fk_usuarios,
-fk_categoria);
+(`titulo`, `descripcion_corta`, `descripcion_larga`, `fecha`, `hora`, `aprovado`, `valoracion_like`, `valoracion_Nolike`, `fk_usuarios`, `fk_categoria`)
+VALUES (id_noticia, titulo, descripcion_corta, descripcion_larga, fecha, hora, aprovado, valoracion_like, valoracion_Nolike, fk_usuarios, fk_categoria);
 
 END
 

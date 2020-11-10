@@ -41,9 +41,8 @@
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <%for(tbl_categoria cat : categoria){%>
-                        <option value="<%= cat.getNombre()%>">
-                          <%= cat.getNombre() %>
-                        </option>
+                        <div class="dropdown-divider"></div>
+                        <a><%= cat.getNombre() %></a>
                     <%}%>
                   </div>
                 </li>

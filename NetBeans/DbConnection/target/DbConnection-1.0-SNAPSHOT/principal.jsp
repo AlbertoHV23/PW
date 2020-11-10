@@ -4,7 +4,10 @@
     Author     : alber
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="com.pw.dbconnection.models.tbl_categoria"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%List<tbl_categoria> categoria = (List<tbl_categoria>)request.getAttribute("categoria");%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -35,10 +38,10 @@
                     <i class="fas fa-list"></i> Category
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Adventure</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Arcade</a>
+                    <%for(tbl_categoria cat : categoria){%>
+                        <div class="dropdown-divider"></div>
+                        <a><%= cat.getNombre() %></a>
+                    <%}%>
                   </div>
                 </li>
                 <li class="nav-item">
