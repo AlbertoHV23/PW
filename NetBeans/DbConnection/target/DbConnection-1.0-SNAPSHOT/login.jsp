@@ -22,6 +22,7 @@
     <div class="container">
       <div class="forms-container">
         <div class="signin-signup">
+            <!-- INICIO DE SESION -->
           <form action="./UsuarioController" method="Get" enctype="multipart/form-data" class="sign-in-form">
             <h2 class="title">Inicia sesión</h2>
             <label for="tipo">Tipo:</label>

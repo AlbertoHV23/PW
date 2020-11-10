@@ -7,6 +7,7 @@ package com.pw.dbconnection.controllers;
 
 import com.pw.dbconnection.dao.UserDAO;
 import com.pw.dbconnection.models.tbl_categoria;
+import com.pw.dbconnection.models.tbl_usuarios;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -15,6 +16,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -37,6 +39,8 @@ public class test extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             
+             HttpSession session = request.getSession();
+             tbl_usuarios usuario = (tbl_usuarios)session.getAttribute("persona");
              List<tbl_categoria> categoria = UserDAO.llenarcategoria(); 
              request.setAttribute("categoria", categoria);
              request.getRequestDispatcher("publicadas.jsp").forward(request, response);

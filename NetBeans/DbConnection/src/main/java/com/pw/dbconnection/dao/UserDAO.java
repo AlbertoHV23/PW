@@ -95,9 +95,19 @@ public class UserDAO {
             // Si el resultSet tiene resultados lo recorremos
             while (resultSet.next()) {
                 int id = resultSet.getInt("id_usuario");
+                String tipo = resultSet.getString("rol");
+                String correo = resultSet.getString("email");
                 String name = resultSet.getString("username");
                 String Pass = resultSet.getString("_password");
-                retorno = new tbl_usuarios(id, "hola", "hola");
+                String imagen = resultSet.getString("imagen");
+                String descripcion = resultSet.getString("descripcion");
+                String face = resultSet.getString("face");
+                String twit = resultSet.getString("twit");
+                String insta = resultSet.getString("insta");
+              
+
+
+                retorno = new tbl_usuarios(id, tipo,name,correo,Pass,imagen,descripcion,face,twit,insta);
                 System.out.println(id);
 
                 System.out.println(name);

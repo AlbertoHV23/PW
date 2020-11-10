@@ -21,6 +21,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 
@@ -34,7 +35,7 @@ public class UsuarioController extends HttpServlet {
    
        protected void processRequest(HttpServletRequest request, HttpServletResponse response)
        throws ServletException, IOException {
-
+           response.sendRedirect("login.jsp");
            
        }
     /** 
@@ -47,10 +48,11 @@ public class UsuarioController extends HttpServlet {
    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
                 String name = request.getParameter("usuario");
                 String password = request.getParameter("contra");
                 String rol = request.getParameter("tipo");
-                System.out.println(rol);
+           
           
                 tbl_usuarios retorno = UserDAO.login(name,password,rol);
                 
@@ -58,7 +60,13 @@ public class UsuarioController extends HttpServlet {
                      System.out.println("LOGIN EXITOSO");
                      List<tbl_categoria> categoria = UserDAO.llenarcategoria(); 
                      request.setAttribute("categoria", categoria);
-                     request.getRequestDispatcher("principal.jsp").forward(request, response);
+                     
+                     HttpSession session = request.getSession();
+                     session.setAttribute("persona", retorno);
+                     
+                      request.getRequestDispatcher("session").forward(request, response);
+               
+                    //  request.getRequestDispatcher("principal.jsp").forward(request, response);
 
                 }
                 else{
