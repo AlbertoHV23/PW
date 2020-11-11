@@ -83,7 +83,7 @@
             <div class="imagenes mt-3 mb-3">
               <input type="file" id="real-file" name="image" hidden="hidden" />
               <button type="button" id="custom-button">CHOOSE A FILE</button>
-              <span id="custom-text">No file chosen, yet.</span>
+              <span id="custom-text" name = "img">No file chosen, yet.</span>
   
               <input type="file" id="real-fileTwo" name="image2" hidden="hidden" />
               <button type="button" id="custom-buttonTwo">CHOOSE A FILE</button>
@@ -96,7 +96,7 @@
            
             <div class="form-group">
               <label for="exampleFormControlInput1">Enter the url of the video:</label>
-              <input type="text" class="form-control" id="video" placeholder="Example: https://www.youtube.com/watch?v=-au1ZG2BnyU">
+              <input type="text" class="form-control" name="video" id="video" placeholder="Example: https://www.youtube.com/watch?v=-au1ZG2BnyU">
             </div>
             <div class="form-group">
               <label for="exampleFormControlInput1">Title of the news:</label>

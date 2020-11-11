@@ -78,91 +78,76 @@ public class PublicarNoticia extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        
-        
+
         String video = request.getParameter("video");
         String titulo = request.getParameter("titulo");
         String des = request.getParameter("des_corta");
         String descripcion = request.getParameter("descripcion");
-        // String rol = request.getParameter("rol");
         String cate = request.getParameter("categoria");
-        // String categoria = "shooter";
         Date date = new Date();
         DateFormat hourFormat = new SimpleDateFormat("HH:mm:ss");
         String hora = hourFormat.format(date);
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         String fecha =dateFormat.format(date);
         tbl_noticia noticia = new tbl_noticia(titulo,des,descripcion,fecha,hora);
-        int id =0;
-  
-                    
-                       noticiaDAO.insertNoticia(noticia);
-                       id = noticiaDAO.selectid(titulo);
-                       if(id != 0){
-                                String path = request.getServletContext().getRealPath(""); //ubicacion del proyecto
-                                // Obtenemos la Direccion donde deseamos guardarlo
-                                File fileSaveDir = new File(path + FileUtils.RUTE_USER_IMAGE);
-                                // Sino existe el directorio la creamos
-                                if (!fileSaveDir.exists()) {
-                                    fileSaveDir.mkdir();
-                                }
-                                // Obtenemos la imagen, debe coincidir con el name del input
-                                Part file = request.getPart("image");
-                                String contentType = file.getContentType();
-                                // Remplazamos el nombre que tiene para que no existan duplicados
-                                String nameImage = file.getName() + System.currentTimeMillis() + FileUtils.GetExtension(contentType);
-                                String fullPath = path + FileUtils.RUTE_USER_IMAGE + "/" + nameImage;
-                                // Copiamos la imagen en la ruta especificada
-                                file.write(fullPath);
+        
+       
+        int id =0;         
+        noticiaDAO.insertNoticia(noticia);
+        id = noticiaDAO.selectid(titulo);
+            if(id != 0){
+                String path = request.getServletContext().getRealPath(""); //ubicacion del proyecto
+                // Obtenemos la Direccion donde deseamos guardarlo
+                File fileSaveDir = new File(path + FileUtils.RUTE_USER_IMAGE);
+                // Sino existe el directorio la creamos
+                        if (!fileSaveDir.exists()) {
+                        fileSaveDir.mkdir();
+                        }
+                // Obtenemos la imagen, debe coincidir con el name del input
+                Part file = request.getPart("image");
+                String contentType = file.getContentType();
+                String img = file.getSubmittedFileName();
+                // Remplazamos el nombre que tiene para que no existan duplicados
+                String nameImage = file.getName() + System.currentTimeMillis() + FileUtils.GetExtension(contentType);
+                String fullPath = path + FileUtils.RUTE_USER_IMAGE + "/" + nameImage;
+                // Copiamos la imagen en la ruta especificada
+                file.write(fullPath);
                                 
-                     
-                               
-                                // Obtenemos la imagen, debe coincidir con el name del input
-                                Part file2 = request.getPart("image2");
-                                String contentType2 = file2.getContentType();
-                                // Remplazamos el nombre que tiene para que no existan duplicados
-                                String nameImage2 = file2.getName() + System.currentTimeMillis() + FileUtils.GetExtension(contentType);
-                                String fullPath2 = path + FileUtils.RUTE_USER_IMAGE + "/" + nameImage2;
-                                // Copiamos la imagen en la ruta especificada
-                                file2.write(fullPath2);
+               
+                Part file2 = request.getPart("image2");
+                String img2 = file2.getSubmittedFileName();
+                String contentType2 = file2.getContentType();
+                String nameImage2 = file2.getName() + System.currentTimeMillis() + FileUtils.GetExtension(contentType);
+                String fullPath2 = path + FileUtils.RUTE_USER_IMAGE + "/" + nameImage2;
+                file2.write(fullPath2);
                                 
-                                     // Obtenemos la imagen, debe coincidir con el name del input
-                                Part file3 = request.getPart("image3");
-                                String contentType3 = file3.getContentType();
-                                // Remplazamos el nombre que tiene para que no existan duplicados
-                                String nameImage3 = file3.getName() + System.currentTimeMillis() + FileUtils.GetExtension(contentType);
-                                String fullPath3 = path + FileUtils.RUTE_USER_IMAGE + "/" + nameImage3;
-                                // Copiamos la imagen en la ruta especificada
-                                file3.write(fullPath3);
-                                if(fullPath !=null){
+                Part file3 = request.getPart("image3");
+                String img3 = file3.getSubmittedFileName();
+                String contentType3 = file3.getContentType();
+                String nameImage3 = file3.getName() + System.currentTimeMillis() + FileUtils.GetExtension(contentType);
+                String fullPath3 = path + FileUtils.RUTE_USER_IMAGE + "/" + nameImage3;
+                file3.write(fullPath3);
+                
+                                if(img !=""){
                                    noticiaDAO.NoticiaImagen(fullPath,id);  
                                 }
-                                if(fullPath2 !=null){
+                                if(img2 !=""){
                                    noticiaDAO.NoticiaImagen(fullPath2,id);  
                                 }
-                                 if(fullPath3 !=null){
+                                 if(img3 !=""){
                                    noticiaDAO.NoticiaImagen(fullPath3,id);  
+                                }  
+                                
+                               if(video != null){
+                                  noticiaDAO.NoticiaVideo(video,id);  
+  
                                 }
-                                
-                                
-                                 
-                                
-                           
                       }
                  
-                       
-
-                       
-                  
-               
-
-                
-             
              List<tbl_categoria> categoria = UserDAO.llenarcategoria(); 
              request.setAttribute("categoria", categoria);
-             request.getRequestDispatcher("crear.jsp").forward(request, response);
-             
-             
+             request.getRequestDispatcher("crear.jsp").forward(request, response);                
+       
     }
 
     /** 
