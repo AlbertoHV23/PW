@@ -91,12 +91,24 @@ public class PublicarNoticia extends HttpServlet {
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         String fecha =dateFormat.format(date);
         tbl_noticia noticia = new tbl_noticia(titulo,des,descripcion,fecha,hora);
-     
-        
-             noticiaDAO.insertNoticia(noticia);
+        int id =0;
+                    
+                       noticiaDAO.insertNoticia(noticia);
+                       id = noticiaDAO.selectid(titulo);
+                 
+                       
+
+                       
+                  
+               
+
+                
+             
              List<tbl_categoria> categoria = UserDAO.llenarcategoria(); 
              request.setAttribute("categoria", categoria);
              request.getRequestDispatcher("crear.jsp").forward(request, response);
+             
+             
     }
 
     /** 

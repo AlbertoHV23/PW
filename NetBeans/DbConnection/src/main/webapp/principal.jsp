@@ -4,10 +4,12 @@
     Author     : alber
 --%>
 
+<%@page import="com.pw.dbconnection.models.tbl_usuarios"%>
 <%@page import="java.util.List"%>
 <%@page import="com.pw.dbconnection.models.tbl_categoria"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%List<tbl_categoria> categoria = (List<tbl_categoria>)request.getAttribute("categoria");%>
+<%tbl_usuarios usuario = (tbl_usuarios)request.getAttribute("datos");%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -41,7 +43,7 @@
                        <%for(tbl_categoria cat : categoria){%>
                         <div class="dropdown-divider"></div>
                         <a><%= cat.getNombre() %></a>
-                         <%}%>
+                        <%}%>
                   </div>
                 </li>
                 <li class="nav-item">
@@ -49,7 +51,7 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-user-circle"></i> Profile
+                        <i class="fas fa-user-circle"></i> <%= usuario.getUsername() %>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <a class="dropdown-item" href="perfil.jsp">Profile</a>

@@ -23,7 +23,7 @@
       <div class="forms-container">
         <div class="signin-signup">
             <!-- INICIO DE SESION -->
-          <form action="./UsuarioController" method="Get" enctype="multipart/form-data" class="sign-in-form">
+          <form action="./UsuarioController" method="GET" enctype="multipart/form-data" class="sign-in-form">
             <h2 class="title">Inicia sesión</h2>
             <label for="tipo">Tipo:</label>
               <select name="tipo" id="tipo"  class="selector">
@@ -57,6 +57,8 @@
               </a>
             </div>
           </form>
+
+
           <!-- REGISTRO -->
           <form action="./UsuarioController" method="POST" enctype="multipart/form-data" class="sign-up-form">
             <h2 class="title">Registro</h2>

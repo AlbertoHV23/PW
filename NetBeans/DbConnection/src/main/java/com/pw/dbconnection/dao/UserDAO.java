@@ -108,10 +108,7 @@ public class UserDAO {
 
 
                 retorno = new tbl_usuarios(id, tipo,name,correo,Pass,imagen,descripcion,face,twit,insta);
-                System.out.println(id);
-
-                System.out.println(name);
-                System.out.println(Pass);
+                
             }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
@@ -156,7 +153,6 @@ public class UserDAO {
                 // Obtenemos el valor del result set en base al nombre de la
                 // columna
                 String name = resultSet.getString("nombre");
-                System.out.println(name);
          
                 // Agregamos el usuario a la lista
                 categoria.add(new tbl_categoria(name));

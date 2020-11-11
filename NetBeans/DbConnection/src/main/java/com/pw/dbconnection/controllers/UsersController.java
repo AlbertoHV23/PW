@@ -69,7 +69,8 @@ public class UsersController extends HttpServlet {
         // Obtenemos el contraseña debe coincidir con el name del input
         String password = request.getParameter("password");
 
-        String path = request.getServletContext().getRealPath("");
+        String path = request.getServletContext().getRealPath(""); //ubicacion del proyecto
+        
         // Obtenemos la Direccion donde deseamos guardarlo
         File fileSaveDir = new File(path + FileUtils.RUTE_USER_IMAGE);
         // Sino existe el directorio la creamos

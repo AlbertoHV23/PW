@@ -33,7 +33,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                  <a class="nav-link" href="principal.jsp"><i class="fas fa-home"></i> Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="PrincipalController"><i class="fas fa-home"></i> Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -81,11 +81,11 @@
 
           <form class="mb-3 mt-3" action="./PublicarNoticia" method="POST">
             <div class="imagenes mt-3 mb-3">
-              <input type="file" id="real-file" hidden="hidden" />
+              <input type="file" id="real-file" name="image" hidden="hidden" />
               <button type="button" id="custom-button">CHOOSE A FILE</button>
               <span id="custom-text">No file chosen, yet.</span>
   
-              <input type="file" id="real-fileTwo" hidden="hidden" />
+              <input type="file" id="real-fileTwo" name="real-fileTwo" hidden="hidden" />
               <button type="button" id="custom-buttonTwo">CHOOSE A FILE</button>
               <span id="custom-textTwo">No file chosen, yet.</span>
   

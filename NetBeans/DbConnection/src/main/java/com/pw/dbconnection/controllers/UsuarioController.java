@@ -18,6 +18,7 @@ import java.util.Set;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -60,14 +61,16 @@ public class UsuarioController extends HttpServlet {
                      System.out.println("LOGIN EXITOSO");
                      List<tbl_categoria> categoria = UserDAO.llenarcategoria(); 
                      request.setAttribute("categoria", categoria);
+                     String test = "TEST";
                      
-                     HttpSession session = request.getSession();
-                     session.setAttribute("persona", retorno);
-                     
-                      request.getRequestDispatcher("session").forward(request, response);
-               
-                    //  request.getRequestDispatcher("principal.jsp").forward(request, response);
+                    HttpSession session = request.getSession();
+                    session.setAttribute("persona", retorno);
 
+            
+                    
+                    
+                     request.getRequestDispatcher("PrincipalController").forward(request, response);
+               
                 }
                 else{
                 System.out.println("ERROR");

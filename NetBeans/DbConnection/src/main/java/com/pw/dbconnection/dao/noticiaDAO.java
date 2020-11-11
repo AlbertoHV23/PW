@@ -7,6 +7,7 @@
 package com.pw.dbconnection.dao;
 
 import com.pw.dbconnection.models.UserModel;
+import com.pw.dbconnection.models.tbl_categoria;
 import com.pw.dbconnection.models.tbl_noticia;
 import com.pw.dbconnection.models.tbl_usuarios;
 
@@ -61,6 +62,30 @@ public class noticiaDAO {
         } finally {
         }
         return 0;
+    }
+
+    public static int selectid(String titulo){
+        int retorno = 0;
+        try {
+            Connection con = DbConnection.getConnection();
+            CallableStatement statement = con.prepareCall("CALL `Sp_noticia_id`(?);");
+            statement.setString(1, titulo);
+         
+
+            ResultSet resultSet = statement.executeQuery();
+            // Si el resultSet tiene resultados lo recorremos
+            while (resultSet.next()) {
+                retorno = resultSet.getInt("id_noticia");
+              
+                
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+
+        } finally {
+           
+        }
+        return retorno;
     }
 
   
