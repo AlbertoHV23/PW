@@ -23,6 +23,11 @@ public class tbl_imagenes {
         this.fk_noticia = fk_noticia;
     }
 
+    public tbl_imagenes(int id_imagen, String extencion) {
+        this.id_imagen = id_imagen;
+        this.extencion = extencion;
+    }
+
     public int getId_imagen() {
         return id_imagen;
     }

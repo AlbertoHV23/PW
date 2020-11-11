@@ -5,6 +5,9 @@
  */
 package com.pw.dbconnection.models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author geraj
@@ -21,16 +24,61 @@ public class tbl_noticia {
     private int valoracion_Nolike;
     private int fk_usuarios;
     private int fk_categoria;
+    private String usuario;
+    private String categoria;
+    private List<tbl_imagenes> imagenes;
+
+
     
     public tbl_noticia() {
     }
 
+    public tbl_noticia(int id_noticia, String titulo, String descripcion_corta, String descripcion_larga, String fecha, String hora, boolean aprovado, int valoracion_like, int valoracion_Nolike, String usuario, String categoria, List<tbl_imagenes> imagenes) {
+        this.id_noticia = id_noticia;
+        this.titulo = titulo;
+        this.descripcion_corta = descripcion_corta;
+        this.descripcion_larga = descripcion_larga;
+        this.fecha = fecha;
+        this.hora = hora;
+        this.aprovado = aprovado;
+        this.valoracion_like = valoracion_like;
+        this.valoracion_Nolike = valoracion_Nolike;
+        this.usuario = usuario;
+        this.categoria = categoria;
+        this.imagenes = imagenes;
+    }
+
+    
     public tbl_noticia(String titulo, String descripcion_corta, String descripcion_larga) {
         this.titulo = titulo;
         this.descripcion_corta = descripcion_corta;
         this.descripcion_larga = descripcion_larga;
     }
 
+    public tbl_noticia(int id_noticia, String titulo, String descripcion_corta, String descripcion_larga) {
+        this.id_noticia = id_noticia;
+        this.titulo = titulo;
+        this.descripcion_corta = descripcion_corta;
+        this.descripcion_larga = descripcion_larga;
+    }
+    
+    
+
+    public tbl_noticia(int id_noticia, String titulo, String descripcion_corta, String descripcion_larga, String fecha, String hora, boolean aprovado, int valoracion_like, int valoracion_Nolike, String usuario, String categoria) {
+        this.id_noticia = id_noticia;
+        this.titulo = titulo;
+        this.descripcion_corta = descripcion_corta;
+        this.descripcion_larga = descripcion_larga;
+        this.fecha = fecha;
+        this.hora = hora;
+        this.aprovado = aprovado;
+        this.valoracion_like = valoracion_like;
+        this.valoracion_Nolike = valoracion_Nolike;
+        this.usuario = usuario;
+        this.categoria = categoria;
+    }
+
+    
     public tbl_noticia(String titulo, String descripcion_corta, String descripcion_larga, String fecha, String hora) {
         this.titulo = titulo;
         this.descripcion_corta = descripcion_corta;
@@ -139,4 +187,8 @@ public class tbl_noticia {
     public void setFk_categoria(int fk_categoria) {
         this.fk_categoria = fk_categoria;
     }
+
+
+    
+    
 }

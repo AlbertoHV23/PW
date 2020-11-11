@@ -8,6 +8,7 @@ package com.pw.dbconnection.dao;
 
 import com.pw.dbconnection.models.UserModel;
 import com.pw.dbconnection.models.tbl_categoria;
+import com.pw.dbconnection.models.tbl_imagenes;
 import com.pw.dbconnection.models.tbl_noticia;
 import com.pw.dbconnection.models.tbl_usuarios;
 
@@ -124,9 +125,64 @@ public class noticiaDAO {
         return retorno;
     }
 
-  
+    public static List<tbl_noticia> GetNoticiasActivas() {
+        List<tbl_noticia> noticia = new ArrayList<>();
+        try {
+            Connection con = DbConnection.getConnection();
+            CallableStatement statement = con.prepareCall("CALL Sp_noticia_NoActiva();");
+            ResultSet resultSet = statement.executeQuery();
+        
+            while (resultSet.next()) {
+               
+                int id = resultSet.getInt("id_noticia");
+                String titulo = resultSet.getString("titulo");
+                String des = resultSet.getString("descripcion_corta");
+                String descripcion= resultSet.getString("descripcion_larga");
+                String fecha= resultSet.getString("fecha");
+                String hora= resultSet.getString("hora");
+                boolean aprovado = resultSet.getBoolean("aprovado");
+                int like = resultSet.getInt("valoracion_like");
+                int dislike = resultSet.getInt("valoracion_Nolike");
+                String categoria = resultSet.getString("nombre");
+                String usuario = resultSet.getString("username");
+               
+                
+               //   List<tbl_imagenes> retorno = GetImagen(id);  
+                
+                // Agregamos el usuario a la lista
+                noticia.add(new tbl_noticia(id,titulo,des,descripcion,fecha,hora,aprovado,like,dislike,categoria,usuario));
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            return noticia;
+        }
+    }
 
-    
+   public static List<tbl_imagenes> GetImagen(int id) {
+       List<tbl_imagenes> retorno = new ArrayList<>();
+       try {
+            Connection con = DbConnection.getConnection();
+            CallableStatement statement = con.prepareCall("CALL Sp_imagen_selectxFk(?);");
+            statement.setInt(1, id);
+             ResultSet resultSet = statement.executeQuery();
+            // Si el resultSet tiene resultados lo recorremos
+            while (resultSet.next()) {
+                int id_img = resultSet.getInt("id_imagen");
+                String url = resultSet.getString("extencion");
+              
+                retorno.add(new tbl_imagenes(id_img,url));
+            }
+            
+        
+          
+          
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+        }
+        return retorno;
+    }
 }
 
 

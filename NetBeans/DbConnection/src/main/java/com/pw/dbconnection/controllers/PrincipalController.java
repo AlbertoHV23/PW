@@ -6,7 +6,9 @@
 package com.pw.dbconnection.controllers;
 
 import com.pw.dbconnection.dao.UserDAO;
+import com.pw.dbconnection.dao.noticiaDAO;
 import com.pw.dbconnection.models.tbl_categoria;
+import com.pw.dbconnection.models.tbl_noticia;
 import com.pw.dbconnection.models.tbl_usuarios;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -37,19 +39,31 @@ public class PrincipalController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+            response.setContentType("text/html;charset=UTF-8");
        
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
+            //crea una session para cuando hace login
             HttpSession session = request.getSession();
+            tbl_usuarios usuario = (tbl_usuarios)session.getAttribute("persona"); //trae datos del controller login con la sesion activa
+            tbl_usuarios nologin = new tbl_usuarios(); //por si no inicio sesion
             
-            tbl_usuarios usuario = (tbl_usuarios)session.getAttribute("persona");
-            request.setAttribute("datos", usuario);
+            if(usuario == null){ //si no hay una session activa
+                nologin.setUsername("Profile");
+                request.setAttribute("datos", nologin);
+            }
+            else{ //si hay session activa
+                   request.setAttribute("datos", usuario);
+            }
+         
 
-            
+            //Esto te traes de la base de datos todas la categorias y se las manda al jsp 
             List<tbl_categoria> categoria = UserDAO.llenarcategoria(); 
             request.setAttribute("categoria", categoria);
          
+            
+            List<tbl_noticia> noticias = noticiaDAO.GetNoticiasActivas();
+           
+            //manda todos los datos al jsp para poder imprimir ahi
             request.getRequestDispatcher("principal.jsp").forward(request, response);
        
           
