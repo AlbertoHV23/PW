@@ -63,6 +63,24 @@ public class noticiaDAO {
         }
         return 0;
     }
+    
+        public static int NoticiaImagen(String url,int id) {
+        try {
+            Connection con = DbConnection.getConnection();
+            CallableStatement statement = con.prepareCall("CALL Sp_imagen_insert(?,?,?);");
+            statement.setInt(1, 0);
+            statement.setString(2, url);
+            statement.setInt(3, id);
+            
+        
+          
+            return statement.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+        }
+        return 0;
+    }
 
     public static int selectid(String titulo){
         int retorno = 0;

@@ -79,17 +79,17 @@
             <hr class="bg-info text-center mt-0 mx-auto">
         </div>
 
-          <form class="mb-3 mt-3" action="./PublicarNoticia" method="POST">
+          <form class="mb-3 mt-3" action="./PublicarNoticia"  method="POST"  enctype="multipart/form-data">
             <div class="imagenes mt-3 mb-3">
               <input type="file" id="real-file" name="image" hidden="hidden" />
               <button type="button" id="custom-button">CHOOSE A FILE</button>
               <span id="custom-text">No file chosen, yet.</span>
   
-              <input type="file" id="real-fileTwo" name="real-fileTwo" hidden="hidden" />
+              <input type="file" id="real-fileTwo" name="image2" hidden="hidden" />
               <button type="button" id="custom-buttonTwo">CHOOSE A FILE</button>
               <span id="custom-textTwo">No file chosen, yet.</span>
   
-              <input type="file" id="real-fileThree" hidden="hidden" />
+              <input type="file" id="real-fileThree"name="image3" hidden="hidden" />
               <button type="button" id="custom-buttonThree">CHOOSE A FILE</button>
               <span id="custom-textThree">No file chosen, yet.</span>
             </div>
