@@ -110,6 +110,7 @@ public class PublicarNoticia extends HttpServlet {
                 // Remplazamos el nombre que tiene para que no existan duplicados
                 String nameImage = file.getName() + System.currentTimeMillis() + FileUtils.GetExtension(contentType);
                 String fullPath = path + FileUtils.RUTE_USER_IMAGE + "/" + nameImage;
+                
                 // Copiamos la imagen en la ruta especificada
                 file.write(fullPath);
                                 
@@ -129,13 +130,13 @@ public class PublicarNoticia extends HttpServlet {
                 file3.write(fullPath3);
                 
                                 if(img !=""){
-                                   noticiaDAO.NoticiaImagen(fullPath,id);  
+                                   noticiaDAO.NoticiaImagen(FileUtils.RUTE_USER_IMAGE + "/" + nameImage,id);  
                                 }
                                 if(img2 !=""){
-                                   noticiaDAO.NoticiaImagen(fullPath2,id);  
+                                   noticiaDAO.NoticiaImagen(FileUtils.RUTE_USER_IMAGE + "/" + nameImage2,id);  
                                 }
                                  if(img3 !=""){
-                                   noticiaDAO.NoticiaImagen(fullPath3,id);  
+                                   noticiaDAO.NoticiaImagen(FileUtils.RUTE_USER_IMAGE + "/" + nameImage3,id);  
                                 }  
                                 
                                if(video != null){

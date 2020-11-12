@@ -17,7 +17,7 @@
     tbl_usuarios usuario = (tbl_usuarios)request.getAttribute("datos");
 %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -39,7 +39,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                  <a class="nav-link" href="principal.jsp"><i class="fas fa-home"></i> Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="PrincipalController"><i class="fas fa-home"></i> Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -53,7 +53,7 @@
                   </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="login.jsp"><i class="fas fa-sign-in-alt"></i> Login</a>
+                    <a class="nav-link" href="UsuarioController"><i class="fas fa-sign-in-alt"></i> Login</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -61,12 +61,12 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <a class="dropdown-item" href="perfil.jsp">Profile</a>
-                      <a class="dropdown-item" href="crear.jsp">Create News</a>
+                      <a class="dropdown-item" href="PublicarNoticia">Create News</a>
                       <a class="dropdown-item" href="publicadas.jsp">Published</a>
                       <a class="dropdown-item" href="marcados.jsp">Marked</a>
                       <a class="dropdown-item" href="#">Notifications<span class="badge badge-light">9</span></a>
                       <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Sign off</a>
+                      <a class="dropdown-item" href="UsuarioController">Sign off</a>
                     </div>
                   </li>
               </ul>
@@ -141,7 +141,7 @@
                           <%for(tbl_noticia noti : noticias){%>
                           <div class="col-sm-4">
                             <div class="card bg-dark mb-2" style="width: 18rem;">
-                              <a href="noticia.jsp"><img src="assets/IMG/image1605164565585.jpg" class="card-img-top" alt="..."></a>
+                                <a href="noticia.jsp"><img src="<%=noti.imagenes.get(0).getExtencion()%>" class="card-img-top" alt="..."></a>
                               <div class="card-body">
                                 <h5 class="card-title"><%= noti.getTitulo()%></h5>
                                 <p class="card-text"><%= noti.getDescripcion_corta()%></p>
