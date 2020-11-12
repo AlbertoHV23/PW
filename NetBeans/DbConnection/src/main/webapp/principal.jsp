@@ -4,12 +4,18 @@
     Author     : alber
 --%>
 
+<%@page import="com.pw.dbconnection.models.tbl_noticia"%>
 <%@page import="com.pw.dbconnection.models.tbl_usuarios"%>
 <%@page import="java.util.List"%>
 <%@page import="com.pw.dbconnection.models.tbl_categoria"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%List<tbl_categoria> categoria = (List<tbl_categoria>)request.getAttribute("categoria");%>
-<%tbl_usuarios usuario = (tbl_usuarios)request.getAttribute("datos");%>
+<%
+    List<tbl_categoria> categoria = (List<tbl_categoria>)request.getAttribute("categoria");
+    List<tbl_noticia> noticias = (List<tbl_noticia>)request.getAttribute("noticias");
+%>
+<%
+    tbl_usuarios usuario = (tbl_usuarios)request.getAttribute("datos");
+%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -132,36 +138,18 @@
                           <hr class="bg-info text-center mt-0 mx-auto">
                       </div>
                         <div class="row">
+                          <%for(tbl_noticia noti : noticias){%>
                           <div class="col-sm-4">
                             <div class="card bg-dark mb-2" style="width: 18rem;">
-                              <a href="noticia.jsp"><img src="assets/IMG/Optimizadas/ratched.jpg" class="card-img-top" alt="..."></a>
+                              <a href="noticia.jsp"><img src="assets/IMG/image1605164565585.jpg" class="card-img-top" alt="..."></a>
                               <div class="card-body">
-                                <h5 class="card-title">Title of the news</h5>
-                                <p class="card-text">Short description: Here is the short description of the news.</p>
+                                <h5 class="card-title"><%= noti.getTitulo()%></h5>
+                                <p class="card-text"><%= noti.getDescripcion_corta()%></p>
                                 <a href="noticia.jsp" class="btn btn-primary">See news</a>
                               </div>
                             </div>
-                          </div>
-                          <div class="col-sm-4">
-                            <div class="card bg-dark mb-2" style="width: 18rem;">
-                              <a href="noticia.jsp"><img src="assets/IMG/Optimizadas/ratched.jpg" class="card-img-top" alt="..."></a>
-                              <div class="card-body">
-                                <h5 class="card-title">Title of the news</h5>
-                                <p class="card-text">Short description: Here is the short description of the news.</p>
-                                <a href="noticia.jsp" class="btn btn-primary">See news</a>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-sm-4">
-                            <div class="card bg-dark mb-2" style="width: 18rem;">
-                              <a href="noticia.jsp"><img src="assets/IMG/Optimizadas/ratched.jpg" class="card-img-top" alt="..."></a>
-                              <div class="card-body">
-                                <h5 class="card-title">Title of the news</h5>
-                                <p class="card-text">Short description: Here is the short description of the news.</p>
-                                <a href="noticia.jsp" class="btn btn-primary">See news</a>
-                              </div>
-                            </div>
-                          </div>
+                          </div>  
+                          <%}%>                   
                         </div>
                       </section>
                        

@@ -26,7 +26,7 @@ public class tbl_noticia {
     private int fk_categoria;
     private String usuario;
     private String categoria;
-    private List<tbl_imagenes> imagenes;
+    public List<tbl_imagenes> imagenes;
 
 
     
