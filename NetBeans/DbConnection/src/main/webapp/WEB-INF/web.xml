@@ -11,7 +11,7 @@
     </session-config>
     <welcome-file-list>
       <!-- <welcome-file>UsuarioController</welcome-file> -->
-      <welcome-file>PrincipalController</welcome-file>
+      <welcome-file>PublicarNoticia</welcome-file>
 
     </welcome-file-list>
 </web-app>

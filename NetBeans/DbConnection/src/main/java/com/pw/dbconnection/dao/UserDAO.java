@@ -51,7 +51,8 @@ public class UserDAO {
             statement.setString(3, user.getUrlImage());
             // Ejecuta el Statement y retorna cuantos registros
             // fueron actualizados
-            return statement.executeUpdate();
+            statement.executeUpdate();
+            con.close();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         } finally {
@@ -74,7 +75,8 @@ public class UserDAO {
             statement.setString(9, "null");
             statement.setBoolean(10, true);
           
-            return statement.executeUpdate();
+            statement.executeUpdate();
+            con.close();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         } finally {
@@ -110,6 +112,8 @@ public class UserDAO {
                 retorno = new tbl_usuarios(id, tipo,name,correo,Pass,imagen,descripcion,face,twit,insta);
                 
             }
+            
+            con.close();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
 
@@ -135,6 +139,7 @@ public class UserDAO {
                 // Agregamos el usuario a la lista
                 users.add(new UserModel(name, password, urlImage));
             }
+            con.close();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         } finally {
@@ -157,6 +162,7 @@ public class UserDAO {
                 // Agregamos el usuario a la lista
                 categoria.add(new tbl_categoria(name));
             }
+            con.close();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         } finally {

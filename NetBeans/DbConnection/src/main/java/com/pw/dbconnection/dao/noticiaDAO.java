@@ -57,7 +57,8 @@ public class noticiaDAO {
             statement.setInt(11, 3);
         
           
-            return statement.executeUpdate();
+            statement.executeUpdate();
+            con.close();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         } finally {
@@ -75,7 +76,8 @@ public class noticiaDAO {
             
         
           
-            return statement.executeUpdate();
+            statement.executeUpdate();
+            con.close();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         } finally {
@@ -93,7 +95,8 @@ public class noticiaDAO {
             
         
           
-            return statement.executeUpdate();
+            statement.executeUpdate();
+            con.close();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         } finally {
@@ -116,6 +119,7 @@ public class noticiaDAO {
               
                 
             }
+            con.close();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
 
@@ -152,6 +156,7 @@ public class noticiaDAO {
                 // Agregamos el usuario a la lista
                 noticia.add(new tbl_noticia(id,titulo,des,descripcion,fecha,hora,aprovado,like,dislike,categoria,usuario));
             }
+            con.close();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         } finally {
@@ -174,7 +179,7 @@ public class noticiaDAO {
                 retorno.add(new tbl_imagenes(id_img,url));
             }
             
-        
+        con.close();
           
           
         } catch (SQLException ex) {
