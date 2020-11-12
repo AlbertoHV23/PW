@@ -151,10 +151,10 @@ public class noticiaDAO {
                 String usuario = resultSet.getString("username");
                
                 
-               //   List<tbl_imagenes> retorno = GetImagen(id);  
+                List<tbl_imagenes> imagenes = GetImagen(id);  
                 
                 // Agregamos el usuario a la lista
-                noticia.add(new tbl_noticia(id,titulo,des,descripcion,fecha,hora,aprovado,like,dislike,categoria,usuario));
+                noticia.add(new tbl_noticia(id,titulo,des,descripcion,fecha,hora,aprovado,like,dislike,usuario,categoria,imagenes));
             }
             con.close();
         } catch (SQLException ex) {
