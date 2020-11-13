@@ -3,11 +3,9 @@ com\pw\dbconnection\models\tbl_imagenes.class
 com\pw\dbconnection\utils\FileUtils.class
 com\pw\dbconnection\controllers\UsersController.class
 com\pw\dbconnection\models\tbl_categoria.class
-com\pw\dbconnection\controllers\session.class
 com\pw\dbconnection\models\UserModel.class
 com\pw\dbconnection\dao\UserDAO.class
 com\pw\dbconnection\controllers\PrincipalController.class
-com\pw\dbconnection\dao\noticiaDAO.class
 com\pw\dbconnection\models\tbl_comentario_a_comentario.class
 com\pw\dbconnection\models\tbl_usuarios.class
 com\pw\dbconnection\utils\DbConnection.class

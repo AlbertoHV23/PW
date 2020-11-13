@@ -3,7 +3,10 @@
     Created on : 7/11/2020, 05:42:16 PM
     Author     : geraj
 --%>
-
+<%@page import="com.pw.dbconnection.models.tbl_noticia"%>
+<%
+    tbl_noticia noticia = (tbl_noticia)request.getAttribute("noticia");
+%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -70,7 +73,7 @@
             <div class="container">
                <section class="imagenes">
                 <div class="col-md-3 mx-auto mb-4 separador-imagenes">
-                    <h6 class="text-uppercase text-center text-white mt-3 font-weight-bold">images</h6>
+                    <h6 class="text-uppercase text-center text-white mt-3 font-weight-bold"><%= noticia.getTitulo() %></h6>
                     <hr class="bg-info text-center mt-0 mx-auto">
                 </div>
 
@@ -82,13 +85,13 @@
                     </ol>
                     <div class="carousel-inner mb-3 mt-3">
                       <div class="carousel-item active">
-                        <img src="assets/IMG/Optimizadas/ratched.jpg" class="d-block w-100" alt="...">
+                          <img src="assets/IMG/image1605213311334.jpg" class="d-block w-100" alt="...">
                       </div>
                       <div class="carousel-item">
-                        <img src="assets/IMG/Optimizadas/fornite.png" class="d-block w-100" alt="...">
+                        <img src="<%= noticia.imagenes.get(0).getExtencion()%>" class="d-block w-100" alt="...">
                       </div>
                       <div class="carousel-item">
-                        <img src="assets/IMG/Optimizadas/odessey.jpg" class="d-block w-100" alt="...">
+                        <img src="<%= noticia.imagenes.get(0).getExtencion()%>" class="d-block w-100" alt="...">
                       </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
@@ -119,16 +122,16 @@
 
                     <div class="card w-100 mb-3" style="width: 18rem;">
                         <div class="card-body">
-                          <h5 class="card-title">Title of the news</h5>
+                          <h5 class="card-title"><%= noticia.getTitulo() %></h5>
                         </div>
                         <ul class="list-group list-group-flush">
                           <li class="list-group-item">
                             <h6 class="card-title">Short description:</h6>
-                            <p class="card-text">Here is the short description of the news.</p>
+                            <p class="card-text"><%= noticia.getDescripcion_corta()%></p>
                           </li>
                           <li class="list-group-item">
                             <h6 class="card-title">Long description:</h6>
-                          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit nostrum dolorum aut possimus facere accusantium exercitationem. Illo tempore voluptas doloribus incidunt eveniet dolorum debitis hic delectus vero, deserunt, nam sit distinctio fugit sint cumque recusandae? Corrupti ad rem officiis. Harum velit magnam modi saepe excepturi placeat adipisci officiis accusamus optio quia. Ut, repellendus neque corporis soluta dolor debitis adipisci corrupti expedita harum fugit? Aliquid aspernatur odio ad quod doloremque saepe eaque possimus ab laudantium tempora sed, velit minima architecto, dignissimos expedita dolorum inventore doloribus cupiditate! Dolore, architecto. Iure sunt autem quos optio exercitationem qui animi tenetur pariatur. Ducimus quo dicta ratione! Quasi quibusdam maiores veritatis delectus eos cupiditate iusto unde beatae pariatur eum eveniet ipsa, laboriosam vel sit debitis sapiente, placeat corrupti perspiciatis repellat sed dolorem, explicabo aut repellendus molestiae? Nisi eius odio quis provident voluptatibus vitae aspernatur omnis quae dolorem eum qui modi sint, ducimus enim minus in culpa sequi dignissimos molestias odit repellendus vel atque perferendis. Laborum magni neque reprehenderit quidem repellendus architecto, eveniet numquam facilis veniam rerum, iusto quia voluptate, ipsum est ex commodi omnis sit? Magnam eum quae dignissimos? Laborum libero vel, asperiores culpa quo distinctio voluptatum dicta quidem enim, blanditiis, officia accusamus nisi eius atque!</p>
+                          <p class="card-text"><%= noticia.getDescripcion_larga()%></p>
                           </li>
                             <li class="list-group-item">
                               <h6 class="card-title">Category:</h6>

@@ -49,6 +49,8 @@ public class PublicarNoticia extends HttpServlet {
        
              List<tbl_categoria> categoria = UserDAO.llenarcategoria(); 
              request.setAttribute("categoria", categoria);
+             
+           
              request.getRequestDispatcher("crear.jsp").forward(request, response);
         
     } 

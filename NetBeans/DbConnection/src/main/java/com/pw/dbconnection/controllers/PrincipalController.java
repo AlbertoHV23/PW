@@ -61,9 +61,11 @@ public class PrincipalController extends HttpServlet {
             request.setAttribute("categoria", categoria);
          
             
-            List<tbl_noticia> noticias = noticiaDAO.GetNoticiasActivas();
+            List<tbl_noticia> noticias = noticiaDAO.GetNoticiasNoActivas();
             request.setAttribute("noticias", noticias);
-            noticias.get(0).getTitulo();
+       
+            
+            
             
            
             //manda todos los datos al jsp para poder imprimir ahi

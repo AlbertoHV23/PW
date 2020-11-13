@@ -129,7 +129,42 @@ public class noticiaDAO {
         return retorno;
     }
 
-    public static List<tbl_noticia> GetNoticiasActivas() {
+    //noticias que ya estan publicadas, las que se va a mostar en la pagina cuando abres uan noticia
+    public static tbl_noticia Noticia(int id_noticia) {
+       tbl_noticia noticia = new tbl_noticia();
+        try {
+            Connection con = DbConnection.getConnection();
+            CallableStatement statement = con.prepareCall("CALL Sp_noticia_NoActiva();");
+            ResultSet resultSet = statement.executeQuery();
+        
+            while (resultSet.next()) {
+               
+                int id = resultSet.getInt("id_noticia");
+                String titulo = resultSet.getString("titulo");
+                String des = resultSet.getString("descripcion_corta");
+                String descripcion= resultSet.getString("descripcion_larga");
+                String fecha= resultSet.getString("fecha");
+                String hora= resultSet.getString("hora");
+                boolean aprovado = resultSet.getBoolean("aprovado");
+                int like = resultSet.getInt("valoracion_like");
+                int dislike = resultSet.getInt("valoracion_Nolike");
+                String categoria = resultSet.getString("nombre");
+                String usuario = resultSet.getString("username");
+               
+                
+                List<tbl_imagenes> imagenes = GetImagen(id);  
+                
+                // Agregamos el usuario a la lista
+               return new tbl_noticia(id,titulo,des,descripcion,fecha,hora,aprovado,like,dislike,usuario,categoria,imagenes);
+            }
+            con.close();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } 
+        return noticia;
+    }
+    
+    public static List<tbl_noticia> GetNoticiasNoActivas() {
         List<tbl_noticia> noticia = new ArrayList<>();
         try {
             Connection con = DbConnection.getConnection();
@@ -163,6 +198,7 @@ public class noticiaDAO {
             return noticia;
         }
     }
+
 
    public static List<tbl_imagenes> GetImagen(int id) {
        List<tbl_imagenes> retorno = new ArrayList<>();

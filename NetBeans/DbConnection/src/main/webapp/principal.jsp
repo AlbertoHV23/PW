@@ -143,9 +143,9 @@
                             <div class="card bg-dark mb-2" style="width: 18rem;">
                                 <a href="noticia.jsp"><img src="<%=noti.imagenes.get(0).getExtencion()%>" class="card-img-top" alt="..."></a>
                               <div class="card-body">
-                                <h5 class="card-title"><%= noti.getTitulo()%></h5>
-                                <p class="card-text"><%= noti.getDescripcion_corta()%></p>
-                                <a href="noticia.jsp" class="btn btn-primary">See news</a>
+                                <h5 class="card-title text-center  text-white font-weight-bold"><%= noti.getTitulo()%></h5>
+                                <p class="card-text text-center  text-white font-weight-light"><%= noti.getDescripcion_corta()%></p>
+                                <a href="PaginaNoticia?id=<%noti.getId_noticia()%>" class="btn btn-primary">See news</a>
                               </div>
                             </div>
                           </div>  
@@ -284,4 +284,4 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
   </body>
-</html>
+</html
