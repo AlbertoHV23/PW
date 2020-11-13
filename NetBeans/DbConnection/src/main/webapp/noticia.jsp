@@ -9,7 +9,7 @@
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -85,7 +85,7 @@
                     </ol>
                     <div class="carousel-inner mb-3 mt-3">
                       <div class="carousel-item active">
-                          <img src="assets/IMG/image1605213311334.jpg" class="d-block w-100" alt="...">
+                          <img src="<%= noticia.imagenes.get(0).getExtencion()%>" class="d-block w-100" alt="...">
                       </div>
                       <div class="carousel-item">
                         <img src="<%= noticia.imagenes.get(0).getExtencion()%>" class="d-block w-100" alt="...">

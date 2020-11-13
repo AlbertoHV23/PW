@@ -145,7 +145,7 @@
                               <div class="card-body">
                                 <h5 class="card-title text-center  text-white font-weight-bold"><%= noti.getTitulo()%></h5>
                                 <p class="card-text text-center  text-white font-weight-light"><%= noti.getDescripcion_corta()%></p>
-                                <a href="PaginaNoticia?id=<%noti.getId_noticia()%>" class="btn btn-primary">See news</a>
+                                <a href="#" class="btn btn-primary">See news</a>
                               </div>
                             </div>
                           </div>  
