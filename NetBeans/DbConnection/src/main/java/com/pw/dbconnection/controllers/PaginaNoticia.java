@@ -38,8 +38,7 @@ public class PaginaNoticia extends HttpServlet {
             throws ServletException, IOException {
              List<tbl_categoria> categoria = UserDAO.llenarcategoria(); 
              request.setAttribute("categoria", categoria);
-             tbl_noticia noticia = noticiaDAO.Noticia(107);
-             request.setAttribute("noticia", noticia);
+
              request.getRequestDispatcher("noticia.jsp").forward(request, response);
     }
 
@@ -55,7 +54,14 @@ public class PaginaNoticia extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+             String id_noti = request.getParameter("ID");
+             int id_noticia = Integer.parseInt(id_noti);
+             List<tbl_categoria> categoria = UserDAO.llenarcategoria(); 
+             request.setAttribute("categoria", categoria);
+       
+             tbl_noticia noticia = noticiaDAO.Noticia(id_noticia);
+             request.setAttribute("noticia", noticia);
+             request.getRequestDispatcher("noticia.jsp").forward(request, response);
     }
 
     /**

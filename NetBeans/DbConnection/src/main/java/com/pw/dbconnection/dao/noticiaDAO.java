@@ -134,7 +134,8 @@ public class noticiaDAO {
        tbl_noticia noticia = new tbl_noticia();
         try {
             Connection con = DbConnection.getConnection();
-            CallableStatement statement = con.prepareCall("CALL Sp_noticia_NoActiva();");
+            CallableStatement statement = con.prepareCall("CALL Sp_noticias_select(?);");
+            statement.setInt(1, id_noticia);
             ResultSet resultSet = statement.executeQuery();
         
             while (resultSet.next()) {

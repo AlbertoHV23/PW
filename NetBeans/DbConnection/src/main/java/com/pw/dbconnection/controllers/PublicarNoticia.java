@@ -98,6 +98,7 @@ public class PublicarNoticia extends HttpServlet {
         noticiaDAO.insertNoticia(noticia);
         id = noticiaDAO.selectid(titulo);
             if(id != 0){
+                
                 String path = request.getServletContext().getRealPath(""); //ubicacion del proyecto
                 // Obtenemos la Direccion donde deseamos guardarlo
                 File fileSaveDir = new File(path + FileUtils.RUTE_USER_IMAGE);
@@ -141,7 +142,7 @@ public class PublicarNoticia extends HttpServlet {
                                    noticiaDAO.NoticiaImagen(FileUtils.RUTE_USER_IMAGE + "/" + nameImage3,id);  
                                 }  
                                 
-                               if(video != null){
+                               if(video != ""){
                                   noticiaDAO.NoticiaVideo(video,id);  
   
                                 }
