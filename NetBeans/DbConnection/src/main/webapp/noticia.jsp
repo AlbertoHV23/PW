@@ -85,13 +85,13 @@
                     </ol>
                     <div class="carousel-inner mb-3 mt-3">
                       <div class="carousel-item active">
-                          <img src="<%= noticia.imagenes.get(0).getExtencion()%>" class="d-block w-100" alt="...">
+                          <img src="assets/IMG/Estaticas/Fifa1.jpg" class="d-block w-100" alt="...">
                       </div>
                       <div class="carousel-item">
-                        <img src="<%= noticia.imagenes.get(0).getExtencion()%>" class="d-block w-100" alt="...">
+                        <img src="<%= noticia.imagenes.get(1).getExtencion()%>" class="d-block w-100" alt="...">
                       </div>
                       <div class="carousel-item">
-                        <img src="<%= noticia.imagenes.get(0).getExtencion()%>" class="d-block w-100" alt="...">
+                        <img src="<%= noticia.imagenes.get(2).getExtencion()%>" class="d-block w-100" alt="...">
                       </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
@@ -111,7 +111,7 @@
                         <hr class="bg-info text-center mt-0 mx-auto">
                     </div>
     
-                    <iframe  class="d-block w-100 mb-3" width="560" height="315" src="https://www.youtube.com/embed/oVHuoskppRM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe  class="d-block w-100 mb-3" width="560" height="315" src="<%=noticia.video%>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </section>
 
                 <section class="Informacion">
@@ -135,7 +135,7 @@
                           </li>
                             <li class="list-group-item">
                               <h6 class="card-title">Category:</h6>
-                              <p class="card-text">empty</p>
+                              <p class="card-text"><%=noticia.getCategoria()%></p>
                             </li>
                             <li class="list-group-item text-center">
                                 <a href="" class="btn btn-primary">Mark</a>

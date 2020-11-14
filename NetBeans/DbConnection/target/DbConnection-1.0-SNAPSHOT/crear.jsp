@@ -11,7 +11,7 @@
         List<tbl_categoria> categoria = (List<tbl_categoria>)request.getAttribute("categoria");
 %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">

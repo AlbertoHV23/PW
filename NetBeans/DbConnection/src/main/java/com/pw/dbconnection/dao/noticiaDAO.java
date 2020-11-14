@@ -54,7 +54,7 @@ public class noticiaDAO {
             statement.setInt(8, 0);
             statement.setInt(9, 0);
             statement.setInt(10, 24);
-            statement.setInt(11, 3);
+            statement.setInt(11, data.getFk_categoria());
         
           
             statement.executeUpdate();
@@ -152,11 +152,11 @@ public class noticiaDAO {
                 String categoria = resultSet.getString("nombre");
                 String usuario = resultSet.getString("username");
                
-                
+                String video = GetVideo(id);
                 List<tbl_imagenes> imagenes = GetImagen(id);  
                 
                 // Agregamos el usuario a la lista
-               return new tbl_noticia(id,titulo,des,descripcion,fecha,hora,aprovado,like,dislike,usuario,categoria,imagenes);
+               return new tbl_noticia(id,titulo,des,descripcion,fecha,hora,aprovado,like,dislike,usuario,categoria,imagenes,video);
             }
             con.close();
         } catch (SQLException ex) {
@@ -186,11 +186,11 @@ public class noticiaDAO {
                 String categoria = resultSet.getString("nombre");
                 String usuario = resultSet.getString("username");
                
-                
+                String video = GetVideo(id);
                 List<tbl_imagenes> imagenes = GetImagen(id);  
                 
                 // Agregamos el usuario a la lista
-                noticia.add(new tbl_noticia(id,titulo,des,descripcion,fecha,hora,aprovado,like,dislike,usuario,categoria,imagenes));
+                noticia.add(new tbl_noticia(id,titulo,des,descripcion,fecha,hora,aprovado,like,dislike,usuario,categoria,imagenes,video));
             }
             con.close();
         } catch (SQLException ex) {
@@ -225,6 +225,58 @@ public class noticiaDAO {
         }
         return retorno;
     }
+   
+   public static String GetVideo(int id){
+        String retorno = "";
+        try {
+            Connection con = DbConnection.getConnection();
+            CallableStatement statement = con.prepareCall("CALL `Sp_videos_selectId`(?);");
+            statement.setInt(1, id);
+         
+
+            ResultSet resultSet = statement.executeQuery();
+            // Si el resultSet tiene resultados lo recorremos
+            while (resultSet.next()) {
+                retorno = resultSet.getString("extencion");
+              
+                
+            }
+            con.close();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+
+        } finally {
+           
+        }
+        return retorno;
+    }
+   
+   public static int IdCategoria(String titulo){
+        int retorno = 0;
+        try {
+            Connection con = DbConnection.getConnection();
+            CallableStatement statement = con.prepareCall("CALL `Sp_categoria_selectid`(?);");
+            statement.setString(1, titulo);
+         
+
+            ResultSet resultSet = statement.executeQuery();
+            // Si el resultSet tiene resultados lo recorremos
+            while (resultSet.next()) {
+                retorno = resultSet.getInt("id_categoria");
+              
+                
+            }
+            con.close();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+
+        } finally {
+           
+        }
+        return retorno;
+    }
+
+   
 }
 
 

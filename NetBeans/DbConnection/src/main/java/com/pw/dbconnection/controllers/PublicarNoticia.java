@@ -91,11 +91,12 @@ public class PublicarNoticia extends HttpServlet {
         String hora = hourFormat.format(date);
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         String fecha =dateFormat.format(date);
-        tbl_noticia noticia = new tbl_noticia(titulo,des,descripcion,fecha,hora);
+        int id_categoria = noticiaDAO.IdCategoria(cate);
+        tbl_noticia noticia = new tbl_noticia(titulo,des,descripcion,fecha,hora,id_categoria);
         
        
         int id =0;         
-        noticiaDAO.insertNoticia(noticia);
+       noticiaDAO.insertNoticia(noticia);
         id = noticiaDAO.selectid(titulo);
             if(id != 0){
                 
