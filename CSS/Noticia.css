@@ -46,3 +46,37 @@ body{
     color: rgb(13, 58, 65);
     transform: scale(1.2);
 }
+
+.media{
+    border-top: 1px solid white;
+    padding: 20px;
+    color: white;
+}
+
+.media img{
+margin-right: 20px;
+}
+
+.media .nombre{
+    color: white;
+    margin-bottom: 0;
+} 
+
+.media .nombre span{
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+.media .comentario{
+    margin-top: 10px;
+}
+.media .botones{
+    margin-bottom: 10px;
+}
+
+.media .botones a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    margin-left: 10px;
+}
