@@ -60,7 +60,7 @@
                         <i class="fas fa-user-circle"></i> <%= usuario.getUsername() %>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="perfil.jsp">Profile</a>
+                      <a class="dropdown-item" href="EditarUsuario">Profile</a>
                       <a class="dropdown-item" href="PublicarNoticia">Create News</a>
                       <a class="dropdown-item" href="publicadas.jsp">Published</a>
                       <a class="dropdown-item" href="marcados.jsp">Marked</a>

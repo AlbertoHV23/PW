@@ -13,6 +13,8 @@
       <welcome-file>UsuarioController</welcome-file>
       <!-- <welcome-file>PublicarNoticia</welcome-file> -->
       <!-- <welcome-file>PaginaNoticia</welcome-file> -->
+      <!-- <welcome-file>EditarUsuario</welcome-file> -->
+
 
 
     </welcome-file-list>

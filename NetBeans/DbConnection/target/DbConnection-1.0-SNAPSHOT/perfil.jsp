@@ -4,7 +4,16 @@
     Author     : geraj
 --%>
 
+<%@page import="com.pw.dbconnection.models.tbl_categoria"%>
+<%@page import="com.pw.dbconnection.models.tbl_usuarios"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    List<tbl_categoria> categoria = (List<tbl_categoria>)request.getAttribute("categoria");
+%>
+<%
+    tbl_usuarios usuario = (tbl_usuarios)request.getAttribute("datos");
+%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -90,18 +99,23 @@
                                   </div>
                                 </div>
                                 <label for="inputUserName">Username:</label>
-                                <input type="text" class="form-control" id="inputUserName">
+                                <input type="text" class="form-control" value="<%=usuario.getUsername()%>" id="inputUserName">
                               </div>
                               <div class="form-group col-md-6">
                                 <label for="inputEmail">Email:</label>
-                                <input type="email" class="form-control" id="inputEmail">
+                                <input type="email" class="form-control" value="<%=usuario.getEmail()%>" id="inputEmail">
                               </div>
                               <div class="form-group col-md-6">
-                                <label for="inputSocialNetworks">Social networks:</label>
+                                <label for="inputSocialNetworks">Description:</label>
                                 <input type="text" class="form-control" id="inputSocialNetworks">
                               </div>
+                              <div class="form-group col-md-6">
+                                <label for="inputSocialNetworks">Facebook:</label>
+                                <input type="text" class="form-control" id="inputSocialNetworks">
+                              </div>
+                              
                               <div class="form-group">
-                                <label for="FormControlTextarea">Description:</label>
+                                <label for="FormControlTextarea">Instagram:</label>
                                 <textarea class="form-control" id="FormControlTextareaDescription" rows="3"></textarea>
                               </div>
                             </div>

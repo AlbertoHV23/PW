@@ -5,6 +5,7 @@ com\pw\dbconnection\controllers\PaginaNoticia.class
 com\pw\dbconnection\controllers\UsersController.class
 com\pw\dbconnection\models\tbl_categoria.class
 com\pw\dbconnection\models\UserModel.class
+com\pw\dbconnection\controllers\EditarUsuario.class
 com\pw\dbconnection\dao\UserDAO.class
 com\pw\dbconnection\controllers\PrincipalController.class
 com\pw\dbconnection\dao\noticiaDAO.class
