@@ -85,10 +85,10 @@
                     </ol>
                     <div class="carousel-inner mb-3 mt-3">
                       <div class="carousel-item active">
-                          <img src="assets/IMG/Estaticas/Fifa1.jpg" class="d-block w-100" alt="...">
+                          <img src="<%= noticia.imagenes.get(0).getExtencion()%>" class="d-block w-100" alt="...">
                       </div>
                       <div class="carousel-item">
-                        <img src="<%= noticia.imagenes.get(1).getExtencion()%>" class="d-block w-100" alt="...">
+                          <img src="<%=noticia.imagenes.get(1).getExtencion()%>" class="d-block w-100" alt="...">
                       </div>
                       <div class="carousel-item">
                         <img src="<%= noticia.imagenes.get(2).getExtencion()%>" class="d-block w-100" alt="...">

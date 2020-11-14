@@ -106,16 +106,16 @@
                                 <input type="email" class="form-control" value="<%=usuario.getEmail()%>" id="inputEmail">
                               </div>
                               <div class="form-group col-md-6">
-                                <label for="inputSocialNetworks">Description:</label>
+                                <label for="inputSocialNetworks">Facebook:</label>
                                 <input type="text" class="form-control" id="inputSocialNetworks">
                               </div>
                               <div class="form-group col-md-6">
-                                <label for="inputSocialNetworks">Facebook:</label>
+                                <label for="inputSocialNetworks">Instagram:</label>
                                 <input type="text" class="form-control" id="inputSocialNetworks">
                               </div>
                               
                               <div class="form-group">
-                                <label for="FormControlTextarea">Instagram:</label>
+                                <label for="FormControlTextarea">Descripcion:</label>
                                 <textarea class="form-control" id="FormControlTextareaDescription" rows="3"></textarea>
                               </div>
                             </div>

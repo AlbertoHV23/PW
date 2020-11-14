@@ -96,7 +96,7 @@ public class PublicarNoticia extends HttpServlet {
         
        
         int id =0;         
-       noticiaDAO.insertNoticia(noticia);
+        noticiaDAO.insertNoticia(noticia);
         id = noticiaDAO.selectid(titulo);
             if(id != 0){
                 
