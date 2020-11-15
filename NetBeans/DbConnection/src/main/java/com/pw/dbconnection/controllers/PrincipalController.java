@@ -43,7 +43,8 @@ public class PrincipalController extends HttpServlet {
             //crea una session para cuando hace login
             HttpSession session = request.getSession();
             tbl_usuarios usuario = (tbl_usuarios)session.getAttribute("persona"); //trae datos del controller login con la sesion activa
-            tbl_usuarios nologin = new tbl_usuarios(); //por si no inicio sesion       
+            tbl_usuarios nologin = new tbl_usuarios(); //por si no inicio sesion   
+            
             if(usuario == null){ //si no hay una session activa
                 nologin.setUsername("Anonimo");
                 nologin.setRol("Anonimo");

@@ -216,29 +216,7 @@
                             </div>
                           </div>
                         </div>
-                        <div class="media">
-                          <img src="/IMG/logox.png" width="64" height="64" alt="">
-                          <div class="media-body">
-                            <p class="nombre">Nombre de usuario <span>1:00</span></p>
-                            <p class="comentario">Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                              Ipsa illo atque delectus perspiciatis libero quae neque, odit, aperiam, omnis 
-                              necessitatibus officia placeat labore? Saepe consectetur nisi fugiat enim totam 
-                              inventore.
-                            </p>
-                            <div class="botones text-right">
-                              <p>
-                                <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                  Responder
-                                </a>
-                              </p>
-                              <div class="collapse" id="collapseExample">
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                <button class="btn btn-primary mt-3" type="button">Comentar</button>
-                              </div>
-                              <a href="#">Bloquear</a>
-                            </div>
-                          </div>
-                        </div>
+                        
                       </div>
                     </div>  
                             

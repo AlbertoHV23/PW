@@ -9,6 +9,7 @@ import com.pw.dbconnection.dao.UserDAO;
 import com.pw.dbconnection.dao.noticiaDAO;
 import com.pw.dbconnection.models.tbl_categoria;
 import com.pw.dbconnection.models.tbl_noticia;
+import com.pw.dbconnection.models.tbl_usuarios;
 import com.pw.dbconnection.utils.FileUtils;
 
 
@@ -27,6 +28,7 @@ import javax.servlet.http.Part;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -92,11 +94,14 @@ public class PublicarNoticia extends HttpServlet {
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         String fecha =dateFormat.format(date);
         int id_categoria = noticiaDAO.IdCategoria(cate);
-        tbl_noticia noticia = new tbl_noticia(titulo,des,descripcion,fecha,hora,id_categoria);
+        HttpSession session = request.getSession();
+        tbl_usuarios usuario = (tbl_usuarios)session.getAttribute("persona"); //trae datos del controller login con la sesion activa
+        int id_usuario = usuario.getId_usuario();
+        tbl_noticia noticia = new tbl_noticia(titulo,des,descripcion,fecha,hora,id_categoria,id_usuario);
         
        
         int id =0;         
-        noticiaDAO.insertNoticia(noticia);
+       // noticiaDAO.insertNoticia(noticia);
         id = noticiaDAO.selectid(titulo);
             if(id != 0){
                 

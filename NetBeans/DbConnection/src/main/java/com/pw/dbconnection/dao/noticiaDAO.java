@@ -53,7 +53,7 @@ public class noticiaDAO {
             statement.setBoolean(7, false);
             statement.setInt(8, 0);
             statement.setInt(9, 0);
-            statement.setInt(10, 24);
+            statement.setInt(10, data.getFk_usuarios());
             statement.setInt(11, data.getFk_categoria());
         
           

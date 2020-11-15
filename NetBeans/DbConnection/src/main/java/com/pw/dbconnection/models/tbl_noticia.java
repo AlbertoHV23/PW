@@ -131,13 +131,14 @@ public class tbl_noticia {
     }
 
     
-    public tbl_noticia(String titulo, String descripcion_corta, String descripcion_larga, String fecha, String hora,int id_categoria) {
+    public tbl_noticia(String titulo, String descripcion_corta, String descripcion_larga, String fecha, String hora,int id_categoria,int id_usuario) {
         this.titulo = titulo;
         this.descripcion_corta = descripcion_corta;
         this.descripcion_larga = descripcion_larga;
         this.fecha = fecha;
         this.hora = hora;
         this.fk_categoria = id_categoria;
+        this.fk_usuarios = id_usuario;
     }
     
     public tbl_noticia(int id_noticia, String titulo, String descripcion_larga, String fecha, String hora, boolean aprovado, int valoracion_like, int valoracion_Nolike, int fk_usuarios, int fk_categoria) {

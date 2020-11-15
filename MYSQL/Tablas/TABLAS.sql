@@ -86,6 +86,16 @@ create table if not exists tbl_marcadas(
     foreign key (fk_noticia) references tbl_noticia(id_noticia)
 );
 
+create table if not exists tbl_comentario_editor(
+	id_comentario	int 	auto_increment,
+    fk_usuario		int 	null,
+	fk_noticia		int 	not null,
+    comentario varchar(2000),
+    primary key (id_comentario),
+    foreign key (fk_usuario) references  tbl_usuarios(id_usuario),
+    foreign key (fk_noticia) references tbl_noticia(id_noticia)
+);
+
 
 
 

@@ -65,9 +65,9 @@ public class Buscar extends HttpServlet {
             tbl_usuarios usuario = (tbl_usuarios)session.getAttribute("persona"); //trae datos del controller login con la sesion activa
             request.setAttribute("datos", usuario);
             
-              String bus = request.getParameter("ID");
-              List<tbl_noticia> buscado = noticiaDAO.searh(bus);
-              request.setAttribute("noticias", buscado);
+             String bus = request.getParameter("ID");
+             List<tbl_noticia> buscado = noticiaDAO.searh(bus);
+             request.setAttribute("noticias", buscado);
             
             
             request.getRequestDispatcher("buscar.jsp").forward(request, response);
