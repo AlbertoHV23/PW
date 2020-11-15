@@ -61,7 +61,7 @@ public class PaginaNoticia extends HttpServlet {
        
              tbl_noticia noticia = noticiaDAO.Noticia(id_noticia);
              request.setAttribute("noticia", noticia);
-             String image3 = noticia.imagenes.get(1).getExtencion();
+            
              request.getRequestDispatcher("noticia.jsp").forward(request, response);
     }
 

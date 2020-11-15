@@ -39,16 +39,14 @@ public class PrincipalController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            response.setContentType("text/html;charset=UTF-8");
-       
-        try (PrintWriter out = response.getWriter()) {
+        
             //crea una session para cuando hace login
             HttpSession session = request.getSession();
             tbl_usuarios usuario = (tbl_usuarios)session.getAttribute("persona"); //trae datos del controller login con la sesion activa
-            tbl_usuarios nologin = new tbl_usuarios(); //por si no inicio sesion
-            
+            tbl_usuarios nologin = new tbl_usuarios(); //por si no inicio sesion       
             if(usuario == null){ //si no hay una session activa
-                nologin.setUsername("Profile");
+                nologin.setUsername("Anonimo");
+                nologin.setRol("Anonimo");
                 request.setAttribute("datos", nologin);
             }
             else{ //si hay session activa
@@ -61,18 +59,18 @@ public class PrincipalController extends HttpServlet {
             request.setAttribute("categoria", categoria);
          
             
-            List<tbl_noticia> noticias = noticiaDAO.GetNoticiasNoActivas();
+            List<tbl_noticia> noticias = noticiaDAO.GetNoticiasActivas();
             request.setAttribute("noticias", noticias);
+            
+            List<tbl_noticia> nuevas = noticiaDAO.nuevas();
+            request.setAttribute("nuevas", nuevas);
        
             
-            
-            
-           
             //manda todos los datos al jsp para poder imprimir ahi
             request.getRequestDispatcher("principal.jsp").forward(request, response);
        
           
-        }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

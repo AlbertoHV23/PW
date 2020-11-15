@@ -12,6 +12,7 @@
 <%
     List<tbl_categoria> categoria = (List<tbl_categoria>)request.getAttribute("categoria");
     List<tbl_noticia> noticias = (List<tbl_noticia>)request.getAttribute("noticias");
+    List<tbl_noticia> nuevas = (List<tbl_noticia>)request.getAttribute("nuevas");
 %>
 <%
     tbl_usuarios usuario = (tbl_usuarios)request.getAttribute("datos");
@@ -47,22 +48,39 @@
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                        <%for(tbl_categoria cat : categoria){%>
-                        <div class="dropdown-divider"></div>
-                        <a><%= cat.getNombre() %></a>
+                        <a class="dropdown-item" href="Buscar?ID=<%=cat.getNombre()%>"><%= cat.getNombre() %></a>
                         <%}%>
                   </div>
                 </li>
+                 <%if(usuario.getUsername().equals("Anonimo")) {%>
                 <li class="nav-item">
                     <a class="nav-link" href="UsuarioController"><i class="fas fa-sign-in-alt"></i> Login</a>
                 </li>
+                  <%}%>
                 <li class="nav-item dropdown">
+                   
+                      <%if(usuario.getUsername().equals("Anonimo")) {%>
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-user-circle"></i> <%= usuario.getUsername() %>
+                        <img src="assets/IMG/Avatars/anonimo.jpg" alt="" class="rounded-circle" style="height: 30px;">  <%= usuario.getUsername() %>
                     </a>
+                     <%} else{ %>
+                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="<%= usuario.getImagen()%>" alt="" class="rounded-circle" style="height: 30px;">  <%= usuario.getUsername() %>
+                    </a>
+                    <%}%>
+                     
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <%if(usuario.getRol() != "Anonimo") {%>
                       <a class="dropdown-item" href="EditarUsuario">Profile</a>
+                      <%}%>
+                      
+                      <%if(usuario.getRol().equals("Creador")) {%>
                       <a class="dropdown-item" href="PublicarNoticia">Create News</a>
-                      <a class="dropdown-item" href="publicadas.jsp">Published</a>
+                      <%}%>
+                      
+                       <%if(usuario.getRol().equals("Editor")) {%>
+                       <a class="dropdown-item" href="publicadas.jsp">Published</a>
+                       <%}%>
                       <a class="dropdown-item" href="marcados.jsp">Marked</a>
                       <a class="dropdown-item" href="#">Notifications<span class="badge badge-light">9</span></a>
                       <div class="dropdown-divider"></div>
@@ -80,7 +98,7 @@
         <main>
 
             <div class="col-md-3 mx-auto mb-4 separador-featured">
-                <h6 class="text-uppercase text-center text-white mt-0 font-weight-bold">featured</h6>
+                <h6 class="text-uppercase text-center text-white mt-0 font-weight-bold">News</h6>
                 <hr class="bg-info text-center mt-0 mx-auto">
             </div>
 
@@ -92,24 +110,24 @@
                 </ol>
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                    <a href="noticia.jsp"><img src="assets/IMG/Optimizadas/ratched.jpg" class="d-block w-100" alt="..."></a>
+                    <a href=""><img src="<%= nuevas.get(0).imagenes.get(0).getExtencion()%>" class="d-block w-100" alt="..."></a>
                     <div class="carousel-caption d-none d-md-block">
-                        <a href="f"><h5>Title of the news</h5></a>
-                      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                        <a href="f"><h5><%= nuevas.get(0).getTitulo()%></h5></a>
+                      <p><%= nuevas.get(0).getDescripcion_corta()%></p>
                     </div>
                   </div>
                   <div class="carousel-item">
-                    <a href="noticia.jsp"><img src="assets/IMG/Optimizadas/fornite.png" class="d-block w-100" alt="..."></a>
+                    <a href=""><img src="<%= nuevas.get(1).imagenes.get(0).getExtencion()%>" class="d-block w-100" alt="..."></a>
                     <div class="carousel-caption d-none d-md-block">
-                        <a href="noticia.jsp"><h5>Title of the news</h5></a>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <a href="noticia.jsp"><h5><%= nuevas.get(1).getTitulo()%></h5></a>
+                      <p><%= nuevas.get(1).getDescripcion_corta()%></p>
                     </div>
                   </div>
-                  <div class="carousel-item">
-                    <a href="noticia.jsp"><img src="assets/IMG/Optimizadas/odessey.jpg" class="d-block w-100" alt="..."></a>
+                <div class="carousel-item">
+                    <a href=""><img src="<%= nuevas.get(2).imagenes.get(0).getExtencion()%>" class="d-block w-100" alt="..."></a>
                     <div class="carousel-caption d-none d-md-block">
-                        <a href="noticia.jsp"><h5>Title of the news</h5></a>
-                      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                        <a href="noticia.jsp"><h5><%= nuevas.get(2).getTitulo()%></h5></a>
+                      <p><%= nuevas.get(2).getDescripcion_corta()%></p>
                     </div>
                   </div>
                 </div>
@@ -126,7 +144,7 @@
             <div class="container noticias">
                 
                 <div class="col-md-3 mx-auto mb-4 mt-4 separador-news">
-                    <h6 class="text-uppercase text-center  text-white font-weight-bold">news</h6>
+                    <h6 class="text-uppercase text-center  text-white font-weight-bold">Notices</h6>
                     <hr class="bg-info text-center mt-0 mx-auto">
                 </div>
 
