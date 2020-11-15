@@ -4,7 +4,20 @@
     Author     : geraj
 --%>
 
+<%@page import="com.pw.dbconnection.models.tbl_usuarios"%>
+<%@page import="com.pw.dbconnection.models.tbl_noticia"%>
+<%@page import="com.pw.dbconnection.models.tbl_noticia"%>
+<%@page import="com.pw.dbconnection.models.tbl_categoria"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    List<tbl_categoria> categoria = (List<tbl_categoria>)request.getAttribute("categoria");
+    List<tbl_noticia> noticias = (List<tbl_noticia>)request.getAttribute("noticias");
+    List<tbl_noticia> nuevas = (List<tbl_noticia>)request.getAttribute("nuevas");
+%>
+<%
+    tbl_usuarios usuario = (tbl_usuarios)request.getAttribute("datos");
+%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -69,22 +82,33 @@
         </nav>
 
         <main>
+              <section class="imagenes">
+                <div class="col-md-3 mx-auto mb-4 separador-imagenes">
+                    <h6 class="text-uppercase text-center text-white mt-3 font-weight-bold">NO APROVADO</h6>
+                    <hr class="bg-info text-center mt-0 mx-auto">
+                </div>
            <div class="container">
-                <div class="card" style="width: 12rem;">
-                <img src="..." class="card-img-top" alt="...">
+               <%for(tbl_noticia noti : noticias){%>
+                <div class="card" style="width: 30rem;">
+                <img src="<%=noti.imagenes.get(0).getExtencion()%>" class="card-img-top" alt="...">
                 <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <h5 class="card-title"><%= noti.getTitulo()%></h5>
+                  <p class="card-text"><%= noti.getDescripcion_corta()%></p>
+                  <p class="card-text">Description</p>
+                  <p class="card-text"><%= noti.getDescripcion_larga()%></p>
+
                 </div>
                 <ul class="list-group list-group-flush">
-                  <li class="list-group-item">Cras justo odio</li>
-                  <li class="list-group-item">Dapibus ac facilisis in</li>
+                    <li class="list-group-item">  <img src="assets/IMG/Avatars/default.png" alt="" class="rounded-circle" style="height: 30px;"> <%= noti.getUsuario()%></li>
                 </ul>
                 <div class="card-body">
-                  <a href="#" class="card-link">Card link</a>
-                  <a href="#" class="card-link">Another link</a>
+                    <a href="EditarNoticia?ID=<%=noti.getId_noticia()%>" class="btn btn-success">Aprovado</a>
+                  <a href="EditarNoticia" class="btn btn-danger ">No aprovar</a>
+
                 </div>
                 </div>
+                <br>
+                 <%}%>
            </div>
         </main>
         

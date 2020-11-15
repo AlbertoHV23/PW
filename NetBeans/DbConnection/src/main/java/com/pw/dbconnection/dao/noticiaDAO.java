@@ -382,7 +382,23 @@ public class noticiaDAO {
         
     }
 
-   
+     public static int Aprovar(int  id){
+        int retorno = 0;
+        try {
+            Connection con = DbConnection.getConnection();
+            CallableStatement statement = con.prepareCall("CALL Sp_noticia_Aprovar(?);");
+            statement.setInt(1, id);
+            ResultSet resultSet = statement.executeQuery();
+            
+            con.close();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+
+        } finally {
+           
+        }
+        return retorno;
+    }
 }
 
 

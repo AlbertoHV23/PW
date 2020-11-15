@@ -79,8 +79,10 @@
                       <%}%>
                       
                        <%if(usuario.getRol().equals("Editor")) {%>
-                       <a class="dropdown-item" href="publicadas.jsp">Published</a>
+                       <a class="dropdown-item" href="EditarNoticia">Published</a>
                        <%}%>
+                       
+                       
                       <a class="dropdown-item" href="marcados.jsp">Marked</a>
                       <a class="dropdown-item" href="#">Notifications<span class="badge badge-light">9</span></a>
                       <div class="dropdown-divider"></div>

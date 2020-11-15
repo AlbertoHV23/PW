@@ -68,7 +68,7 @@ public class UserDAO {
             statement.setString(2, users.getUsername());
             statement.setString(3, users.getEmail());
             statement.setString(4, users.getPassword());
-            statement.setString(5, "null");
+            statement.setString(5, "assets/IMG/Avatars/default.png");
             statement.setString(6, "null");
             statement.setString(7, "null");
             statement.setString(8, "null");
