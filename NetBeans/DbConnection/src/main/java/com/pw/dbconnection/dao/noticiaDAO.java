@@ -129,7 +129,7 @@ public class noticiaDAO {
         return retorno;
     }
 
-    //noticias que ya estan publicadas, las que se va a mostar en la pagina cuando abres uan noticia
+    //noticias que ya estan publicadas, las que se va a mostar en la pagina cuando abres una noticia
     public static tbl_noticia Noticia(int id_noticia) {
        tbl_noticia noticia = new tbl_noticia();
         try {
@@ -399,6 +399,61 @@ public class noticiaDAO {
         }
         return retorno;
     }
+     
+     public static int Marcar(int  fk_usuario, int fk_noticia){
+        int retorno = 0;
+        try {
+            Connection con = DbConnection.getConnection();
+            CallableStatement statement = con.prepareCall("CALL Sp_marcadas_insert(?,?,?);");
+            statement.setInt(1, 0);
+            statement.setInt(2, fk_usuario);
+            statement.setInt(3, fk_noticia);
+            ResultSet resultSet = statement.executeQuery();
+            
+            con.close();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+
+        } finally {
+           
+        }
+        return retorno;
+    }
+     
+     public static List<tbl_noticia> noticias_marcadas(int id_usuario) {
+        List<tbl_noticia> noticia = new ArrayList<>();
+        try {
+            Connection con = DbConnection.getConnection();
+            CallableStatement statement = con.prepareCall("CALL Sp_noticias_marcadas(?);");
+            statement.setInt(1, id_usuario);
+            ResultSet resultSet = statement.executeQuery();
+        
+            while (resultSet.next()) {
+               
+                int id = resultSet.getInt("id_noticia");
+                String titulo = resultSet.getString("titulo");
+                String des = resultSet.getString("descripcion_corta");
+                String descripcion= resultSet.getString("descripcion_larga");
+                String fecha= resultSet.getString("fecha");
+                String hora= resultSet.getString("hora");
+                boolean aprovado = resultSet.getBoolean("aprovado");
+                int like = resultSet.getInt("valoracion_like");
+                int dislike = resultSet.getInt("valoracion_Nolike");
+               
+                String video = GetVideo(id);
+                List<tbl_imagenes> imagenes = GetImagen(id);  
+                
+                // Agregamos el usuario a la lista
+               noticia.add(new tbl_noticia(id,titulo,des,descripcion,fecha,hora,aprovado,like,dislike,imagenes,video));
+            }
+            con.close();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            return noticia;
+        }
+    }
+   
 }
 
 

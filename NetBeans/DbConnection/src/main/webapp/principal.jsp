@@ -83,7 +83,7 @@
                        <%}%>
                        
                        
-                      <a class="dropdown-item" href="marcados.jsp">Marked</a>
+                      <a class="dropdown-item" href="Noticias_marcadas">Marked</a>
                       <a class="dropdown-item" href="#">Notifications<span class="badge badge-light">9</span></a>
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href="UsuarioController">Sign off</a>

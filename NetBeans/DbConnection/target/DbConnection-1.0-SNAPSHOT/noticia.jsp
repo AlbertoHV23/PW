@@ -3,9 +3,13 @@
     Created on : 7/11/2020, 05:42:16 PM
     Author     : geraj
 --%>
+<%@page import="com.pw.dbconnection.models.tbl_usuarios"%>
 <%@page import="com.pw.dbconnection.models.tbl_noticia"%>
 <%
     tbl_noticia noticia = (tbl_noticia)request.getAttribute("noticia");
+%>
+<%
+    tbl_usuarios usuario = (tbl_usuarios)request.getAttribute("datos");
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -138,7 +142,7 @@
                               <p class="card-text"><%=noticia.getCategoria()%></p>
                             </li>
                             <li class="list-group-item text-center">
-                                <a href="" class="btn btn-primary">Mark</a>
+                                <a href="PaginaNoticia?Si=<%=noticia.getId_noticia()%>" class="btn btn-primary">Mark</a>
                             </li>
                             <li class="list-group-item">
                               <div class="card-body">
@@ -167,7 +171,7 @@
                         <form>
                           <div class="form-group d-flex justify-content-end flex-wrap">
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                            <button class="btn btn-primary mt-3" type="button">Comentar</button>
+                            <a class="btn btn-primary mt-3" type="button" href=">Comentar</a>
                           </div>
                         </form>
                         <div class="media">
@@ -175,9 +179,7 @@
                           <div class="media-body">
                             <p class="nombre">Nombre de usuario <span>1:00</span></p>
                             <p class="comentario">Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                              Ipsa illo atque delectus perspiciatis libero quae neque, odit, aperiam, omnis 
-                              necessitatibus officia placeat labore? Saepe consectetur nisi fugiat enim totam 
-                              inventore.
+                              
                             </p>
                             <div class="botones text-right">
                               <p>

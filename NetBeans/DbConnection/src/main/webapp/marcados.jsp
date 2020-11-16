@@ -4,7 +4,20 @@
     Author     : geraj
 --%>
 
+<%@page import="com.pw.dbconnection.models.tbl_usuarios"%>
+<%@page import="com.pw.dbconnection.models.tbl_noticia"%>
+<%@page import="com.pw.dbconnection.models.tbl_noticia"%>
+<%@page import="com.pw.dbconnection.models.tbl_categoria"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    List<tbl_categoria> categoria = (List<tbl_categoria>)request.getAttribute("categoria");
+    List<tbl_noticia> noticias = (List<tbl_noticia>)request.getAttribute("noticias");
+%>
+<%
+    tbl_usuarios usuario = (tbl_usuarios)request.getAttribute("datos");
+%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -74,51 +87,23 @@
             </div>
 
             <div class="row">
+             <%for(tbl_noticia noti : noticias){%>
               <div class="col-sm-4">
                 <div class="card mb-3 bg-dark" style="width: 18rem;">
-                  <img class="card-img-top" src="/IMG/Optimizadas/ratched.jpg" alt="Card image cap">
+                  <img class="card-img-top" src="<%=noti.imagenes.get(0).getExtencion()%>" alt="Card image cap">
                   <div class="card-body">
-                    <h5 class="card-title">Title of the news</h5>
-                    <p class="card-text">Short description:</p>
-                    <p class="card-text">Here is the short description of the news.</p>
+                    <h5 class="card-title"><%= noti.getTitulo()%></h5>
+                    <p class="card-text"><%= noti.getDescripcion_corta()%></p>
+                    <p class="card-text"><%= noti.getDescripcion_larga()%></p>
                   </div>
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item">Category</li>
                   </ul>
                   <a href="" class="btn btn-primary mt-1 mb-1">Uncheck</a>
-                  <a href="noticia.jsp" class="btn btn-primary">See news</a>
+                  <a href="PaginaNoticia?ID=<%=noti.getId_noticia()%>" class="btn btn-primary">See news</a>
                 </div>
               </div>
-              <div class="col-sm-4">
-                <div class="card mb-3 bg-dark" style="width: 18rem;">
-                <img class="card-img-top" src="/IMG/Optimizadas/ratched.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Title of the news</h5>
-                  <p class="card-text">Short description:</p>
-                  <p class="card-text">Here is the short description of the news.</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">Category</li>
-                </ul>
-                <a href="" class="btn btn-primary mt-1 mb-1">Uncheck</a>
-                <a href="noticia.jsp" class="btn btn-primary">See news</a>
-                </div>
-              </div>
-              <div class="col-sm-4">
-                <div class="card mb-3 bg-dark" style="width: 18rem;">
-                <img class="card-img-top" src="/IMG/Optimizadas/ratched.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Title of the news</h5>
-                  <p class="card-text">Short description:</p>
-                  <p class="card-text">Here is the short description of the news.</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">Category</li>
-                </ul>
-                <a href="" class="btn btn-primary mt-1 mb-1">Uncheck</a>
-                <a href="noticia.jsp" class="btn btn-primary">See news</a>
-                </div>
-              </div>
+             <%}%> 
             </div>
         </div>
     </main>

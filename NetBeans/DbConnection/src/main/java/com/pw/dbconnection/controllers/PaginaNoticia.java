@@ -9,6 +9,7 @@ import com.pw.dbconnection.dao.UserDAO;
 import com.pw.dbconnection.dao.noticiaDAO;
 import com.pw.dbconnection.models.tbl_categoria;
 import com.pw.dbconnection.models.tbl_noticia;
+import com.pw.dbconnection.models.tbl_usuarios;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -17,6 +18,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -55,12 +57,30 @@ public class PaginaNoticia extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
              String id_noti = request.getParameter("ID");
-             int id_noticia = Integer.parseInt(id_noti);
+             
+            HttpSession session = request.getSession();
+            tbl_usuarios usuario = (tbl_usuarios)session.getAttribute("persona"); //trae datos del controller login con la sesion activa
+            request.setAttribute("datos", usuario);
+             
+             if(id_noti != null){
+                 int id_noticia = Integer.parseInt(id_noti);
+                 tbl_noticia noticia = noticiaDAO.Noticia(id_noticia);
+                 request.setAttribute("noticia", noticia);
+             }
              List<tbl_categoria> categoria = UserDAO.llenarcategoria(); 
              request.setAttribute("categoria", categoria);
+             
+             String marcar = request.getParameter("Si");
+             
+              if(marcar != null){
+                 int id_noticia_marcar = Integer.parseInt(marcar);
+                 tbl_noticia noticia = noticiaDAO.Noticia(id_noticia_marcar);
+                 request.setAttribute("noticia", noticia);
+                 noticiaDAO.Marcar(usuario.getId_usuario(), id_noticia_marcar);
+             }
        
-             tbl_noticia noticia = noticiaDAO.Noticia(id_noticia);
-             request.setAttribute("noticia", noticia);
+          
+           
             
              request.getRequestDispatcher("noticia.jsp").forward(request, response);
     }
