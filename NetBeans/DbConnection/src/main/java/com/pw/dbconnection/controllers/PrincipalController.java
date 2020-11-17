@@ -47,8 +47,10 @@ public class PrincipalController extends HttpServlet {
             
             if(usuario == null){ //si no hay una session activa
                 nologin = UserDAO.anonimo();
+               
                 // nologin.setUsername("Anonimo");
                 //nologin.setRol("Anonimo");
+                session.setAttribute("persona", nologin);
                 request.setAttribute("datos", nologin);
             }
             else{ //si hay session activa

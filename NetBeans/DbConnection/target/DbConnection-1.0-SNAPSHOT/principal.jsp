@@ -70,22 +70,32 @@
                     <%}%>
                      
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <%if(usuario.getRol() != "Anonimo") {%>
+                      <%if(!usuario.getRol().equals("Anonimo")) {%>
                       <a class="dropdown-item" href="EditarUsuario">Profile</a>
                       <%}%>
                       
                       <%if(usuario.getRol().equals("Creador")) {%>
                       <a class="dropdown-item" href="PublicarNoticia">Create News</a>
+                      <a class="dropdown-item" href="Noticias_marcadas">Marked</a>
+                      <a class="dropdown-item" href="#">Notifications<span class="badge badge-light">9</span></a>
+                      <div class="dropdown-divider"></div>
+                      <%}%>
+                      
+                        <%if(usuario.getRol().equals("Normal")) {%>
+                      <a class="dropdown-item" href="Noticias_marcadas">Marked</a>
+                      <a class="dropdown-item" href="#">Notifications<span class="badge badge-light">9</span></a>
+                      <div class="dropdown-divider"></div>
                       <%}%>
                       
                        <%if(usuario.getRol().equals("Editor")) {%>
                        <a class="dropdown-item" href="EditarNoticia">Published</a>
+                       <a class="dropdown-item" href="Noticias_marcadas">Marked</a>
+                       <a class="dropdown-item" href="#">Notifications<span class="badge badge-light">9</span></a>
+                       <div class="dropdown-divider"></div>
                        <%}%>
                        
                        
-                      <a class="dropdown-item" href="Noticias_marcadas">Marked</a>
-                      <a class="dropdown-item" href="#">Notifications<span class="badge badge-light">9</span></a>
-                      <div class="dropdown-divider"></div>
+                     
                       <a class="dropdown-item" href="UsuarioController">Sign off</a>
                     </div>
                   </li>

@@ -76,14 +76,7 @@ public class ComentariosComentarios extends HttpServlet {
                    request.setAttribute("datos", usuario);
             } 
             
-            if(usuario == null){ //si no hay una session activa
-                nologin.setUsername("Anonimo");
-                nologin.setRol("Anonimo");
-                request.setAttribute("datos", nologin);
-            }
-            else{ //si hay session activa
-                   request.setAttribute("datos", usuario);
-            }
+         
             
             String comen = request.getParameter("comentario");
             String ids = request.getParameter("password");
