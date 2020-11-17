@@ -43,8 +43,8 @@ public class ComentariosComentarios extends HttpServlet {
             request.setAttribute("noticia", noticia);
             List<tbl_comentarios> comentarios = noticiaDAO.GetComentarios(126);
             request.setAttribute("comentarios", comentarios);
-             List<tbl_categoria> categoria = UserDAO.llenarcategoria(); 
-             request.setAttribute("categoria", categoria);
+            List<tbl_categoria> categoria = UserDAO.llenarcategoria(); 
+            request.setAttribute("categoria", categoria);
 
              request.getRequestDispatcher("noticia.jsp").forward(request, response);
     }
@@ -62,26 +62,53 @@ public class ComentariosComentarios extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
            
+              //crea una session para cuando hace login
             HttpSession session = request.getSession();
             tbl_usuarios usuario = (tbl_usuarios)session.getAttribute("persona"); //trae datos del controller login con la sesion activa
-            request.setAttribute("datos", usuario);
+            tbl_usuarios nologin = new tbl_usuarios(); //por si no inicio sesion   
+            
+            if(usuario == null){ //si no hay una session activa
+                nologin.setUsername("Anonimo");
+                nologin.setRol("Anonimo");
+                request.setAttribute("datos", nologin);
+            }
+            else{ //si hay session activa
+                   request.setAttribute("datos", usuario);
+            } 
+            
+            if(usuario == null){ //si no hay una session activa
+                nologin.setUsername("Anonimo");
+                nologin.setRol("Anonimo");
+                request.setAttribute("datos", nologin);
+            }
+            else{ //si hay session activa
+                   request.setAttribute("datos", usuario);
+            }
+            
             String comen = request.getParameter("comentario");
             String ids = request.getParameter("password");
+            String id_noticia = request.getParameter("id_noti");
             
             List<tbl_categoria> categoria = UserDAO.llenarcategoria(); 
             request.setAttribute("categoria", categoria);
             
             if(ids != null){
+                
                 int id_notis = Integer.parseInt(ids);
-                tbl_noticia noticia = noticiaDAO.Noticia(id_notis);
-                noticiaDAO.ComentarComentario(id_notis, id_notis, comen, usuario.getId_usuario());
+                int noti = Integer.parseInt(id_noticia);
+                tbl_noticia noticia = noticiaDAO.Noticia(noti);
                 request.setAttribute("noticia", noticia);
-                List<tbl_comentarios> comentarios = noticiaDAO.GetComentarios(id_notis);
+                
+                noticiaDAO.ComentarComentario(id_notis, id_notis, comen, usuario.getId_usuario());
+                
+                List<tbl_comentarios> comentarios = noticiaDAO.GetComentarios(noti);
                 request.setAttribute("comentarios", comentarios);
+                
+                
            }
             
  
-            
+               request.getRequestDispatcher("PaginaNoticia").forward(request, response);
 
     }
 

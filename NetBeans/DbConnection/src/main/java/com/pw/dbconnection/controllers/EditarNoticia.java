@@ -9,6 +9,7 @@ import com.pw.dbconnection.dao.UserDAO;
 import com.pw.dbconnection.dao.noticiaDAO;
 import com.pw.dbconnection.models.tbl_categoria;
 import com.pw.dbconnection.models.tbl_noticia;
+import com.pw.dbconnection.models.tbl_usuarios;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -17,6 +18,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -41,6 +43,20 @@ public class EditarNoticia extends HttpServlet {
             List<tbl_categoria> categoria = UserDAO.llenarcategoria(); 
             request.setAttribute("categoria", categoria);
          
+            
+              //crea una session para cuando hace login
+            HttpSession session = request.getSession();
+            tbl_usuarios usuario = (tbl_usuarios)session.getAttribute("persona"); //trae datos del controller login con la sesion activa
+            tbl_usuarios nologin = new tbl_usuarios(); //por si no inicio sesion   
+            
+            if(usuario == null){ //si no hay una session activa
+                nologin.setUsername("Anonimo");
+                nologin.setRol("Anonimo");
+                request.setAttribute("datos", nologin);
+            }
+            else{ //si hay session activa
+                   request.setAttribute("datos", usuario);
+            }
             
             List<tbl_noticia> noticias = noticiaDAO.GetNoticiasNoActivas();
             request.setAttribute("noticias", noticias);
@@ -67,6 +83,19 @@ public class EditarNoticia extends HttpServlet {
             List<tbl_categoria> categoria = UserDAO.llenarcategoria(); 
             request.setAttribute("categoria", categoria);
          
+              //crea una session para cuando hace login
+            HttpSession session = request.getSession();
+            tbl_usuarios usuario = (tbl_usuarios)session.getAttribute("persona"); //trae datos del controller login con la sesion activa
+            tbl_usuarios nologin = new tbl_usuarios(); //por si no inicio sesion   
+            
+            if(usuario == null){ //si no hay una session activa
+                nologin.setUsername("Anonimo");
+                nologin.setRol("Anonimo");
+                request.setAttribute("datos", nologin);
+            }
+            else{ //si hay session activa
+                   request.setAttribute("datos", usuario);
+            }
             
             
             

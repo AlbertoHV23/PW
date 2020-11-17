@@ -52,6 +52,19 @@ public class PublicarNoticia extends HttpServlet {
              List<tbl_categoria> categoria = UserDAO.llenarcategoria(); 
              request.setAttribute("categoria", categoria);
              
+                //crea una session para cuando hace login
+            HttpSession session = request.getSession();
+            tbl_usuarios usuario = (tbl_usuarios)session.getAttribute("persona"); //trae datos del controller login con la sesion activa
+            tbl_usuarios nologin = new tbl_usuarios(); //por si no inicio sesion   
+            
+            if(usuario == null){ //si no hay una session activa
+                nologin.setUsername("Anonimo");
+                nologin.setRol("Anonimo");
+                request.setAttribute("datos", nologin);
+            }
+            else{ //si hay session activa
+                   request.setAttribute("datos", usuario);
+            }
            
              request.getRequestDispatcher("crear.jsp").forward(request, response);
         
@@ -94,14 +107,18 @@ public class PublicarNoticia extends HttpServlet {
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         String fecha =dateFormat.format(date);
         int id_categoria = noticiaDAO.IdCategoria(cate);
+        
         HttpSession session = request.getSession();
         tbl_usuarios usuario = (tbl_usuarios)session.getAttribute("persona"); //trae datos del controller login con la sesion activa
         int id_usuario = usuario.getId_usuario();
+        
+        
         tbl_noticia noticia = new tbl_noticia(titulo,des,descripcion,fecha,hora,id_categoria,id_usuario);
         
        
+        
         int id =0;         
-       // noticiaDAO.insertNoticia(noticia);
+        noticiaDAO.insertNoticia(noticia);
         id = noticiaDAO.selectid(titulo);
             if(id != 0){
                 
@@ -156,6 +173,9 @@ public class PublicarNoticia extends HttpServlet {
                  
              List<tbl_categoria> categoria = UserDAO.llenarcategoria(); 
              request.setAttribute("categoria", categoria);
+             
+             
+             
              request.getRequestDispatcher("crear.jsp").forward(request, response);                
        
     }

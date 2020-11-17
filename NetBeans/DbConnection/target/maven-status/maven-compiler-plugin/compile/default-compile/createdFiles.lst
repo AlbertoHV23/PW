@@ -1,6 +1,7 @@
 com\pw\dbconnection\controllers\UsuarioController.class
 com\pw\dbconnection\models\tbl_imagenes.class
 com\pw\dbconnection\utils\FileUtils.class
+com\pw\dbconnection\controllers\PaginaNoticia.class
 com\pw\dbconnection\controllers\UsersController.class
 com\pw\dbconnection\models\tbl_categoria.class
 com\pw\dbconnection\models\UserModel.class
@@ -18,4 +19,5 @@ com\pw\dbconnection\controllers\Noticias_marcadas.class
 com\pw\dbconnection\models\tbl_marcadas.class
 com\pw\dbconnection\models\tbl_videos.class
 com\pw\dbconnection\models\tbl_noticia.class
+com\pw\dbconnection\controllers\PublicarNoticia.class
 com\pw\dbconnection\models\tbl_comentarios.class
