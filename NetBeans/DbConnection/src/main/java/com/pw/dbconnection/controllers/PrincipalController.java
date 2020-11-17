@@ -46,8 +46,9 @@ public class PrincipalController extends HttpServlet {
             tbl_usuarios nologin = new tbl_usuarios(); //por si no inicio sesion   
             
             if(usuario == null){ //si no hay una session activa
-                nologin.setUsername("Anonimo");
-                nologin.setRol("Anonimo");
+                nologin = UserDAO.anonimo();
+                // nologin.setUsername("Anonimo");
+                //nologin.setRol("Anonimo");
                 request.setAttribute("datos", nologin);
             }
             else{ //si hay session activa

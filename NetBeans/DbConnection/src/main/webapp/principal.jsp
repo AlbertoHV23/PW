@@ -179,38 +179,7 @@
                           <h6 class="text-uppercase text-center  text-white font-weight-bold">fps</h6>
                           <hr class="bg-info text-center mt-0 mx-auto">
                       </div>
-                        <div class="row">
-                          <div class="col-sm-4">
-                            <div class="card bg-dark mb-2" style="width: 18rem;">
-                              <a href="noticia.jsp"><img src="assets/IMG/Optimizadas/fornite.png" class="card-img-top" alt="..."></a>
-                              <div class="card-body">
-                                <h5 class="card-title">Title of the news</h5>
-                                <p class="card-text">Short description: Here is the short description of the news.</p>
-                                <a href="noticia.jsp" class="btn btn-primary">See news</a>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-sm-4">
-                            <div class="card bg-dark mb-2" style="width: 18rem;">
-                              <a href="noticia.jsp"><img src="assets/IMG/Optimizadas/fornite.png" class="card-img-top" alt="..."></a>
-                              <div class="card-body">
-                                <h5 class="card-title">Title of the news</h5>
-                                <p class="card-text">Short description: Here is the short description of the news.</p>
-                                <a href="noticia.jsp" class="btn btn-primary">See news</a>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-sm-4">
-                            <div class="card bg-dark mb-2" style="width: 18rem;">
-                              <a href="noticia.jsp"><img src="assets/IMG/Optimizadas/fornite.png" class="card-img-top" alt="..."></a>
-                              <div class="card-body">
-                                <h5 class="card-title">Title of the news</h5>
-                                <p class="card-text">Short description: Here is the short description of the news.</p>
-                                <a href="noticia.jsp" class="btn btn-primary">See news</a>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                        
                       </section>
 
                      
@@ -219,38 +188,7 @@
                           <h6 class="text-uppercase text-center  text-white font-weight-bold">action</h6>
                           <hr class="bg-info text-center mt-0 mx-auto">
                       </div>
-                        <div class="row">
-                          <div class="col-sm-4">
-                            <div class="card bg-dark mb-2" style="width: 18rem;">
-                              <a href="noticia.jsp"><img src="assets/IMG/Optimizadas/odessey.jpg" class="card-img-top" alt="..."></a>
-                              <div class="card-body">
-                                <h5 class="card-title">Title of the news</h5>
-                                <p class="card-text">Short description: Here is the short description of the news.</p>
-                                <a href="noticia.jsp" class="btn btn-primary">See news</a>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-sm-4">
-                            <div class="card bg-dark mb-2" style="width: 18rem;">
-                              <a href="noticia.jsp"><img src="assets/IMG/Optimizadas/odessey.jpg" class="card-img-top" alt="..."></a>
-                              <div class="card-body">
-                                <h5 class="card-title">Title of the news</h5>
-                                <p class="card-text">Short description: Here is the short description of the news.</p>
-                                <a href="noticia.jsp" class="btn btn-primary">See news</a>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-sm-4">
-                            <div class="card bg-dark mb-2" style="width: 18rem;">
-                              <a href="noticia.jsp"><img src="assets/IMG/Optimizadas/odessey.jpg" class="card-img-top" alt="..."></a>
-                              <div class="card-body">
-                                <h5 class="card-title">Title of the news</h5>
-                                <p class="card-text">Short description: Here is the short description of the news.</p>
-                                <a href="noticia.jsp" class="btn btn-primary">See news</a>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                        
                       </section>
                     </section>
             </div>

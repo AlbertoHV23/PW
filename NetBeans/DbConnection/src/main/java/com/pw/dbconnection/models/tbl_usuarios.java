@@ -41,6 +41,13 @@ public class tbl_usuarios {
         this.activo = activo;
     }
 
+    public tbl_usuarios(int id_usuario, String rol, String username, String imagen) {
+        this.id_usuario = id_usuario;
+        this.rol = rol;
+        this.username = username;
+        this.imagen = imagen;
+    }
+
 
     public tbl_usuarios(int id_usuario, String username, String _password) {
         this.id_usuario = id_usuario;

@@ -122,6 +122,37 @@ public class UserDAO {
         }
         return retorno;
     }
+    
+    public static tbl_usuarios anonimo(){
+        tbl_usuarios retorno =new tbl_usuarios();
+        try {
+            Connection con = DbConnection.getConnection();
+            CallableStatement statement = con.prepareCall("call anonimo();");
+         
+
+            ResultSet resultSet = statement.executeQuery();
+            // Si el resultSet tiene resultados lo recorremos
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id_usuario");
+                String tipo = resultSet.getString("rol");
+                String name = resultSet.getString("username");
+                String imagen = resultSet.getString("imagen");
+              
+
+
+                retorno = new tbl_usuarios(id, tipo,name,imagen);
+                
+            }
+            
+            con.close();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+
+        } finally {
+           
+        }
+        return retorno;
+    }
 
     public static List<UserModel> getUsers() {
         List<UserModel> users = new ArrayList<>();
