@@ -84,6 +84,7 @@
                     <hr class="bg-info text-center mt-0 mx-auto">
                 </div>
                       <section class="buscar">
+                        <%if(noticias != null){%>
                     <div class="row">
                           <%for(tbl_noticia noti : noticias){%>
                           <div class="col-sm-4">
@@ -98,6 +99,7 @@
                           </div>  
                           <%}%>                   
                         </div>
+                        <%}%>  
                       </section>
 
                    

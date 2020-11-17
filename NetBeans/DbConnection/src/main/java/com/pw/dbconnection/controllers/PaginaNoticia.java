@@ -8,6 +8,7 @@ package com.pw.dbconnection.controllers;
 import com.pw.dbconnection.dao.UserDAO;
 import com.pw.dbconnection.dao.noticiaDAO;
 import com.pw.dbconnection.models.tbl_categoria;
+import com.pw.dbconnection.models.tbl_comentarios;
 import com.pw.dbconnection.models.tbl_noticia;
 import com.pw.dbconnection.models.tbl_usuarios;
 import java.io.IOException;
@@ -15,6 +16,7 @@ import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -56,19 +58,32 @@ public class PaginaNoticia extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-             String id_noti = request.getParameter("ID");
+            String id_noti = request.getParameter("ID");
              
             HttpSession session = request.getSession();
             tbl_usuarios usuario = (tbl_usuarios)session.getAttribute("persona"); //trae datos del controller login con la sesion activa
             request.setAttribute("datos", usuario);
+            
+          
+            
+            
+            List<tbl_categoria> categoria = UserDAO.llenarcategoria(); 
+             request.setAttribute("categoria", categoria);
+            
+            String comen = request.getParameter("comentario");
+        
              
              if(id_noti != null){
-                 int id_noticia = Integer.parseInt(id_noti);
-                 tbl_noticia noticia = noticiaDAO.Noticia(id_noticia);
-                 request.setAttribute("noticia", noticia);
+                   Cookie miCookie = new Cookie ("nombre", id_noti);
+                   miCookie.setMaxAge(120);
+                   response.addCookie(miCookie);
+                   int id_noticia = Integer.parseInt(id_noti);
+                   tbl_noticia noticia = noticiaDAO.Noticia(id_noticia);
+                   request.setAttribute("noticia", noticia);
+                   List<tbl_comentarios> comentarios = noticiaDAO.GetComentarios(id_noticia);
+                   request.setAttribute("comentarios", comentarios);
              }
-             List<tbl_categoria> categoria = UserDAO.llenarcategoria(); 
-             request.setAttribute("categoria", categoria);
+             
              
              String marcar = request.getParameter("Si");
              
@@ -77,6 +92,8 @@ public class PaginaNoticia extends HttpServlet {
                  tbl_noticia noticia = noticiaDAO.Noticia(id_noticia_marcar);
                  request.setAttribute("noticia", noticia);
                  noticiaDAO.Marcar(usuario.getId_usuario(), id_noticia_marcar);
+                 List<tbl_comentarios> comentarios = noticiaDAO.GetComentarios(id_noticia);
+                 request.setAttribute("comentarios", comentarios);
              }
        
           
@@ -96,7 +113,32 @@ public class PaginaNoticia extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+            Cookie[] cookies = request.getCookies();
+            
+            
+
+             
+            HttpSession session = request.getSession();
+            tbl_usuarios usuario = (tbl_usuarios)session.getAttribute("persona"); //trae datos del controller login con la sesion activa
+            request.setAttribute("datos", usuario);
+            String comen = request.getParameter("comentario");
+            String ids = request.getParameter("password");
+
+
+            
+            List<tbl_categoria> categoria = UserDAO.llenarcategoria(); 
+            request.setAttribute("categoria", categoria);
+             
+           if(ids != null){
+                int id_notis = Integer.parseInt(ids);
+                tbl_noticia noticia = noticiaDAO.Noticia(id_notis);
+                noticiaDAO.Comentar(usuario.getId_usuario(), id_notis, comen);
+                request.setAttribute("noticia", noticia);
+                List<tbl_comentarios> comentarios = noticiaDAO.GetComentarios(id_notis);
+                request.setAttribute("comentarios", comentarios);
+           }
+           
+            request.getRequestDispatcher("noticia.jsp").forward(request, response);
     }
 
     /**

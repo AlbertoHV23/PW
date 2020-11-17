@@ -5,6 +5,8 @@
  */
 package com.pw.dbconnection.models;
 
+import java.util.List;
+
 /**
  *
  * @author geraj
@@ -12,6 +14,44 @@ package com.pw.dbconnection.models;
 public class tbl_comentarios {   
     private int id_comentario;
     private String comentario;
+    private String username;
+    private String imagen;
+    public List<tbl_comentario_a_comentario> respuestas;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public tbl_comentarios(int id_comentario, String comentario, String username, String imagen) {
+        this.id_comentario = id_comentario;
+        this.comentario = comentario;
+        this.username = username;
+        this.imagen = imagen;
+    }
+
+    public tbl_comentarios(int id_comentario, String comentario, String username, String imagen, List<tbl_comentario_a_comentario> respuestas) {
+        this.id_comentario = id_comentario;
+        this.comentario = comentario;
+        this.username = username;
+        this.imagen = imagen;
+        this.respuestas = respuestas;
+    }
+
+    
+    
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
+
     private int fk_usuario;
     private int fk_noticia;
     private int valoracion_like;
@@ -20,6 +60,8 @@ public class tbl_comentarios {
 
     public tbl_comentarios() {
     }
+    
+    
 
     public tbl_comentarios(int id_comentario, String comentario, int fk_usuario, int fk_noticia, int valoracion_like, int valoracion_Nolike, boolean aprovado) {
         this.id_comentario = id_comentario;

@@ -12,7 +12,10 @@ package com.pw.dbconnection.models;
 public class tbl_comentario_a_comentario {
     private int id_sub_comentario;
     private int fk_comentario;
-    private String comentario;
+    private String comentario; 
+    private String username;
+    private String imagen;
+    
     private boolean aprovado;
 
     public tbl_comentario_a_comentario() {
@@ -25,6 +28,15 @@ public class tbl_comentario_a_comentario {
         this.aprovado = aprovado;
     }
 
+    public tbl_comentario_a_comentario(int id_sub_comentario, String comentario, String username, String imagen) {
+        this.id_sub_comentario = id_sub_comentario;
+        this.comentario = comentario;
+        this.username = username;
+        this.imagen = imagen;
+    }
+
+    
+    
     public int getId_sub_comentario() {
         return id_sub_comentario;
     }
@@ -56,4 +68,22 @@ public class tbl_comentario_a_comentario {
     public void setAprovado(boolean aprovado) {
         this.aprovado = aprovado;
     }  
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+    
+    
 }

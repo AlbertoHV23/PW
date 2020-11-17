@@ -8,6 +8,8 @@ package com.pw.dbconnection.dao;
 
 import com.pw.dbconnection.models.UserModel;
 import com.pw.dbconnection.models.tbl_categoria;
+import com.pw.dbconnection.models.tbl_comentario_a_comentario;
+import com.pw.dbconnection.models.tbl_comentarios;
 import com.pw.dbconnection.models.tbl_imagenes;
 import com.pw.dbconnection.models.tbl_noticia;
 import com.pw.dbconnection.models.tbl_usuarios;
@@ -420,7 +422,53 @@ public class noticiaDAO {
         return retorno;
     }
      
-     public static List<tbl_noticia> noticias_marcadas(int id_usuario) {
+     public static int Comentar(int  fk_usuario, int fk_noticia, String comentario){
+        int retorno = 0;
+        try {
+            Connection con = DbConnection.getConnection();
+            CallableStatement statement = con.prepareCall("CALL Sp_comentarios_insert(?,?,?,?,?,?,?);");
+            statement.setInt(1, 0);
+            statement.setString(2, comentario);
+            statement.setInt(3, fk_usuario);
+            statement.setInt(4, fk_noticia);
+            statement.setInt(5, 0);
+            statement.setInt(6, 0);
+            statement.setBoolean(7,true);
+            ResultSet resultSet = statement.executeQuery();
+            
+            con.close();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+
+        } finally {
+           
+        }
+        return retorno;
+    }
+     
+     public static int ComentarComentario(int  fk_usuario, int fk_coment, String comentario, int usuario){
+        int retorno = 0;
+        try {
+            Connection con = DbConnection.getConnection();
+            CallableStatement statement = con.prepareCall("CALL Sp_comentarioacomentario_insert(?,?,?,?,?);");
+            statement.setInt(1, 0);
+            statement.setInt(2, fk_coment);
+            statement.setString(3, comentario);
+            statement.setBoolean(4,false);
+            statement.setInt(5, usuario);
+            ResultSet resultSet = statement.executeQuery();
+            
+            con.close();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+
+        } finally {
+           
+        }
+        return retorno;
+    }
+     
+    public static List<tbl_noticia> noticias_marcadas(int id_usuario) {
         List<tbl_noticia> noticia = new ArrayList<>();
         try {
             Connection con = DbConnection.getConnection();
@@ -452,6 +500,70 @@ public class noticiaDAO {
         } finally {
             return noticia;
         }
+    }
+     
+    public static List<tbl_comentarios> GetComentarios(int palabra) {
+        List<tbl_comentarios> noticia = new ArrayList<>();
+        try {
+            Connection con = DbConnection.getConnection();
+            CallableStatement statement = con.prepareCall("CALL traer_comentarios(?);");
+            statement.setInt(1, palabra);
+            ResultSet resultSet = statement.executeQuery();
+          
+            while (resultSet.next()) {
+               
+                int id = resultSet.getInt("id_comentario");
+                String comen = resultSet.getString("comentario");
+                String user = resultSet.getString("username");
+                String image= resultSet.getString("imagen");
+                
+                
+               List<tbl_comentario_a_comentario> respuestas = GetComentarios_respuestas(id);
+           
+                
+                // Agregamos el usuario a la lista
+                noticia.add(new tbl_comentarios(id,comen,user,image,respuestas));
+            }
+            con.close();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            
+        }
+            return noticia;
+        
+    }
+    
+    public static List<tbl_comentario_a_comentario> GetComentarios_respuestas(int palabra) {
+        List<tbl_comentario_a_comentario> noticia = new ArrayList<>();
+        try {
+            Connection con = DbConnection.getConnection();
+            CallableStatement statement = con.prepareCall("CALL Traer_comentario_comentario(?);");
+            statement.setInt(1, palabra);
+            ResultSet resultSet = statement.executeQuery();
+          
+            while (resultSet.next()) {
+               
+                int id = resultSet.getInt("id_sub_comentario");
+                String comen = resultSet.getString("comentario");
+                String user = resultSet.getString("username");
+                String image= resultSet.getString("imagen");
+                
+                
+               
+           
+                
+                // Agregamos el usuario a la lista
+                noticia.add(new tbl_comentario_a_comentario(id,comen,user,image));
+            }
+            con.close();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            
+        }
+            return noticia;
+        
     }
    
 }
