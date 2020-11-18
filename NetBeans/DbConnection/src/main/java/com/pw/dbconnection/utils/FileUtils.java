@@ -11,6 +11,7 @@ package com.pw.dbconnection.utils;
  */
 public class FileUtils {
     public static String RUTE_USER_IMAGE = "assets/IMG/Noticias";
+      public static String RUTE_USER_IMAGE2 = "assets/IMG/Avatars";
     
     public static String GetExtension(String contentType) {
         switch (contentType) {

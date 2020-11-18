@@ -67,22 +67,32 @@
                     <%}%>
                      
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <%if(usuario.getRol() != "Anonimo") {%>
+                      <%if(!usuario.getRol().equals("Anonimo")) {%>
                       <a class="dropdown-item" href="EditarUsuario">Profile</a>
                       <%}%>
                       
                       <%if(usuario.getRol().equals("Creador")) {%>
                       <a class="dropdown-item" href="PublicarNoticia">Create News</a>
+                      <a class="dropdown-item" href="Noticias_marcadas">Marked</a>
+                      <a class="dropdown-item" href="#">Notifications<span class="badge badge-light">9</span></a>
+                      <div class="dropdown-divider"></div>
+                      <%}%>
+                      
+                        <%if(usuario.getRol().equals("Normal")) {%>
+                      <a class="dropdown-item" href="Noticias_marcadas">Marked</a>
+                      <a class="dropdown-item" href="#">Notifications<span class="badge badge-light">9</span></a>
+                      <div class="dropdown-divider"></div>
                       <%}%>
                       
                        <%if(usuario.getRol().equals("Editor")) {%>
                        <a class="dropdown-item" href="EditarNoticia">Published</a>
+                       <a class="dropdown-item" href="Noticias_marcadas">Marked</a>
+                       <a class="dropdown-item" href="#">Notifications<span class="badge badge-light">9</span></a>
+                       <div class="dropdown-divider"></div>
                        <%}%>
                        
                        
-                      <a class="dropdown-item" href="Noticias_marcadas">Marked</a>
-                      <a class="dropdown-item" href="#">Notifications<span class="badge badge-light">9</span></a>
-                      <div class="dropdown-divider"></div>
+                     
                       <a class="dropdown-item" href="UsuarioController">Sign off</a>
                     </div>
                   </li>
@@ -107,37 +117,74 @@
                 <div class="col-9">
                   <div class="tab-content" id="v-pills-tabContent">
                     <div class="tab-pane fade show active" id="v-pills-general" role="tabpanel" aria-labelledby="v-pills-general-tab">
-                        <form>
+                        <form action="./EditarUsuario" method="POST" enctype="multipart/form-data">
                             <div class="form-column ">
                               <div class="form-group mt-3 col-md-6">
                                 <div class="card bg-dark text-center" style="width: 18rem;">
                                   <img id="custom-text" src="assets/IMG/Optimizadas/fondo.jpg" class="card-img-top" alt="...">
                                   <div class="card-body">
-                                    <input type="file" id="real-file" hidden="hidden" />
+                                    <input type="file" id="real-file" hidden="hidden" name="image" />
                                     <button type="button" id="custom-button">CHOOSE A FILE</button>
                                   </div>
                                 </div>
                                 <label for="inputUserName">Username:</label>
-                                <input type="text" class="form-control" value="<%=usuario.getUsername()%>" id="inputUserName">
+                                <input type="text" class="form-control" value="<%=usuario.getUsername()%>" id="inputUserName" name ="username">
                               </div>
                               <div class="form-group col-md-6">
                                 <label for="inputEmail">Email:</label>
-                                <input type="email" class="form-control" value="<%=usuario.getEmail()%>" id="inputEmail">
-                              </div>
-                              <div class="form-group col-md-6">
-                                <label for="inputSocialNetworks">Facebook:</label>
-                                <input type="text" class="form-control" id="inputSocialNetworks">
-                              </div>
-                              <div class="form-group col-md-6">
-                                <label for="inputSocialNetworks">Instagram:</label>
-                                <input type="text" class="form-control" id="inputSocialNetworks">
+                                <input type="email" class="form-control" value="<%=usuario.getEmail()%>" id="inputEmail" name ="email">
                               </div>
                               
+                                <%if(usuario.getFace().equals("null")){%>
+                              <div class="form-group col-md-6">
+                                <label for="inputSocialNetworks">Facebook:</label>
+                                <input type="text" class="form-control" id="inputSocialNetworks" name ="facebook" >
+                              </div>
+                              <%} else{%>
+                               <div class="form-group col-md-6">
+                                <label for="inputSocialNetworks">Facebook:</label>
+                                <input type="text" class="form-control" id="inputSocialNetworks" name ="facebook" value="<%=usuario.getFace()%>">
+                              </div>
+                              <%}%>
+                              
+                             <%if(usuario.getTwit().equals("null")){%>
+                               <div class="form-group col-md-6">
+                                <label for="inputSocialNetworks">Twiter:</label>
+                                <input type="text" class="form-control" id="inputSocialNetworks" name ="twiter" >
+                              </div>
+                             <%} else{%>
+                               <div class="form-group col-md-6">
+                                 <label for="inputSocialNetworks">Twiter:</label>
+                                 <input type="text" class="form-control" id="inputSocialNetworks" name ="twiter" value="<%=usuario.getTwit()%>">
+                                </div>
+                              <%}%>
+                               
+                            <%if(usuario.getInsta().equals("null")){%>
+                              <div class="form-group col-md-6">
+                                <label for="inputSocialNetworks">Instagram:</label>
+                                <input type="text" class="form-control" id="inputSocialNetworks" name ="instagram">
+                              </div>
+                            <%} else{%>
+                             <div class="form-group col-md-6">
+                                <label for="inputSocialNetworks">Instagram:</label>
+                                <input type="text" class="form-control" id="inputSocialNetworks" name ="instagram" value="<%=usuario.getInsta()%>">
+                              </div>
+                            <%}%>
+                            
+                            <%if(usuario.getDescripcion().equals("null")){%>
                               <div class="form-group">
                                 <label for="FormControlTextarea">Descripcion:</label>
-                                <textarea class="form-control" id="FormControlTextareaDescription" rows="3"></textarea>
+                                <textarea class="form-control" id="FormControlTextareaDescription" name ="descripcion" rows="3"></textarea>
                               </div>
                             </div>
+                            <%} else{%>
+                            <div class="form-group">
+                                <label for="FormControlTextarea">Descripcion:</label>
+                                <textarea class="form-control" id="FormControlTextareaDescription" name ="descripcion" rows="3"  value="<%=usuario.getInsta()%>"></textarea>
+                              </div>
+                            </div>
+                            
+                            <%}%>
                             <button type="submit" class="btn btn-primary mb-3">save</button>
                         </form>
                     </div>
@@ -145,7 +192,7 @@
                             <div class="form-row">
                               <div class="form-group col-md-6">
                                 <label for="inputPassword">Write a new password:</label>
-                                <input type="password" class="form-control" id="inputPassword">
+                                <input type="password" class="form-control" id="inputPassword" value="<%=usuario.getPassword()%>">
                               </div>
                               <div class="form-group col-md-6">
                                 <label for="inputRewrite">Rewrite the password:</label>

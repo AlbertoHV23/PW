@@ -23,7 +23,7 @@
   </head>
   <body>
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-            <a class="navbar-brand" href="principal.jsp"><img src="/IMG/Optimizadas/logo.png" width="100px" alt="Logo"></a>
+            <a class="navbar-brand" href="principal.jsp"><img src="assets/IMG/Optimizadas/logo.png" width="100px" alt="Logo"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -31,39 +31,68 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                  <a class="nav-link" href="principal.jsp"><i class="fas fa-home"></i> Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="PrincipalController"><i class="fas fa-home"></i> Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-list"></i> Category
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                 <%for(tbl_categoria cat : categoria){%>
-                        <div class="dropdown-divider"></div>
-                        <a><%= cat.getNombre() %></a>
-                         <%}%>
+                       <%for(tbl_categoria cat : categoria){%>
+                        <a class="dropdown-item" href="Buscar?ID=<%=cat.getNombre()%>"><%= cat.getNombre() %></a>
+                        <%}%>
                   </div>
                 </li>
+                 <%if(usuario.getUsername().equals("Anonimo")) {%>
                 <li class="nav-item">
-                    <a class="nav-link" href="login.jsp"><i class="fas fa-sign-in-alt"></i> Login</a>
+                    <a class="nav-link" href="UsuarioController"><i class="fas fa-sign-in-alt"></i> Login</a>
                 </li>
+                  <%}%>
                 <li class="nav-item dropdown">
+                   
+                      <%if(usuario.getUsername().equals("Anonimo")) {%>
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-user-circle"></i> Profile
+                        <img src="assets/IMG/Avatars/anonimo.jpg" alt="" class="rounded-circle" style="height: 30px;">  <%= usuario.getUsername() %>
                     </a>
+                     <%} else{ %>
+                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="<%= usuario.getImagen()%>" alt="" class="rounded-circle" style="height: 30px;">  <%= usuario.getUsername() %>
+                    </a>
+                    <%}%>
+                     
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="perfil.jsp">Profile</a>
-                      <a class="dropdown-item" href="crear.jsp">Create News</a>
-                      <a class="dropdown-item" href="publicadas.jsp">Published</a>
-                      <a class="dropdown-item" href="marcados.jsp">Marked</a>
+                      <%if(!usuario.getRol().equals("Anonimo")) {%>
+                      <a class="dropdown-item" href="EditarUsuario">Profile</a>
+                      <%}%>
+                      
+                      <%if(usuario.getRol().equals("Creador")) {%>
+                      <a class="dropdown-item" href="PublicarNoticia">Create News</a>
+                      <a class="dropdown-item" href="Noticias_marcadas">Marked</a>
                       <a class="dropdown-item" href="#">Notifications<span class="badge badge-light">9</span></a>
                       <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Sign off</a>
+                      <%}%>
+                      
+                        <%if(usuario.getRol().equals("Normal")) {%>
+                      <a class="dropdown-item" href="Noticias_marcadas">Marked</a>
+                      <a class="dropdown-item" href="#">Notifications<span class="badge badge-light">9</span></a>
+                      <div class="dropdown-divider"></div>
+                      <%}%>
+                      
+                       <%if(usuario.getRol().equals("Editor")) {%>
+                       <a class="dropdown-item" href="EditarNoticia">Published</a>
+                       <a class="dropdown-item" href="Noticias_marcadas">Marked</a>
+                       <a class="dropdown-item" href="#">Notifications<span class="badge badge-light">9</span></a>
+                       <div class="dropdown-divider"></div>
+                       <%}%>
+                       
+                       
+                     
+                      <a class="dropdown-item" href="UsuarioController">Sign off</a>
                     </div>
                   </li>
               </ul>
-              <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+              <form class="form-inline my-2 my-lg-0" action="Buscar" method="POST">
+                <input class="form-control mr-sm-2" name ="palabra" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
               </form>
             </div>

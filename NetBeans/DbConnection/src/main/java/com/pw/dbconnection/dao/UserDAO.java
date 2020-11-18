@@ -200,4 +200,29 @@ public class UserDAO {
             return categoria;
         }
     }
+    
+    
+     public static int updateUsuarios(tbl_usuarios users) {
+        try {
+            Connection con = DbConnection.getConnection();
+            CallableStatement statement = con.prepareCall("CALL Sp_update_datos_usuario(?,?,?,?,?,?,?,?);");
+            statement.setInt(1,users.getId_usuario());
+            statement.setString(2, users.getUsername());
+            statement.setString(3, users.getEmail());
+            statement.setString(4, users.getImagen());
+            statement.setString(5, users.getDescripcion());
+            statement.setString(6, users.getFace());
+            statement.setString(7, users.getTwit());
+            statement.setString(8, users.getInsta());
+          
+            statement.executeUpdate();
+            con.close();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+        }
+        return 0;
+    }
+        
+        
 }
