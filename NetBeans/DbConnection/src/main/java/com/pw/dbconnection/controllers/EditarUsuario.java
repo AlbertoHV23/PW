@@ -61,7 +61,24 @@ public class EditarUsuario extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+             List<tbl_categoria> categoria = UserDAO.llenarcategoria(); 
+            request.setAttribute("categoria", categoria);
+            HttpSession session = request.getSession();
+            tbl_usuarios usuario = (tbl_usuarios)session.getAttribute("persona"); //trae datos del controller login con la sesion activa
+            request.setAttribute("datos", usuario);
+         
+            
+            String pass = request.getParameter("pass");
+            
+            if(pass!=null){
+                UserDAO.updatePass(usuario.getId_usuario(), pass);
+            }
+            
+            
+            request.getRequestDispatcher("perfil.jsp").forward(request, response);
+            
+
+            
     }
 
     /**
@@ -106,15 +123,28 @@ public class EditarUsuario extends HttpServlet {
                 tbl_usuarios usuario = (tbl_usuarios)session.getAttribute("persona"); //trae datos del controller login con la sesion activa
                 int id_usuario = usuario.getId_usuario();
                 
-                tbl_usuarios update = new tbl_usuarios(usuario.getId_usuario(),usuario.getRol(),username,email,usuario.getPassword(),FileUtils.RUTE_USER_IMAGE2 + "/" + nameImage,descripcion,face,twit,insta,true);
+                if(img.equals("")){
+                        tbl_usuarios update = new tbl_usuarios(usuario.getId_usuario(),usuario.getRol(),username,email,usuario.getPassword(),usuario.getImagen(),descripcion,face,twit,insta,true);
+                        UserDAO.updateUsuarios(update);
+                        List<tbl_categoria> categoria = UserDAO.llenarcategoria(); 
+                        request.setAttribute("categoria", categoria);
+                        request.setAttribute("datos", update);
+                        session.setAttribute("persona", update);
+                        request.getRequestDispatcher("PrincipalController").forward(request, response);  
+                }
+                else{
+                        tbl_usuarios update = new tbl_usuarios(usuario.getId_usuario(),usuario.getRol(),username,email,usuario.getPassword(),FileUtils.RUTE_USER_IMAGE2 + "/" + nameImage,descripcion,face,twit,insta,true);
+                        UserDAO.updateUsuarios(update);
+                        List<tbl_categoria> categoria = UserDAO.llenarcategoria(); 
+                        request.setAttribute("categoria", categoria);
+                        request.setAttribute("datos", update);
+                        session.setAttribute("persona", update);
+                        request.getRequestDispatcher("PrincipalController").forward(request, response);  
+                }
                
-                UserDAO.updateUsuarios(update);
+             
           
-         List<tbl_categoria> categoria = UserDAO.llenarcategoria(); 
-         request.setAttribute("categoria", categoria);
-         request.setAttribute("datos", update);
-         session.setAttribute("persona", update);
-         request.getRequestDispatcher("PrincipalController").forward(request, response);  
+   
                 
     }
 

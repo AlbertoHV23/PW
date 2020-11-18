@@ -101,7 +101,6 @@ public class PaginaNoticia extends HttpServlet {
                  noticiaDAO.Marcar(usuario.getId_usuario(), id_noticia_marcar);
                  List<tbl_comentarios> comentarios = noticiaDAO.GetComentarios(id_noticia_marcar);
                  request.setAttribute("comentarios", comentarios);
-                 request.getRequestDispatcher("noticia.jsp").forward(request, response);
                  
              }
        

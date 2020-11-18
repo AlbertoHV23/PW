@@ -223,6 +223,24 @@ public class UserDAO {
         }
         return 0;
     }
+     
+     
+      public static int updatePass(int id, String pass) {
+        try {
+            Connection con = DbConnection.getConnection();
+            CallableStatement statement = con.prepareCall("CALL Sp_update_pass(?,?);");
+            statement.setInt(1,id);
+            statement.setString(2, pass);
+           
+          
+            statement.executeUpdate();
+            con.close();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+        }
+        return 0;
+    }
         
         
 }

@@ -108,8 +108,22 @@ public class PublicarNoticia extends HttpServlet {
         String fecha =dateFormat.format(date);
         int id_categoria = noticiaDAO.IdCategoria(cate);
         
-        HttpSession session = request.getSession();
-        tbl_usuarios usuario = (tbl_usuarios)session.getAttribute("persona"); //trae datos del controller login con la sesion activa
+        //crea una session para cuando hace login
+            HttpSession session = request.getSession();
+            tbl_usuarios usuario = (tbl_usuarios)session.getAttribute("persona"); //trae datos del controller login con la sesion activa
+            tbl_usuarios nologin = new tbl_usuarios(); //por si no inicio sesion   
+            
+            if(usuario == null){ //si no hay una session activa
+                nologin = UserDAO.anonimo();
+               
+                // nologin.setUsername("Anonimo");
+                //nologin.setRol("Anonimo");
+                session.setAttribute("persona", nologin);
+                request.setAttribute("datos", nologin);
+            }
+            else{ //si hay session activa
+                   request.setAttribute("datos", usuario);
+            }
         int id_usuario = usuario.getId_usuario();
         
         

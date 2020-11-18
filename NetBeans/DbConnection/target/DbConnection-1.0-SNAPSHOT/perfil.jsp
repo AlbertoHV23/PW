@@ -189,10 +189,11 @@
                         </form>
                     </div>
                     <div class="tab-pane fade" id="v-pills-password" role="tabpanel" aria-labelledby="v-pills-password-tab"><form>
+                            <form action="./EditarUsuario" method="GET">
                             <div class="form-row">
                               <div class="form-group col-md-6">
                                 <label for="inputPassword">Write a new password:</label>
-                                <input type="password" class="form-control" id="inputPassword" value="<%=usuario.getPassword()%>">
+                                <input type="password" class="form-control" name="pass" id="inputPassword" value="<%=usuario.getPassword()%>">
                               </div>
                               <div class="form-group col-md-6">
                                 <label for="inputRewrite">Rewrite the password:</label>
