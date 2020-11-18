@@ -129,8 +129,20 @@
                     <li class="list-group-item">  <img src="assets/IMG/Avatars/default.png" alt="" class="rounded-circle" style="height: 30px;"> <%= noti.getUsuario()%></li>
                 </ul>
                 <div class="card-body">
-                    <a href="EditarNoticia?ID=<%=noti.getId_noticia()%>" class="btn btn-success">Aprovado</a>
-                  <a href="EditarNoticia" class="btn btn-danger ">No aprovar</a>
+                 <a href="EditarNoticia?ID=<%=noti.getId_noticia()%>" class="btn btn-success">Aprovar</a>
+               
+                 <form action="./rechazar" method="POST">
+                  
+                  <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Example textarea</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" name="comentario" rows="2"></textarea>
+                     <input type="password" name="id" id="id" value="<%=noti.getId_noticia()%>"
+                         style="display: none" />
+                    <input type="submit" class="btn btn-danger" value="No aprovar"/>
+                   
+                    
+                  </div>
+                </form>
 
                 </div>
                 </div>

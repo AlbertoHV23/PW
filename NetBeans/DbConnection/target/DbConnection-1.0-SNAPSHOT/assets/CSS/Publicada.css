@@ -28,3 +28,6 @@ body{
 .denegadas .card{
     background-color: darkred;
 }
+.esperando .card{
+    background-color: yellow;
+}

@@ -28,6 +28,7 @@ public class tbl_noticia {
     private String categoria;
     public List<tbl_imagenes> imagenes;
     public String video;
+    public String comentario;
 
 
     
@@ -82,6 +83,24 @@ public class tbl_noticia {
         this.imagenes = imagenes;
         this.video = video;
     }
+    
+      public tbl_noticia(int id_noticia, String titulo, String descripcion_corta, String descripcion_larga, String fecha, String hora, boolean aprovado, int valoracion_like, int valoracion_Nolike, String usuario, String categoria, List<tbl_imagenes> imagenes, String video, String comentario) {
+        this.id_noticia = id_noticia;
+        this.titulo = titulo;
+        this.descripcion_corta = descripcion_corta;
+        this.descripcion_larga = descripcion_larga;
+        this.fecha = fecha;
+        this.hora = hora;
+        this.aprovado = aprovado;
+        this.valoracion_like = valoracion_like;
+        this.valoracion_Nolike = valoracion_Nolike;
+        this.usuario = usuario;
+        this.categoria = categoria;
+        this.imagenes = imagenes;
+        this.video = video;
+        this.comentario = comentario;
+    }
+    
     
     
 

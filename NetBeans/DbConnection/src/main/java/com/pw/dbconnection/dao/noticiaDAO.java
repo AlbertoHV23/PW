@@ -566,6 +566,100 @@ public class noticiaDAO {
         
     }
    
+    public static List<tbl_noticia> Aceptadas_Rechazadas(int id_, boolean bool) {
+        List<tbl_noticia> noticia = new ArrayList<>();
+        try {
+            Connection con = DbConnection.getConnection();
+            CallableStatement statement = con.prepareCall("CALL Sp_Aprovadas_rexhazadas(?,?);");
+            statement.setInt(1, id_);
+            statement.setBoolean(2, bool);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+               
+                int id = resultSet.getInt("id_noticia");
+                String titulo = resultSet.getString("titulo");
+                String des = resultSet.getString("descripcion_corta");
+                String descripcion= resultSet.getString("descripcion_larga");
+                String fecha= resultSet.getString("fecha");
+                String hora= resultSet.getString("hora");
+                boolean aprovado = resultSet.getBoolean("aprovado");
+                int like = resultSet.getInt("valoracion_like");
+                int dislike = resultSet.getInt("valoracion_Nolike");
+                String categoria = resultSet.getString("nombre");
+                String usuario = resultSet.getString("username");
+               
+                String video = GetVideo(id);
+                List<tbl_imagenes> imagenes = GetImagen(id);  
+                
+                // Agregamos el usuario a la lista
+                noticia.add(new tbl_noticia(id,titulo,des,descripcion,fecha,hora,aprovado,like,dislike,usuario,categoria,imagenes,video));
+            }
+            con.close();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            return noticia;
+        }
+    }
+    
+    public static int Rechaza_insert_comentario(int  noticia, String _coment){
+        int retorno = 0;
+        try {
+            Connection con = DbConnection.getConnection();
+            CallableStatement statement = con.prepareCall("CALL insert_comentario_noticia_rechazada(?,?);");
+            statement.setInt(1, noticia);
+            statement.setString(2, _coment);
+           
+            ResultSet resultSet = statement.executeQuery();
+            
+            con.close();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+
+        } finally {
+           
+        }
+        return retorno;
+    }
+    
+    public static List<tbl_noticia> Rechazadas(int id_) {
+        List<tbl_noticia> noticia = new ArrayList<>();
+        try {
+            Connection con = DbConnection.getConnection();
+            CallableStatement statement = con.prepareCall("CALL Sp_rechazadas_comentario(?);");
+            statement.setInt(1, id_);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+               
+                int id = resultSet.getInt("id_noticia");
+                String titulo = resultSet.getString("titulo");
+                String des = resultSet.getString("descripcion_corta");
+                String descripcion= resultSet.getString("descripcion_larga");
+                String fecha= resultSet.getString("fecha");
+                String hora= resultSet.getString("hora");
+                boolean aprovado = resultSet.getBoolean("aprovado");
+                int like = resultSet.getInt("valoracion_like");
+                int dislike = resultSet.getInt("valoracion_Nolike");
+                String categoria = resultSet.getString("nombre");
+                String usuario = resultSet.getString("username");
+                String come = resultSet.getString("comentario");
+               
+                String video = GetVideo(id);
+                List<tbl_imagenes> imagenes = GetImagen(id);  
+                
+                // Agregamos el usuario a la lista
+                noticia.add(new tbl_noticia(id,titulo,des,descripcion,fecha,hora,aprovado,like,dislike,usuario,categoria,imagenes,video,come));
+            }
+            con.close();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            return noticia;
+        }
+    }
+    
 }
 
 

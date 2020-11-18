@@ -4,10 +4,21 @@
     Author     : geraj
 --%>
 
+<%@page import="com.pw.dbconnection.models.tbl_noticia"%>
+<%@page import="com.pw.dbconnection.models.tbl_usuarios"%>
 <%@page import="java.util.List"%>
 <%@page import="com.pw.dbconnection.models.tbl_categoria"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%List<tbl_categoria> categoria = (List<tbl_categoria>)request.getAttribute("categoria");%>
+<%
+    List<tbl_categoria> categoria = (List<tbl_categoria>)request.getAttribute("categoria");
+    List<tbl_noticia> esperando = (List<tbl_noticia>)request.getAttribute("esperando");
+    List<tbl_noticia> aceptadas = (List<tbl_noticia>)request.getAttribute("aceptadas");
+    List<tbl_noticia> rechazadas = (List<tbl_noticia>)request.getAttribute("rechazadas");
+
+%>
+<%
+    tbl_usuarios usuario = (tbl_usuarios)request.getAttribute("datos");
+%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -102,156 +113,96 @@
         <div class="container publicadas">
           <section class="aceptadas">
             <div class="col-md-3 mx-auto mb-3 mt-3 separador-published-denied">
-              <h6 class="text-uppercase text-center text-white mt-0 font-weight-bold">published acepted</h6>
+              <h6 class="text-uppercase text-center text-white mt-0 font-weight-bold">Published acepted</h6>
               <hr class="bg-info text-center mt-0 mx-auto">
             </div>
             <div class="row">
+           <%for(tbl_noticia si : aceptadas){%>
             <div class="col-sm-4">
               <div class="card mb-3">
-                <img class="card-img-top" src="assets/IMG/Optimizadas/ratched.jpg" alt="Card image cap">
+                <img class="card-img-top" src="<%=si.imagenes.get(0).getExtencion()%>"%>" alt="Card image cap">
                 <div class="card-body">
-                  <h5 class="card-title">Title of the news</h5>
-                  <p class="card-text">Short description:</p>
-                  <p class="card-text">Here is the short description of the news.</p>
+                  <h5 class="card-title"><%=si.getTitulo()%></h5>
+                  <p class="card-text"><%=si.getDescripcion_corta()%></p>
+                  <p class="card-text"><%=si.getDescripcion_larga()%></p>
                 </div>
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item">Category:
-                    <p class="card-text">Shooter</p>
+                    <p class="card-text"><%=si.getCategoria()%></p>
                   </li>
                   <li class="list-group-item">Published:
                     <p class="card-text">yes</p>
                   </li>
                 </ul>
-                <div class="card-body">
-                    <h5 class="card-title">Commentary:</h5>
-                    <p class="card-text">Good news</p>
-                </div>
+               
                 <a href="noticia.jsp" class="btn btn-primary">See news</a>
               </div>
             </div>
-            <div class="col-sm-4">
-              <div class="card mb-3">
-                <img class="card-img-top" src="assets/IMG/Optimizadas/ratched.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Title of the news</h5>
-                  <p class="card-text">Short description:</p>
-                  <p class="card-text">Here is the short description of the news.</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">Category:
-                    <p class="card-text">Shooter</p>
-                  </li>
-                  <li class="list-group-item">Published:
-                    <p class="card-text">yes</p>
-                  </li>
-                </ul>
-                <div class="card-body">
-                    <h5 class="card-title">Commentary:</h5>
-                    <p class="card-text">Good news</p>
-                </div>
-                <a href="noticia.jsp" class="btn btn-primary">See news</a>
-              </div>
-            </div>
-            <div class="col-sm-4">
-              <div class="card mb-3">
-                <img class="card-img-top" src="assets/IMG/Optimizadas/ratched.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Title of the news</h5>
-                  <p class="card-text">Short description:</p>
-                  <p class="card-text">Here is the short description of the news.</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">Category:
-                    <p class="card-text">Shooter</p>
-                  </li>
-                  <li class="list-group-item">Published:
-                    <p class="card-text">yes</p>
-                  </li>
-                </ul>
-                <div class="card-body">
-                    <h5 class="card-title">Commentary:</h5>
-                    <p class="card-text">Good news</p>
-                </div>
-                <a href="noticia.jsp" class="btn btn-primary">See news</a>
-              </div>
-            </div>
+            <%}%>
             </div>
           </section>
-          <section class="denegadas">
+          <section class="esperando">
             <div class="col-md-3 mx-auto mb-3 mt-3 separador-published-acepted">
-              <h6 class="text-uppercase text-center text-white mt-0 font-weight-bold">published denied</h6>
+              <h6 class="text-uppercase text-center text-white mt-0 font-weight-bold">Esperando aprobacion</h6>
               <hr class="bg-info text-center mt-0 mx-auto">
             </div>
+              
             <div class="row">
+            <%for(tbl_noticia tal : esperando){%>
             <div class="col-sm-4">
               <div class="card mb-3">
-                <img class="card-img-top" src="assets/IMG/Optimizadas/ratched.jpg" alt="Card image cap">
+                  <img class="card-img-top" src="<%=tal.imagenes.get(0).getExtencion()%>" alt="Card image cap">
                 <div class="card-body">
-                  <h5 class="card-title">Title of the news</h5>
-                  <p class="card-text">Short description:</p>
-                  <p class="card-text">Here is the short description of the news.</p>
+                  <h5 class="card-title"><%=tal.getTitulo()%></h5>
+                  <p class="card-text"><%=tal.getDescripcion_corta()%></p>
+                  <p class="card-text"><%=tal.getDescripcion_larga()%></p>
                 </div>
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item">Category:
-                    <p class="card-text">Shooter</p>
+                    <p class="card-text"><%=tal.getCategoria()%></p>
                   </li>
                   <li class="list-group-item">Published:
-                    <p class="card-text">no</p>
+                    <p class="card-text">No</p>
+                  </li>
+                </ul>
+                
+              </div>
+            </div>
+            <%}%>
+            </div>
+          </section> 
+               <section class="denegadas">
+            <div class="col-md-3 mx-auto mb-3 mt-3 separador-published-acepted">
+              <h6 class="text-uppercase text-center text-white mt-0 font-weight-bold">Rechazadas</h6>
+              <hr class="bg-info text-center mt-0 mx-auto">
+            </div>
+              
+            <div class="row">
+            <%for(tbl_noticia no : rechazadas){%>
+            <div class="col-sm-4">
+              <div class="card mb-3">
+                <img class="card-img-top" src="<%=no.imagenes.get(0).getExtencion()%>" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title"><%=no.getTitulo()%></h5>
+                  <p class="card-text"><%=no.getDescripcion_corta()%></p>
+                  <p class="card-text"><%=no.getDescripcion_larga()%></p>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Category:
+                    <p class="card-text"><%=no.getCategoria()%></p>
+                  </li>
+                  <li class="list-group-item">Published:
+                    <p class="card-text">No</p>
                   </li>
                 </ul>
                 <div class="card-body">
                     <h5 class="card-title">Commentary:</h5>
-                    <p class="card-text">Here is the comment that the editor has left.</p>
+                    <p class="card-text"><%=no.comentario%></p>
                 </div>
                 <a href="noticia.jsp" class="btn btn-primary">See news</a>
               </div>
             </div>
-            <div class="col-sm-4">
-              <div class="card mb-3">
-                <img class="card-img-top" src="assets/IMG/Optimizadas/ratched.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Title of the news</h5>
-                  <p class="card-text">Short description:</p>
-                  <p class="card-text">Here is the short description of the news.</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">Category:
-                    <p class="card-text">Shooter</p>
-                  </li>
-                  <li class="list-group-item">Published:
-                    <p class="card-text">no</p>
-                  </li>
-                </ul>
-                <div class="card-body">
-                    <h5 class="card-title">Commentary:</h5>
-                    <p class="card-text">Here is the comment that the editor has left.</p>
-                </div>
-                <a href="noticia.jsp" class="btn btn-primary">See news</a>
-              </div>
-            </div>
-            <div class="col-sm-4">
-              <div class="card mb-3">
-                <img class="card-img-top" src="assets/IMG/Optimizadas/ratched.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Title of the news</h5>
-                  <p class="card-text">Short description:</p>
-                  <p class="card-text">Here is the short description of the news.</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">Category:
-                    <p class="card-text">Shooter</p>
-                  </li>
-                  <li class="list-group-item">Published:
-                    <p class="card-text">no</p>
-                  </li>
-                </ul>
-                <div class="card-body">
-                    <h5 class="card-title">Commentary:</h5>
-                    <p class="card-text">Here is the comment that the editor has left.</p>
-                </div>
-                <a href="noticia.jsp" class="btn btn-primary">See news</a>
-              </div>
-            </div>
+            <%}%>
             </div>
           </section> 
         </div>
