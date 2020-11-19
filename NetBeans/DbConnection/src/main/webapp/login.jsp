@@ -31,6 +31,7 @@
                 <option value="Creador">Creador de contenido</option>
                 <option value="Moderador">Moderador</option>
                 <option value="Editor">Editor</option>
+                 <option value="Administrador">Administrador</option>
               </select>
             <div class="input-field">
               <i class="fas fa-user"></i>

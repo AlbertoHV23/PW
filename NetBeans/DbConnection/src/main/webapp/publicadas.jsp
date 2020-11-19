@@ -120,7 +120,7 @@
            <%for(tbl_noticia si : aceptadas){%>
             <div class="col-sm-4">
               <div class="card mb-3">
-                <img class="card-img-top" src="<%=si.imagenes.get(0).getExtencion()%>"%>" alt="Card image cap">
+                <img class="card-img-top" src="<%=si.imagenes.get(0).getExtencion()%>" alt="Card image cap">
                 <div class="card-body">
                   <h5 class="card-title"><%=si.getTitulo()%></h5>
                   <p class="card-text"><%=si.getDescripcion_corta()%></p>
@@ -151,7 +151,7 @@
             <%for(tbl_noticia tal : esperando){%>
             <div class="col-sm-4">
               <div class="card mb-3">
-                  <img class="card-img-top" src="<%=tal.imagenes.get(0).getExtencion()%>" alt="Card image cap">
+                  <img class="card-img-top" src="<%=tal.imagenes.get(0).getExtencion()%>" alt="">
                 <div class="card-body">
                   <h5 class="card-title"><%=tal.getTitulo()%></h5>
                   <p class="card-text"><%=tal.getDescripcion_corta()%></p>
@@ -199,7 +199,7 @@
                     <h5 class="card-title">Commentary:</h5>
                     <p class="card-text"><%=no.comentario%></p>
                 </div>
-                <a href="noticia.jsp" class="btn btn-primary">See news</a>
+                    <a href="VolveraCrear?ID=<%=no.getId_noticia()%>" class="btn btn-primary">Edit new</a>
               </div>
             </div>
             <%}%>

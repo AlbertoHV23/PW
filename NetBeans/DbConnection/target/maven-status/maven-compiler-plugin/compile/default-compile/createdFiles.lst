@@ -3,6 +3,7 @@ com\pw\dbconnection\controllers\UsuarioController.class
 com\pw\dbconnection\controllers\PaginaNoticia.class
 com\pw\dbconnection\controllers\UsersController.class
 com\pw\dbconnection\controllers\EditarUsuario.class
+com\pw\dbconnection\controllers\VolveraCrear.class
 com\pw\dbconnection\dao\UserDAO.class
 com\pw\dbconnection\dao\noticiaDAO.class
 com\pw\dbconnection\models\tbl_comentario_a_comentario.class

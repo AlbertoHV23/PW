@@ -95,6 +95,24 @@
                        <div class="dropdown-divider"></div>
                        <%}%>
                        
+                       <%if(usuario.getRol().equals("Moderador")) {%>
+                       <a class="dropdown-item" href="PublicarNoticia">Create News</a>
+                      <a class="dropdown-item" href="AceptadasRechazadas">View News</a>
+                       <a class="dropdown-item" href="EditarNoticia">Published</a>
+                       <a class="dropdown-item" href="Noticias_marcadas">Marked</a>
+                       <a class="dropdown-item" href="#">Notifications<span class="badge badge-light">9</span></a>
+                       <div class="dropdown-divider"></div>
+                       <%}%>
+                       
+                          <%if(usuario.getRol().equals("Administrador")) {%>
+                       <a class="dropdown-item" href="PublicarNoticia">Create News</a>
+                      <a class="dropdown-item" href="AceptadasRechazadas">View News</a>
+                       <a class="dropdown-item" href="EditarNoticia">Published</a>
+                       <a class="dropdown-item" href="Noticias_marcadas">Marked</a>
+                       <a class="dropdown-item" href="#">Notifications<span class="badge badge-light">9</span></a>
+                       <div class="dropdown-divider"></div>
+                       <%}%>
+                       
                        
                      
                       <a class="dropdown-item" href="UsuarioController">Sign off</a>

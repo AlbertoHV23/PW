@@ -446,6 +446,31 @@ public class noticiaDAO {
         return retorno;
     }
      
+      public static int Update_noticia(int  noticia,String titulo,String des,String desla,int categoria){
+        int retorno = 0;
+        try {
+            Connection con = DbConnection.getConnection();
+            CallableStatement statement = con.prepareCall("CALL Sp_noticias_update(?,?,?,?,?);");
+            statement.setInt(1, noticia);
+            statement.setString(2, titulo);
+            statement.setString(3, des);
+            statement.setString(4, desla);
+
+            statement.setInt(5, categoria);
+            
+            ResultSet resultSet = statement.executeQuery();
+            
+            con.close();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+
+        } finally {
+           
+        }
+        return retorno;
+    }
+     
+     
      public static int ComentarComentario(int  fk_usuario, int fk_coment, String comentario, int usuario){
         int retorno = 0;
         try {
