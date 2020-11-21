@@ -123,18 +123,20 @@ public class Bloquear extends HttpServlet {
               request.setAttribute("comentarios", comentarios);
 
             }
+            else{
+              String ids = request.getParameter("id_comentario");
+              String id_noticia = request.getParameter("id_noticia");
+              int _id_comentario = Integer.parseInt(ids);
+              int _id_not = Integer.parseInt(id_noticia);
+              tbl_noticia noticia = noticiaDAO.Noticia(_id_not);
+              request.setAttribute("noticia", noticia);
+              List<tbl_comentarios> comentarios = noticiaDAO.GetComentarios(_id_not);
+              request.setAttribute("comentarios", comentarios);
+            }
             List<tbl_categoria> categoria = UserDAO.llenarcategoria(); 
             request.setAttribute("categoria", categoria);
              
-           //if(ids != null){
-               
-               // tbl_noticia noticia = noticiaDAO.Noticia(id_notis);
-               // noticiaDAO.Comentar(usuario.getId_usuario(), id_notis, comen);
-              //  request.setAttribute("noticia", noticia);
-               // List<tbl_comentarios> comentarios = noticiaDAO.GetComentarios(id_notis);
-                //request.setAttribute("comentarios", comentarios);
-           //}
-           
+     
             request.getRequestDispatcher("noticia.jsp").forward(request, response);
     }
 

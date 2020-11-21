@@ -229,7 +229,7 @@
 
         <div class="row justify-content-center">
           <div class="col">
-
+            <%if(usuario.isActivo() == true){%>
             <form action="./PaginaNoticia" method="POST">
               <div class="form-group d-flex justify-content-end flex-wrap">
                 <input type="password" name="password" id="password" value="<%=noticia.getId_noticia()%>"
@@ -238,7 +238,7 @@
                 <input type="submit" class="btn btn-primary" value="Comentar" />
               </div>
             </form>
-
+           
             <%if(comentarios != null){%>  
                  <%for(tbl_comentarios comen : comentarios){%>
             <div class="media">
@@ -264,15 +264,17 @@
                     <input type="submit" class="btn btn-primary" value="Comentar" />
                   </div>
                   </form>
+                     <%if(usuario.getRol().equals("Moderador")){%>
                   <form action="./Bloquear" method="GET">
                       <input type="password" name="id_comentario" id="id_comentario" value="<%=comen.getId_comentario()%>"
                         style="display: none"/>
                       <input type="password" name="id_noticia" id="id_noticia" value="<%=noticia.getId_noticia()%>"
                         style="display: none"/>
-                       <input type="password" name="id_usuario" id="id_noticia" value="<%=noticia.getFk_usuarios()%>"
+                       <input type="password" name="id_usuario" id="id_noticia" value="<%=comen.getFk_usuario()%>"
                         style="display: none"/>
                       <button href="" style="background: transparent; color: white;border: none !important; font-size: 15px">Bloquear</button>
                   </form>
+                        <%}%>
                   <!-- AQUI LA RESPUESTA -->
                          <%if(comen.respuestas != null){%>  
                               <%for(tbl_comentario_a_comentario res : comen.respuestas){%>
@@ -291,6 +293,7 @@
               </div>
             </div>
                 <%}%>
+            <%}%>
             <%}%>
           </div>
         </div>

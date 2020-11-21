@@ -106,10 +106,11 @@ public class UserDAO {
                 String face = resultSet.getString("face");
                 String twit = resultSet.getString("twit");
                 String insta = resultSet.getString("insta");
+                boolean activo = resultSet.getBoolean("activo");
               
 
 
-                retorno = new tbl_usuarios(id, tipo,name,correo,Pass,imagen,descripcion,face,twit,insta);
+                retorno = new tbl_usuarios(id, tipo,name,correo,Pass,imagen,descripcion,face,twit,insta,activo);
                 
             }
             
@@ -137,10 +138,11 @@ public class UserDAO {
                 String tipo = resultSet.getString("rol");
                 String name = resultSet.getString("username");
                 String imagen = resultSet.getString("imagen");
+                boolean activo = resultSet.getBoolean("activo");
               
 
 
-                retorno = new tbl_usuarios(id, tipo,name,imagen);
+                retorno = new tbl_usuarios(id, tipo,name,imagen,activo);
                 
             }
             

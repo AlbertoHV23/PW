@@ -47,6 +47,13 @@ public class tbl_usuarios {
         this.username = username;
         this.imagen = imagen;
     }
+   public tbl_usuarios(int id_usuario, String rol, String username, String imagen,boolean a) {
+        this.id_usuario = id_usuario;
+        this.rol = rol;
+        this.username = username;
+        this.imagen = imagen;
+        this.activo = a;
+    }
 
 
     public tbl_usuarios(int id_usuario, String username, String _password) {
@@ -67,7 +74,12 @@ public class tbl_usuarios {
         this.twit = twit;
         this.insta = insta;
     }
+ 
+    
 
+    
+  
+     
     public tbl_usuarios(String rol, String username, String email, String _password) {
         this.rol = rol;
         this.username = username;
@@ -167,6 +179,8 @@ public class tbl_usuarios {
     public boolean isActivo() {
         return activo;
     }
+
+  
 
     public void setActivo(boolean activo) {
         this.activo = activo;

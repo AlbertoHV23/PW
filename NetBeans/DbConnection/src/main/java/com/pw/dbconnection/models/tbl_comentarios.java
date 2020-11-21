@@ -36,6 +36,14 @@ public class tbl_comentarios {
         this.imagen = imagen;
         this.respuestas = respuestas;
     }
+        public tbl_comentarios(int id_comentario, String comentario, String username, String imagen, List<tbl_comentario_a_comentario> respuestas,int fk_usu) {
+        this.id_comentario = id_comentario;
+        this.comentario = comentario;
+        this.username = username;
+        this.imagen = imagen;
+        this.respuestas = respuestas;
+        this.fk_usuario = fk_usu;
+    }
 
     
     

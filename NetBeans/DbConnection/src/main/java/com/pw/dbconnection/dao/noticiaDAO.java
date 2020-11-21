@@ -153,6 +153,7 @@ public class noticiaDAO {
                 int dislike = resultSet.getInt("valoracion_Nolike");
                 String categoria = resultSet.getString("nombre");
                 String usuario = resultSet.getString("username");
+
                
                 String video = GetVideo(id);
                 List<tbl_imagenes> imagenes = GetImagen(id);  
@@ -541,13 +542,14 @@ public class noticiaDAO {
                 String comen = resultSet.getString("comentario");
                 String user = resultSet.getString("username");
                 String image= resultSet.getString("imagen");
+                int fk_usuario = resultSet.getInt("fk_usuario");
                 
                 
                List<tbl_comentario_a_comentario> respuestas = GetComentarios_respuestas(id);
            
                 
                 // Agregamos el usuario a la lista
-                noticia.add(new tbl_comentarios(id,comen,user,image,respuestas));
+                noticia.add(new tbl_comentarios(id,comen,user,image,respuestas,fk_usuario));
             }
             con.close();
         } catch (SQLException ex) {
@@ -731,7 +733,7 @@ public class noticiaDAO {
         int retorno = 0;
         try {
             Connection con = DbConnection.getConnection();
-            CallableStatement statement = con.prepareCall("CALL `Sp_banear`(?);");
+            CallableStatement statement = con.prepareCall("CALL `Sp_banear`(?,?);");
             statement.setInt(1, id);
              statement.setBoolean(2, f);
          
