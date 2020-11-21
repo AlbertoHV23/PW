@@ -685,6 +685,69 @@ public class noticiaDAO {
         }
     }
     
+    public static int BorrarComentarios_comentarios(int id){
+        int retorno = 0;
+        try {
+            Connection con = DbConnection.getConnection();
+            CallableStatement statement = con.prepareCall("CALL `Sp_comentarioacomentario_delete`(?);");
+            statement.setInt(1, id);
+         
+
+            ResultSet resultSet = statement.executeQuery();
+            // Si el resultSet tiene resultados lo recorremos
+           
+            con.close();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+
+        } finally {
+           
+        }
+        return retorno;
+    }
+    
+    public static int BorrarComentarios(int id){
+        int retorno = 0;
+        try {
+            Connection con = DbConnection.getConnection();
+            CallableStatement statement = con.prepareCall("CALL `Sp_comentarios_delete`(?);");
+            statement.setInt(1, id);
+         
+
+            ResultSet resultSet = statement.executeQuery();
+            // Si el resultSet tiene resultados lo recorremos
+           
+            con.close();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+
+        } finally {
+           
+        }
+        return retorno;
+    }
+    
+    public static int BanearUsuario(int id,boolean f){
+        int retorno = 0;
+        try {
+            Connection con = DbConnection.getConnection();
+            CallableStatement statement = con.prepareCall("CALL `Sp_banear`(?);");
+            statement.setInt(1, id);
+             statement.setBoolean(2, f);
+         
+
+            ResultSet resultSet = statement.executeQuery();
+            // Si el resultSet tiene resultados lo recorremos
+           
+            con.close();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+
+        } finally {
+           
+        }
+        return retorno;
+    }
 }
 
 

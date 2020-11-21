@@ -17,6 +17,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/CSS/LoginRes.css">
     <title>Nuevo Login</title>
+    <link rel="shortcut icon" href="assets/IMG/Optimizadas/ico.ico" />
   </head>
   <body>
     <div class="container">
@@ -113,6 +114,7 @@
             <button class="btn transparent" id="sign-up-btn">
               Registrate
             </button>
+           
           </div>
           <img src="assets/IMG/LoginSVG/Register.svg" class="image" alt="" />
         </div>

@@ -17,6 +17,7 @@ com\pw\dbconnection\models\tbl_categoria.class
 com\pw\dbconnection\models\UserModel.class
 com\pw\dbconnection\controllers\Buscar.class
 com\pw\dbconnection\controllers\PrincipalController.class
+com\pw\dbconnection\controllers\Bloquear.class
 com\pw\dbconnection\controllers\ComentariosComentarios.class
 com\pw\dbconnection\models\rechazar.class
 com\pw\dbconnection\controllers\EditarNoticia.class

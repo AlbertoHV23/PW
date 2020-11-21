@@ -161,13 +161,13 @@ public class VolveraCrear extends HttpServlet {
        
         
                
-        noticiaDAO.Update_noticia(_id_noticia, titulo, des, des, id_categoria);
+        noticiaDAO.Update_noticia(_id_noticia, titulo, des, descripcion, id_categoria);
             List<tbl_categoria> categoria = UserDAO.llenarcategoria(); 
              request.setAttribute("categoria", categoria);
              
              
              
-             request.getRequestDispatcher("AceptadasRechazadas").forward(request, response);   
+        request.getRequestDispatcher("AceptadasRechazadas").forward(request, response);   
        
     }
 

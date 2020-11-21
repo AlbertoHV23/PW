@@ -69,7 +69,7 @@ public class UsuarioController extends HttpServlet {
             
                     
                     
-                     request.getRequestDispatcher("PrincipalController").forward(request, response);
+                    request.getRequestDispatcher("PrincipalController").forward(request, response);
                
                 }
                 else{

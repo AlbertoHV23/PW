@@ -28,10 +28,11 @@
     <script src="https://kit.fontawesome.com/64d58efce2.js"crossorigin="anonymous"></script>
     <link rel="stylesheet" href="assets/CSS/Crear.css">
     <title>Time to play</title>
+    <link rel="shortcut icon" href="assets/IMG/Optimizadas/ico.ico" />
   </head>
   <body>
          <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-            <a class="navbar-brand" href="principal.jsp"><img src="assets/IMG/Optimizadas/logo.png" width="100px" alt="Logo"></a>
+            <a class="navbar-brand" href="PrincipalController"><img src="assets/IMG/Optimizadas/logo.png" width="100px" alt="Logo"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -75,6 +76,7 @@
                       
                       <%if(usuario.getRol().equals("Creador")) {%>
                       <a class="dropdown-item" href="PublicarNoticia">Create News</a>
+                      <a class="dropdown-item" href="AceptadasRechazadas">View News</a>
                       <a class="dropdown-item" href="Noticias_marcadas">Marked</a>
                       <a class="dropdown-item" href="#">Notifications<span class="badge badge-light">9</span></a>
                       <div class="dropdown-divider"></div>
@@ -93,6 +95,24 @@
                        <div class="dropdown-divider"></div>
                        <%}%>
                        
+                       <%if(usuario.getRol().equals("Moderador")) {%>
+                       <a class="dropdown-item" href="PublicarNoticia">Create News</a>
+                      <a class="dropdown-item" href="AceptadasRechazadas">View News</a>
+                       <a class="dropdown-item" href="EditarNoticia">Published</a>
+                       <a class="dropdown-item" href="Noticias_marcadas">Marked</a>
+                       <a class="dropdown-item" href="#">Notifications<span class="badge badge-light">9</span></a>
+                       <div class="dropdown-divider"></div>
+                       <%}%>
+                       
+                          <%if(usuario.getRol().equals("Administrador")) {%>
+                       <a class="dropdown-item" href="PublicarNoticia">Create News</a>
+                      <a class="dropdown-item" href="AceptadasRechazadas">View News</a>
+                       <a class="dropdown-item" href="EditarNoticia">Published</a>
+                       <a class="dropdown-item" href="Noticias_marcadas">Marked</a>
+                       <a class="dropdown-item" href="#">Notifications<span class="badge badge-light">9</span></a>
+                       <div class="dropdown-divider"></div>
+                       <%}%>
+                       
                        
                      
                       <a class="dropdown-item" href="UsuarioController">Sign off</a>
@@ -105,7 +125,6 @@
               </form>
             </div>
         </nav>
-
     <main>
         <div class="container crear">
           
@@ -163,7 +182,7 @@
         </div>
     </main>
   
-        <footer class="footer-page bg-dark">
+          <footer class="footer-page bg-dark">
                   <div class="bg-info">
                       <div class="container">
                           <div class="row py-4 d-flex align-items-center">
@@ -182,28 +201,28 @@
                       <div class="row">
 
                         <div class="col-md-3 mx-auto mb-4 pagina">
-                            <h6 class="text-uppercase font-weight-bold">Time to play</h6>
-                            <hr class="bg-info mb-4 mt-0 d-inline-block mx-auto">
-                            <p class="mt-2">This page was made by Alberto Daniel Hernandez Villanueva & Luis Gerardo Becerra Jiménez from LMAD for the <i class="fas fa-globe-americas text-info"></i>.</p>
+                            <h6 class="text-uppercase font-weight-bold" style="color: black">Time to play</h6>
+                            <hr class="bg-info mb-4 mt-0 d-inline-block mx-auto" >
+                            <p class="mt-2" style="color: gainsboro">This page was made by Alberto Daniel Hernandez Villanueva & Luis Gerardo Becerra Jiménez from LMAD for the <i class="fas fa-globe-americas text-info"></i>.</p>
                         </div>
 
                         <div class="col-md-3 mx-auto mb-4 contact">
-                            <h6 class="text-uppercase font-weight-bold">Contact</h6>
+                            <h6 class="text-uppercase font-weight-bold" style="color: black">Contact</h6>
                             <hr class="bg-info mb-4 mt-0 d-inline-block mx-auto">
                             <ul class="list-unstyled">
-                                <li class="my-2"><i class="fas fa-home text-info"></i> Monterrey,Nuevo León</li>
-                                <li class="my-2"><i class="fas fa-envelope text-info"></i> timetoplay@gmail.com</li>
-                                <li class="my-2"><i class="fas fa-phone text-info"></i> +528119024150</li>
+                                <li class="my-2"style="color: gainsboro" ><i class="fas fa-home text-info" ></i> Monterrey,Nuevo León</li>
+                                <li class="my-2" style="color: gainsboro"><i class="fas fa-envelope text-info"></i> timetoplay@gmail.com</li>
+                                <li class="my-2"style="color: gainsboro"><i class="fas fa-phone text-info" ></i> +528119024150</li>
                             </ul>
                         </div>
 
                       </div>
                   </div>
                   <div class="footer-copyright text-center py-3">
-                    <p>&copy;Copyright
+                    <p style="color: gainsboro">&copy;Copyright
                         <a href="#">timetoplay.com</a>
                     </p>
-                    <p>Designed By Time To Play</p>
+                    <p style="color: black">Designed By Time To Play</p>
                 </div>
         </footer>
 

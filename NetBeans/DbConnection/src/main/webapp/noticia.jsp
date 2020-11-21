@@ -32,11 +32,13 @@
   <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="assets/CSS/Noticia.css">
   <title>Time to play</title>
+  <link rel="shortcut icon" href="assets/IMG/Optimizadas/ico.ico" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-            <a class="navbar-brand" href="principal.jsp"><img src="assets/IMG/Optimizadas/logo.png" width="100px" alt="Logo"></a>
+            <a class="navbar-brand" href="PrincipalController"><img src="assets/IMG/Optimizadas/logo.png" width="100px" alt="Logo"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -80,6 +82,7 @@
                       
                       <%if(usuario.getRol().equals("Creador")) {%>
                       <a class="dropdown-item" href="PublicarNoticia">Create News</a>
+                      <a class="dropdown-item" href="AceptadasRechazadas">View News</a>
                       <a class="dropdown-item" href="Noticias_marcadas">Marked</a>
                       <a class="dropdown-item" href="#">Notifications<span class="badge badge-light">9</span></a>
                       <div class="dropdown-divider"></div>
@@ -92,6 +95,24 @@
                       <%}%>
                       
                        <%if(usuario.getRol().equals("Editor")) {%>
+                       <a class="dropdown-item" href="EditarNoticia">Published</a>
+                       <a class="dropdown-item" href="Noticias_marcadas">Marked</a>
+                       <a class="dropdown-item" href="#">Notifications<span class="badge badge-light">9</span></a>
+                       <div class="dropdown-divider"></div>
+                       <%}%>
+                       
+                       <%if(usuario.getRol().equals("Moderador")) {%>
+                       <a class="dropdown-item" href="PublicarNoticia">Create News</a>
+                      <a class="dropdown-item" href="AceptadasRechazadas">View News</a>
+                       <a class="dropdown-item" href="EditarNoticia">Published</a>
+                       <a class="dropdown-item" href="Noticias_marcadas">Marked</a>
+                       <a class="dropdown-item" href="#">Notifications<span class="badge badge-light">9</span></a>
+                       <div class="dropdown-divider"></div>
+                       <%}%>
+                       
+                          <%if(usuario.getRol().equals("Administrador")) {%>
+                       <a class="dropdown-item" href="PublicarNoticia">Create News</a>
+                      <a class="dropdown-item" href="AceptadasRechazadas">View News</a>
                        <a class="dropdown-item" href="EditarNoticia">Published</a>
                        <a class="dropdown-item" href="Noticias_marcadas">Marked</a>
                        <a class="dropdown-item" href="#">Notifications<span class="badge badge-light">9</span></a>
@@ -243,14 +264,22 @@
                     <input type="submit" class="btn btn-primary" value="Comentar" />
                   </div>
                   </form>
-                  <a href="#">Bloquear</a>
+                  <form action="./Bloquear" method="GET">
+                      <input type="password" name="id_comentario" id="id_comentario" value="<%=comen.getId_comentario()%>"
+                        style="display: none"/>
+                      <input type="password" name="id_noticia" id="id_noticia" value="<%=noticia.getId_noticia()%>"
+                        style="display: none"/>
+                       <input type="password" name="id_usuario" id="id_noticia" value="<%=noticia.getFk_usuarios()%>"
+                        style="display: none"/>
+                      <button href="" style="background: transparent; color: white;border: none !important; font-size: 15px">Bloquear</button>
+                  </form>
                   <!-- AQUI LA RESPUESTA -->
                          <%if(comen.respuestas != null){%>  
                               <%for(tbl_comentario_a_comentario res : comen.respuestas){%>
                               <div class="media">
                                         <img src="<%=res.getImagen()%>" width="24" height="24" alt="">
                                         <div class="media-body text-left">
-                                            
+                                        
                                           <p class="nombre" ><%=res.getUsername()%> <span>1:00</span></p>
                                           <p class="comentario"><%=res.getComentario()%> </p>
 
@@ -269,54 +298,49 @@
     </div>
   </main>
 
-  <footer class="footer-page bg-dark">
-    <div class="bg-info">
-      <div class="container">
-        <div class="row py-4 d-flex align-items-center">
+      <footer class="footer-page bg-dark">
+                  <div class="bg-info">
+                      <div class="container">
+                          <div class="row py-4 d-flex align-items-center">
 
-          <div class="col-md-12 text-center font-weight=10px">
-            <a href="https://www.facebook.com/SoyalbertoHdz/" target="_blank"><i
-                class="fab fa-facebook text-white mr-4"></i></a>
-            <a href="https://www.instagram.com/_albertohv/" target="_blank"><i
-                class="fab fa-instagram text-white mr-4"></i></a>
-            <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter text-white mr-4"></i></a>
-            <a href="https://api.whatsapp.com/send?phone=811902450" target="_blank"><i
-                class="fab fa-whatsapp text-white mr-4"></i></a>
-            <a href="mailto:albertho0.hdzv@gmail.com" target="_blank"><i
-                class="fab fa-google-plus-g text-white mr-4"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container text-center text-md-left mt-5">
-      <div class="row">
+                              <div class="col-md-12 text-center font-weight=10px">
+                                  <a href="https://www.facebook.com/SoyalbertoHdz/" target="_blank"><i class="fab fa-facebook text-white mr-4"></i></a>
+                                  <a href="https://www.instagram.com/_albertohv/" target="_blank"><i class="fab fa-instagram text-white mr-4"></i></a>
+                                  <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter text-white mr-4"></i></a>
+                                  <a href="https://api.whatsapp.com/send?phone=811902450" target="_blank"><i class="fab fa-whatsapp text-white mr-4"></i></a>
+                                  <a href="mailto:albertho0.hdzv@gmail.com" target="_blank"><i class="fab fa-google-plus-g text-white mr-4"></i></a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="container text-center text-md-left mt-5">
+                      <div class="row">
 
-        <div class="col-md-3 mx-auto mb-4 pagina">
-          <h6 class="text-uppercase font-weight-bold">Time to play</h6>
-          <hr class="bg-info mb-4 mt-0 d-inline-block mx-auto">
-          <p class="mt-2">This page was made by Alberto Daniel Hernandez Villanueva & Luis Gerardo Becerra Jiménez from
-            LMAD for the <i class="fas fa-globe-americas text-info"></i>.</p>
-        </div>
+                        <div class="col-md-3 mx-auto mb-4 pagina">
+                            <h6 class="text-uppercase font-weight-bold" style="color: black">Time to play</h6>
+                            <hr class="bg-info mb-4 mt-0 d-inline-block mx-auto" >
+                            <p class="mt-2" style="color: gainsboro">This page was made by Alberto Daniel Hernandez Villanueva & Luis Gerardo Becerra Jiménez from LMAD for the <i class="fas fa-globe-americas text-info"></i>.</p>
+                        </div>
 
-        <div class="col-md-3 mx-auto mb-4 contact">
-          <h6 class="text-uppercase font-weight-bold">Contact</h6>
-          <hr class="bg-info mb-4 mt-0 d-inline-block mx-auto">
-          <ul class="list-unstyled">
-            <li class="my-2"><i class="fas fa-home text-info"></i> Monterrey,Nuevo León</li>
-            <li class="my-2"><i class="fas fa-envelope text-info"></i> timetoplay@gmail.com</li>
-            <li class="my-2"><i class="fas fa-phone text-info"></i> +528119024150</li>
-          </ul>
-        </div>
+                        <div class="col-md-3 mx-auto mb-4 contact">
+                            <h6 class="text-uppercase font-weight-bold" style="color: black">Contact</h6>
+                            <hr class="bg-info mb-4 mt-0 d-inline-block mx-auto">
+                            <ul class="list-unstyled">
+                                <li class="my-2"style="color: gainsboro" ><i class="fas fa-home text-info" ></i> Monterrey,Nuevo León</li>
+                                <li class="my-2" style="color: gainsboro"><i class="fas fa-envelope text-info"></i> timetoplay@gmail.com</li>
+                                <li class="my-2"style="color: gainsboro"><i class="fas fa-phone text-info" ></i> +528119024150</li>
+                            </ul>
+                        </div>
 
-      </div>
-    </div>
-    <div class="footer-copyright text-center py-3">
-      <p>&copy;Copyright
-        <a href="#">timetoplay.com</a>
-      </p>
-      <p>Designed By Time To Play</p>
-    </div>
-  </footer>
+                      </div>
+                  </div>
+                  <div class="footer-copyright text-center py-3">
+                    <p style="color: gainsboro">&copy;Copyright
+                        <a href="#">timetoplay.com</a>
+                    </p>
+                    <p style="color: black">Designed By Time To Play</p>
+                </div>
+        </footer>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
